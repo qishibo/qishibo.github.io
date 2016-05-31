@@ -1,0 +1,12 @@
+<!-- total pages -->
+total pages: {{paginator.total_pages}} <br>
+
+<!--previous page-->
+{% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">上一页</a>
+{% endif %}
+
+<!-- next page -->
+{% if paginator.next_page_path %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">下一页</a>
+{% endif %}
