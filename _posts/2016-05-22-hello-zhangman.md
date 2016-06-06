@@ -4,7 +4,7 @@ title: hello-zhangman
 comments: 1
 ---
 
-## zhangman's page...
+zhangman's page...
 
 > hahaha
 > {{ page.title }}

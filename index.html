@@ -8,10 +8,11 @@ paginator: 1
     <h3>
         <a id="welcome-to-github-pages" class="anchor" href="{{ site.baseurl }}{{ post.url }}" aria-hidden="true">
             <span aria-hidden="true" class="octicon octicon-link">
-                {{ post.title }} date:{{ post.date | date_TO_string }}
+                {{ post.title }}
             </span>
         </a>
     </h3>
 
     <p>{{ post.excerpt }}</p>
+    <p><small>{{ post.date | date: '%B %d, %Y' }}</small></p>
 {% endfor %}
