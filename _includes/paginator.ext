@@ -1,13 +1,17 @@
-<hr>
-<!-- total pages -->
-<small>total pages: {{paginator.total_pages}}<small> <br><br>
+<div class="page-paginator container">
 
-<!--previous page-->
-{% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="btn btn-github"><span class="icon"></span>上一页</a>
-{% endif %}
+    <hr>
+    <!-- total pages -->
+    <small>total pages: {{paginator.total_pages}}<small> <br><br>
 
-<!-- next page -->
-{% if paginator.next_page_path %}
-	<a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="btn btn-github"><span class="icon"></span>下一页</a>
-{% endif %}
+    <!--previous page-->
+    {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="btn btn-github"><span class="icon"></span>上一页</a>
+    {% endif %}
+
+    <!-- next page -->
+    {% if paginator.next_page_path %}
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="btn btn-github"><span class="icon"></span>下一页</a>
+    {% endif %}
+
+</div>
