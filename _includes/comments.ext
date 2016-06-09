@@ -1,4 +1,4 @@
-<div class="page-comments container">
+<div class="page-comments container" style="margin-top: 50px;">
     <div id="disqus_thread"></div>
     <script>
     /**

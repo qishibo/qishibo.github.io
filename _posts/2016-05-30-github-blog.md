@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: github-blog
 comments: 1
 ---

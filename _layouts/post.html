@@ -19,6 +19,7 @@
 
     <style type="text/css">
         body a{text-decoration: none;}
+        header h1:before{'99';}
     </style>
 </head>
 
@@ -26,13 +27,13 @@
 
     <header>
         <div class="container">
-            <h1 onclick="window.location='/'" class="main-title" style="cursor:pointer;">qii404's Blog</h1>
+            <h1 onclick="window.location='/'" style="cursor:pointer;">{{ page.title }}</h1>
             <h2>一个叫齐士博的人写的博客</h2>
-
+<!--
             <section id="downloads">
                 <a href="https://github.com/qishibo" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-                <!-- <a href="http://qishibo.github.io/jekyll_blog/" class="btn btn-github"><span class="icon"></span>Test Project Blog</a> -->
-            </section>
+                <a href="http://qishibo.github.io/jekyll_blog/" class="btn btn-github"><span class="icon"></span>Test Project Blog</a>
+            </section> -->
 
         </div>
     </header>

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: hello-zhangman
 comments: 1
 ---
