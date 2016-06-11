@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: index
 title: qii404 | 齐士博博客
 paginator: 1
 keywords: PHPer,php,码农,前端,javascript,qii404,qishibo,技术,IT
@@ -7,14 +7,16 @@ description: 一个叫齐士博的人写的博客，网名叫小齐炖博士，�
 ---
 
 {% for post in paginator.posts %}
-    <h3>
-        <a id="welcome-to-github-pages" class="anchor" href="{{ site.baseurl }}{{ post.url }}" aria-hidden="true">
-            <span aria-hidden="true" class="octicon octicon-link">
-                {{ post.title }}
-            </span>
-        </a>
-    </h3>
 
-    <p>{{ post.excerpt }}</p>
-    <p><small>{{ post.date | date: '%B %d, %Y' }}</small></p>
+    <div class="qii-post well">
+        <blockquote>
+          <h3><a href="{{ site.baseurl }}{{ post.url }}" class="post-title">{{ post.title }}</a></h3>
+          <footer><i class="fa fa-calendar" aria-hidden="true"></i>{{ post.date | date: '%Y-%m-%d' }}</footer>
+        </blockquote>
+
+        <div class="post-preview">
+            {{ post.excerpt }}
+        </div>
+    </div>
+
 {% endfor %}

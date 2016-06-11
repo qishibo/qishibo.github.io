@@ -1,66 +1,65 @@
-{% include amituofo.ext %}
+---
+layout: default
+---
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+<style type="text/css">
+    .qii-top-desc .jumbotron{
+        color: white;
 
-    <meta name="keywords" content="{{ page.keywords }}">
-    <meta name="description" content="{{ page.description }}">
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#563d7c),to(#6f5499));
+        background-image: -webkit-linear-gradient(top,#563d7c 0,#6f5499 100%);
+        background-image: -o-linear-gradient(top,#563d7c 0,#6f5499 100%);
+        background-image: linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0);
+        background-repeat: repeat-x;
 
-    <link rel="shortcut icon" href="/images/favicon1.ico">
+        padding: 30px 0;
+    }
 
-    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/github-dark.css" media="screen">
-    <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print"> -->
+    .qii-top-desc .post-title{
+        margin-right: 20%;
+    }
+    .qii-top-desc .post-desc{
+        font-size: 24px;
+        font-weight: 300;
+        margin-right: 20%;
+        color: #cdbfe3;
+        text-shadow: 0 1px 0 rgba(0,0,0,.1);
+    }
 
-    <title>{{ page.title }}</title>
 
-    <style type="text/css">
-        body a{text-decoration: none;}
-        header h1:before{'99';}
-    </style>
-</head>
+    .qii-post-content{
+        min-height: 45%;
+    }
+</style>
 
-<body>
-
-    <header>
+<header class="qii-top-desc">
+    <div class="jumbotron">
         <div class="container">
-            <h1 onclick="window.location='/'" style="cursor:pointer;">{{ page.title }}</h1>
-            <h2>一个叫齐士博的人写的博客</h2>
-<!--
-            <section id="downloads">
-                <a href="https://github.com/qishibo" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-                <a href="http://qishibo.github.io/jekyll_blog/" class="btn btn-github"><span class="icon"></span>Test Project Blog</a>
-            </section> -->
-
+            <h1 class="post-title">{{ page.title }}</h1>
+            <p class="post-desc">{{ page.description}}</p>
         </div>
-    </header>
+    </div>
+</header>
 
-    <div class="container">
-        <section id="main_content">
+<!-- content -->
+<div class="container">
 
-            {{ content }}
+    <div class="row">
+        <div class="col-md-10">
+            <div class="qii-post-content">
+                {{ content }}
+            </div>
+        </div>
 
-        </section>
-
-
-
+        <div class="col-md-2">
+            <!-- this is COL-MD-22222, for some contents -->
+        </div>
     </div>
 
-    <!-- paginator -->
-    {% if page.paginator %}
-        {% include paginator.ext %}
-    {% endif %}
+</div>
 
-    <!-- comments -->
-    {% if page.comments %}
-        {% include comments.ext %}
-    {% endif %}
-
-    <!-- footer -->
-    {% include footer.html %}
-
-</body>
-</html>
+<!-- comments -->
+{% if page.comments %}
+    {% include comments.ext %}
+{% endif %}

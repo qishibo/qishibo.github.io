@@ -1,10 +1,64 @@
+<style type="text/css">
+    .footer-contact {
+        padding: 15px 0;
+        margin-top: 40px;
+        text-align: center;
+        background-color: #f5f5f5;
+        border-top: 1px solid #eee;
+    }
 
-<footer class="page-footer container">
-    <p>
-        <!-- pv count -->
-        {% include analyze.ext %}&nbsp;&nbsp;
-        <span>made by shibo with ❤</span>&nbsp;&nbsp;
-        <span><b>©</b><a href='/'> {{ site.time | date: '%Y'}} qii404.me</a></span>&nbsp;&nbsp;
-        <span><a href='https://github.com/qishibo/'>Github</a></span>
-    </p>
+    .footer-contact .contact-list {
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+    .footer-contact .contact-list li {
+        display: inline-block;
+        line-height: 1;
+    }
+
+    .footer-contact .contact-list li a {
+        color: #555;
+    }
+
+    .footer-contact .contact-list>li+li:before {
+        padding: 0 10px;
+        color: #ccc;
+        content: "|";
+    }
+
+    .footer-contact .contact-list li .fa {
+        font-size: 16px;
+        margin-right: 3px;
+    }
+</style>
+
+<footer class="footer-contact">
+    <div class="container">
+        <ul class="contact-list">
+            <li>
+                {% include analyze.ext %}
+            </li>
+            <li>
+                <i class="fa fa-heart"></i>Powered by ShiBo
+            </li>
+            <li>
+                <a href="mailto:qii404@126.com" title="email">
+                    <i class="fa fa-envelope-o"></i> Email To Me
+                </a>
+            </li>
+            <li>
+                <a href="http://weibo.com/shiboooo?profile_ftype=1&is_hot=1" title="新浪微博" target="_blank">
+                    <i class="fa fa-weibo"></i> 新浪微博：@齐士博
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/qishibo/" title="GitHub" target="_blank">
+                    <i class="fa fa-github-square"></i> GitHub
+                </a>
+            </li>
+        </ul>
+    </div>
 </footer>
+
+</body>
+</html>

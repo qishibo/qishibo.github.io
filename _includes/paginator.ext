@@ -1,17 +1,56 @@
-<div class="page-paginator container">
+<div class="container qii-page">
+    <nav>
+        <ul class="pagination">
+            {% if paginator.previous_page %}
+            <li>
+                <a href=
+                {% if paginator.previous_page == 1 %}
+                "/"
+                {% else %}
+                "/page{{paginator.previous_page}}"
+                {% endif %}
+                 aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+            </li>
+            {% else %}
+            <li class='disabled'>
+                <a href="###" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% endif %}
 
-    <hr>
-    <!-- total pages -->
-    <small>total pages: {{paginator.total_pages}}<small> <br><br>
+            {% for count in (1..paginator.total_pages) %}
 
-    <!--previous page-->
-    {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="btn btn-github"><span class="icon"></span>上一页</a>
-    {% endif %}
+            <li
+            {% if count == paginator.page %}
+            class="active"
+            {% endif %}
+            ><a href=
+            {% if count == 1 %}
+            "/"
+            {% else %}
+            "/page{{count}}"
+            {% endif %}
+            >{{count}}</a></li>
+            {% endfor %}
 
-    <!-- next page -->
-    {% if paginator.next_page_path %}
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="btn btn-github"><span class="icon"></span>下一页</a>
-    {% endif %}
+            {% if paginator.next_page %}
+            <li>
+                <a href="/page{{paginator.next_page}}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class='disabled'>
+                <a href="###" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+
+        </ul>
+    </nav>
 
 </div>
