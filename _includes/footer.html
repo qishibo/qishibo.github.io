@@ -60,5 +60,9 @@
     </div>
 </footer>
 
+{% for js in page.js %}
+<script type="text/javascript" src={{ js }}></script>
+{% endfor %}
+
 </body>
 </html>
