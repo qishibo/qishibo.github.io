@@ -4,6 +4,7 @@ title: hello world
 keywords: hello world, 第一份github-pages博客, jekyll
 description: 第一份github-pages博客
 comments: 1
+tags: [test]
 ---
 
 第一篇基于github-pages的博客，jekyll构建，this is a test~

@@ -4,6 +4,7 @@ title: charles 3.11 破解方法
 comments: 1
 keywords: charles3.11破解, charles, 破解方法
 description: 破解charles 3.11的方法，mac、windows通用
+tags: [software, hacker]
 ---
 
 Charles未破解版本，每次打开都要`relay 10秒钟`，重要的是，隔一段时间还会弹出一个提示框，说【*你还没注册，快点去买正版吧。。。*】

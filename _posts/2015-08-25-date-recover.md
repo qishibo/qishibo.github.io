@@ -4,6 +4,7 @@ title: DiskGenius | 数据恢复
 comments: 1
 keywords: DiskGenius, 数据恢复, 免费数据恢复
 description: 这个软件我当时找了好久才找到，真的是免费的数据恢复软件
+tags: [software]
 ---
 
 内天，，我的磁盘废了。。

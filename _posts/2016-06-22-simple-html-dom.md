@@ -4,6 +4,7 @@ title: simple-html-dom内存泄露的坑
 comments: 1
 keywords: simple-html-dom, 内存泄露, 内存溢出
 description: 关于用simple-html-dom解析html节点，内存泄露导致内存超限的问题
+tags: [php]
 ---
 
 **情景**： 后台脚本，负责处理html字符串，提取其中的某些元素进行处理，用到了simple-html-dom这个开源库，主页在[这里](http://simplehtmldom.sourceforge.net/)，主要用它将html字符串格式化成dom对象，然后对dom对象进行属性替换。
