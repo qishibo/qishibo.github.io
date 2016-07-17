@@ -21,7 +21,7 @@ description: 一个叫齐士博的人写的技术博客，网名叫小齐炖博�
         <div class="post-tags">
         {% for tag in post.tags %}
             <!-- <kbd>{{tag}}</kbd> -->
-            <span class="label label-default">{{ tag }}</span>
+            <span class="label label-default"><a class="click-tags" href="{{tag | prepend:'/tags?tag='}}">{{ tag }}</a></span>
         {% endfor %}
         </div>
     </div>
