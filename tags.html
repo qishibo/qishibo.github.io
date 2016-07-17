@@ -1,0 +1,45 @@
+---
+layout: tag_index
+title: qii404 | 齐士博博客
+keywords: 齐士博,qii404,php,javascript,qishibo,码农,前端,技术,IT
+description: 一个叫齐士博的人写的技术博客，网名叫小齐炖博士，也有叫qii404的，写字的，码农一个，web开发
+js: ['http://cdn.bootcss.com/mustache.js/2.2.1/mustache.min.js', '/assets/js/tags.js', '/assets/js/tag_render.js']
+---
+
+
+<script type="text/template" id='qii-tags-template'>
+    {% raw %}{{#post_list}}{% endraw %}
+        <div class="qii-post well">
+
+            <blockquote>
+              <h3><a href="{% raw %}{{ url }}{% endraw %}" class="post-title">{% raw %}{{ title }}{% endraw %}</a></h3>
+              <footer><i class="fa fa-calendar" aria-hidden="true"></i>{% raw %}{{ date }}{% endraw %}</footer>
+            </blockquote>
+
+            <div class="post-preview">
+                {% raw %}{{{ excerpt }}}{% endraw %}
+            </div>
+
+            <div class="post-tags">
+                {% raw %}{{#tags}}{% endraw %}
+                <span class="label label-default">{% raw %}{{.}}{% endraw %}</span>
+                {% raw %}{{/tags}}{% endraw %}
+            </div>
+
+        </div>
+    {% raw %}{{/post_list}}{% endraw %}
+</script>
+
+<script type="text/template" id='qii-no-tags-template'>
+    <div class="qii-post well">
+
+        <blockquote>
+            <h3>该tag下没有对应的文章...</h3>
+            <footer>
+                <i class="glyphicon glyphicon-hand-right" aria-hidden="true"></i>
+                <kbd>{% raw %}{{ tag }}{% endraw %}</kbd>
+            </footer>
+        </blockquote>
+
+    </div>
+</script>
