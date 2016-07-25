@@ -4,6 +4,7 @@ title: qii404 | 齐士博博客
 comments: 1
 keywords: 齐士博,qii404,php,javascript,qishibo,码农,前端,技术,IT
 description: 一个叫齐士博的人写的技术博客，网名叫小齐炖博士，也有叫qii404的，写字的，码农一个，web开发
+menu: about
 ---
 
 ### 我是谁？

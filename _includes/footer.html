@@ -39,9 +39,6 @@
                 {% include analyze.ext %}
             </li>
             <li>
-                <i class="fa fa-heart"></i>Powered by Jekyll & GithubPages
-            </li>
-            <li>
                 <a href="mailto:qii404@126.com" title="email">
                     <i class="fa fa-envelope-o"></i> Email To Me
                 </a>
@@ -56,6 +53,9 @@
                     <i class="fa fa-github-square"></i> GitHub
                 </a>
             </li>
+            <li>
+                <i class="fa fa-heart"></i>Powered by Jekyll & GithubPages
+            </li>
         </ul>
     </div>
 </footer>
@@ -63,6 +63,16 @@
 <script type="text/javascript" src='http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js'></script>
 <script type="text/javascript" src='/assets/js/icon.js'></script>
 <script type="text/javascript" src='http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+
+<script type="text/javascript">
+    $(function(){
+        var pre_menu_hight = "{{ page.menu }}";
+        if (pre_menu_hight) {
+            $('#qii-navbar-collapse li[name="' + pre_menu_hight + '"]').addClass('active');
+        }
+    })
+
+</script>
 
 {% for js in page.js %}
 <script type="text/javascript" src='{{ js }}'></script>
