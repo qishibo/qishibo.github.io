@@ -6,5 +6,5 @@ cayley教程 基于 http://localhost:64210/docs/GremlinAPI  cayley mongo示例
     - ./cayley load -config cayley.cfg -quads data/testdata.nq
     - ./cayley http -config cayley.cfg
 
-redis geohash 使用
+redis geohash 使用 参考 https://yq.aliyun.com/articles/62844
 
