@@ -2,6 +2,7 @@
 layout: post
 title: wkhtmltopdf不显示中文
 comments: 1
+code: 1
 keywords: wkhtmltopdf, 不显示中文, 中文乱码, wkhtmltopdf用法
 description: wkhtmltopdf生成pdf后，不显示中文，英文和数字正常显示
 tags: [opensource]

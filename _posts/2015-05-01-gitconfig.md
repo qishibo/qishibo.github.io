@@ -4,6 +4,7 @@ title: 一份好用的gitconfig
 keywords: gitconfig, git, git高亮, git配置
 description: 一份好用的gitconfig，我自己的配置，直接在家目录下.gitconfig
 comments: 1
+code: 1
 tags: [git]
 ---
 

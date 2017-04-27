@@ -4,6 +4,7 @@ title: Supervisor 进程管理
 keywords: supervisor, 进程管理， linux进程控制
 description: Linux、Mac环境下使用 Supervisor 管理进程，守护进程运行
 comments: 1
+code: 1
 tags: [supervisor, opensource]
 ---
 

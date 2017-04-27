@@ -2,6 +2,7 @@
 layout: post
 title: Python write 函数写文件失败
 comments: 1
+code: 1
 keywords: Python, write, 文件写失败
 description: Python的write函数写入文件后，文件被创建，但内容为空
 tags: [python]

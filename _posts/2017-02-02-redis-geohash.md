@@ -2,6 +2,7 @@
 layout: post
 title: Redis GeoHash 地理位置结构
 comments: 1
+code: 1
 keywords: Redis, GeoHash, Redis地理位置, 基于距离的位置推荐
 description: Redis 在3.2版本支持了地理位置相关方法，能根据经纬度进行相关推荐计算，找到附近推荐数据
 tags: [redis, geohash, opensource]

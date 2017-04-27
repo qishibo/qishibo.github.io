@@ -2,6 +2,7 @@
 layout: post
 title: simple-html-dom内存泄露的坑
 comments: 1
+code: 1
 keywords: simple-html-dom, 内存泄露, 内存溢出
 description: 关于用simple-html-dom解析html节点，内存泄露导致内存超限的问题
 tags: [php]

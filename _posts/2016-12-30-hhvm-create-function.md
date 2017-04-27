@@ -2,6 +2,7 @@
 layout: post
 title: create_function导致cpu占用激增的坑
 comments: 1
+code: 1
 keywords: create_function, cpu占用, php, hhvm
 description: 关于php+hhvm情境下使用create_function导致cpu占用激增的坑
 tags: [php, hhvm]

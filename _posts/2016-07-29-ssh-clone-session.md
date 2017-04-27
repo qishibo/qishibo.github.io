@@ -2,6 +2,7 @@
 layout: post
 title: 免密码登陆，让终端像secureCRT一样支持session克隆
 comments: 1
+code: 1
 keywords: 免密码ssh, session clone, 克隆终端, secureCRT
 description: 让你的终端像securtCRT一样支持session克隆，登陆过之后，下次直接免密码ssh
 tags: [hacker]

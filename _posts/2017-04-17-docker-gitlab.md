@@ -2,6 +2,7 @@
 layout: post
 title: 基于Docker的Gitlab服务器搭建
 comments: 1
+code: 1
 keywords: Gitlab环境搭建, Docker, Gitlab, docker-compose
 description: 手动搭建Gitlab个人仓库，基于Docker，避免每次Ruby配置想死的冲动...建议使用工具docker-compose
 tags: [gitlab,docker,opensource]

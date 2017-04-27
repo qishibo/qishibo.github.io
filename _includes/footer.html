@@ -74,6 +74,11 @@
 
 </script>
 
+{% if page.code %}
+<!-- code view highlight -->
+{% include code_highlight.ext %}
+{% endif %}
+
 {% for js in page.js %}
 <script type="text/javascript" src='{{ js }}'></script>
 {% endfor %}
