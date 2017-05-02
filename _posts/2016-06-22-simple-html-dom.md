@@ -33,7 +33,7 @@ tags: [php]
 
 他是这样产生的：
 
-```php
+```php?start_inline=1
 $a   = array( 'one' );
 $a[] = & $a;
 xdebug_debug_zval( 'a' );
@@ -41,7 +41,7 @@ xdebug_debug_zval( 'a' );
 
 以上例程的输出类似于：
 
-```
+```shell
 a: (refcount=2, is_ref=1)=array (
    0 => (refcount=1, is_ref=0)='one',
    1 => (refcount=2, is_ref=1)=...
@@ -56,14 +56,14 @@ a: (refcount=2, is_ref=1)=array (
 
 对$a变量进行unset操作之后
 
-```
+```php?start_inline=1
 unset($a);
 xdebug_debug_zval($a);
 ```
 
 输出类似于：
 
-```
+```shell
 (refcount=1, is_ref=1)=array (
    0 => (refcount=1, is_ref=0)='one',
    1 => (refcount=1, is_ref=1)=...
@@ -86,7 +86,7 @@ xdebug_debug_zval($a);
 
 解决办法也很简单：
 
-```
+```php?start_inline=1
 // 我的逻辑是在循环里的，所以初始化simple_html_dom对象的次数非常多
 foreach ($xxx as $x){
     $html = str_get_html('<html><body><div><img src="xxx"></div></body></html>');

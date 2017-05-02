@@ -22,7 +22,7 @@ tags: [opensource]
 
 同时还有许多其他高级用法，细节参考`wkhtmltopdf -H` 或者他的官方wiki [http://wkhtmltopdf.org/usage/wkhtmltopdf.txt](http://wkhtmltopdf.org/usage/wkhtmltopdf.txt)【感觉这个会更详细】
 
-```
+```shell
 // 为pdf生成脚注
 wkhtmltopdf --footer-left '这句话会在每页pdf的左下角' source.html target.pdf
 
@@ -44,7 +44,7 @@ wkhtmltopdf --header-center [page] source.html target.pdf
 
 上面实现页码时使用了`[page]`这个内建参数，凡是在头部、脚步需要该参数的地方，[page]参数都能被解析成页码,也就是说，凡是`--header-*` `--footer-*`的地方能可以用该参数，这样的参数还有如下：
 
-```
+```shell
    * [page]       Replaced by the number of the pages currently being printed
    * [frompage]   Replaced by the number of the first page to be printed
    * [topage]     Replaced by the number of the last page to be printed

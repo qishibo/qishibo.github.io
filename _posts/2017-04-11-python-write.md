@@ -11,9 +11,10 @@ tags: [python]
 工作中涉及到了内容抓取的过程，用Python抓取对应的html页面，存储到本地文件，然后将本地文件的路径作为参数，调用本地Node进行杂质过滤和内容提取。大致过程是这样的：
 
 ``` shell
-python spider.py --output xxx.html // 抓取HTML文件写入xxx.html
-node filter.js --input xxx.html // Node读取xxx.html进行内容过滤 并将结果输出到标准输出
-
+# 抓取HTML文件写入xxx.html
+python spider.py --output xxx.html
+# Node读取xxx.html进行内容过滤 并将结果输出到标准输出
+node filter.js --input xxx.html
 ```
 
 然后今天要说的坑出现在Python逻辑部分，伪代码如下
@@ -40,7 +41,7 @@ process.communicate()
 
 其中filter.js中是这么读取输入文件的：
 
-```
+``` js
 filename = 'xxx.html'
 var sourceContent = fs.readFileSync(filename, {
     encoding: 'utf8'

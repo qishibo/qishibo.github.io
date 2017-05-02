@@ -1,3 +1,14 @@
 paginate: 10
 paginate_path: "page:num"
-gems: [jekyll-paginate]
+gems:
+    - jekyll-paginate
+
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+    input: GFM
+    syntax_highlighter: rouge
+
+syntax_theme: github
+

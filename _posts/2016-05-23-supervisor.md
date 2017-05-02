@@ -12,7 +12,7 @@ tags: [supervisor, opensource]
 
 这样的日子过够了之后，一些聪明的程序猿可能就会想一些法子了，比如自己写一个daemon守护进程，一直ps盯着程序是否还在，如果不在就启动，否则不处理。类似下面的shell脚本，通过crontab的方式定时检测
 
-```bash
+```shell
 exists=`ps ux |grep 'program.xxx'`
 
 if [$exists = '' ];then
@@ -45,13 +45,13 @@ fi
 很贴心，怕你不会写配置，程序帮你写好了一份样板，如下使用
 `echo_supervisord_conf` 这个命令会输出配置样例，我们把输出写到文件中
 
-```
+```shell
 echo_supervisord_conf > /usr/local/etc/supervisord.ini
 ```
 
 之后`/usr/local/etc/supervisord.ini`文件中内容如下，忽略了一些不常用的配置项
 
-```
+```ini
 ; Sample supervisor config file.
 ;
 ; For more information on the config file, please see:
@@ -122,7 +122,7 @@ files = /usr/local/etc/supervisor.d/*.ini
 
 `1、浏览器登录管理`
 
-```
+```ini
 ; http服务地址，我们可以在浏览器中进行进程管理
 ; 去掉注释改成下面的样子即可
 
@@ -136,7 +136,7 @@ password=123               ; (default is no password (open server)) ; 认证登�
 
 可以看到主配置最后include了`supervisor.d`文件夹下的`*.ini`配置文件，这些被引入的配置其实就是你要启动和守护的程序配置，都要写在这个文件夹里，稍后还会详细说明
 
-```
+```ini
 [include]
 files = /usr/local/etc/supervisor.d/*.ini
 ```
@@ -144,7 +144,7 @@ files = /usr/local/etc/supervisor.d/*.ini
 
 ### 运行Supervisor主程序
 
-```
+```shell
 # -c 是指定了配置文件的位置
 supervisord -c /usr/local/etc/supervisord.ini
 ```
@@ -157,7 +157,7 @@ supervisord -c /usr/local/etc/supervisord.ini
 
 在`/usr/local/etc/supervisor.d/`文件夹中增加你的程序配置，最好的是一个程序一个配置文件，易于管理，像这样
 
-```
+```ini
 # filename: jenkins.ini 控制jenkins进程的配置
 
 # 程序概述名
@@ -195,7 +195,7 @@ stdout_logfile=/Users/qii404/jenkins_daemon.log
 5. `reload`重启程序，此时也会把你的jenkins启动
 6. `status`可以看到目前正在运行的程序
 
-```
+```shell
 supervisor> status
 jenkins-daemon:jenkins-daemon_00                   RUNNING   pid 45418, uptime 0:10:23
 ```

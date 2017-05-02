@@ -29,7 +29,7 @@ Gitlab的Docker镜像已经由印度大牛做好，地址 [https://github.com/sa
 
 ### 一、完全手动安装执行 [不推荐]
 
-```
+```shell
     # docker pull 进行镜像下载
     1. docker pull sameersbn/gitlab:9.0.5
     2. docker pull sameersbn/gitlab:latest
@@ -70,7 +70,7 @@ Gitlab的Docker镜像已经由印度大牛做好，地址 [https://github.com/sa
 
 该文件内容如下：
 
-```
+```docker
 version: '2'
 
 services:

@@ -15,7 +15,7 @@ tags: [hacker]
 
 `vi ~/.ssh/config`, 没有的话则创建一个，将下面的内容写入
 
-```
+```conf
 host *
 ControlMaster auto
 ControlPath ~/.ssh/master-%r@%h:%p

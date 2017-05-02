@@ -14,7 +14,7 @@ tags: [php, hhvm]
 
 比如`array_map`, `array_filter` 这类需要callback的函数，在php > 5.2情境下，完全可以跟js一样优雅的用匿名函数实现：
 
-```php
+```php?start_inline=1
 $a = [1, 2, 3];
 
 $b = array_map(function ($v){
@@ -36,7 +36,7 @@ array(3) {
 
 当然，在5.2的情境下完全可以这么用
 
-```php
+```php?start_inline=1
 $a = [1, 2, 3];
 
 function double($v)
@@ -51,7 +51,7 @@ var_dump($b);
 
 可是懒惰的我并不想额外定义一个function，然后再把函数名传进去，于是这么干的
 
-```php
+```php?start_inline=1
 $a = [1, 2, 3];
 
 $b = array_map(create_function('$v', 'return $v * 2;'), $a);

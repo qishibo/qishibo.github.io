@@ -12,7 +12,7 @@ tags: [git]
 
 `不过要记住，user里面的name和email要换成你自己的啊.`
 
-```
+```ini
 # git的alias设置，比如想提交的时候直接git ci -m'xxx'
 [alias]
     co = checkout

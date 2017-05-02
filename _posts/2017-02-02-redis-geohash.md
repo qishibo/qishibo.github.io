@@ -71,7 +71,7 @@ Redis在3.2版本悄悄的加入了一个地理位置的功能，哈哈，3.2版
 
 > 把一个对象的经纬度位置添加到库中
 
-```
+```shell
 geoadd someKeyYouDecided 43.34567 49.34567 aaa
 # (integer) 1
 
@@ -84,7 +84,7 @@ geoadd someKeyYouDecided 43.34567 49.34567 aaa 44.34567 50.34567 bbb
 
 > 返回两个对象之间的距离
 
-```
+```shell
 geodist someKeyYouDecided aaa bbb [可选返回值单位 km千米 mi英里 ft英尺 ]
 # "132343.9786"
 ```
@@ -93,7 +93,7 @@ geodist someKeyYouDecided aaa bbb [可选返回值单位 km千米 mi英里 ft英
 
 > 返回对象对应的GeoHash字符串
 
-```
+```shell
 geohash someKeyYouDecided aaa
 # 1) "ubybdr57770"
 
@@ -106,7 +106,7 @@ geohash someKeyYouDecided aaa bbb
 
 > 返回对象的经纬度信息
 
-```
+```shell
 geopos someKeyYouDecided aaa
 # 1) 1) "43.34566980600357056"
 #    2) "49.34566890860142507"
@@ -116,7 +116,7 @@ geopos someKeyYouDecided aaa
 
 > 根据经纬度信息，返回周围范围内的其他对象[位置]
 
-```
+```shell
 # 返回距离经纬度坐标[43.345669, 49.345669] 10000m范围内的其他对象
 georadius someKeyYouDecided 43.345669 49.345669 10000 m [WITHDIST WITHCOORD WITHHASH ASC|DESC]
 # 1) "aaa"
@@ -138,7 +138,7 @@ georadius someKeyYouDecided 43.345669 49.345669 10000 m WITHDIST WITHCOORD
 
 > 根据对象，返回其范围内的其他对象[位置]
 
-```
+```shell
 # 返回距离aaa对象1000m范围内的其他对象 包括aaa自己
 georadiusbymember someKeyYouDecided aaa  1000 m
 # 1) "aaa"
@@ -162,7 +162,7 @@ georadiusbymember someKeyYouDecided aaa  1000 m WITHDIST WITHCOORD
 
 >注意到上述操作中第二个参数都是一个string类型的key，其实Redis是把对应的数据存到了一个`zset`有序集合中，其中`someKeyYouDecided`就是zset的key，对象名称aaa bbb为zset的member，对象的GeoHash的int值为zset的value，如果你`zrange someKeyYouDecided 0 -1 withscores`就会窥探这个zset的真实数据如下
 
-```
+```shell_session
 1) "aaa"
 2) "3710624661911432"
 3) "bbb"
