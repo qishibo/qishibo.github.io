@@ -68,9 +68,9 @@ Gitlab的Docker镜像已经由印度大牛做好，地址 [https://github.com/sa
 
 `wget https://raw.githubusercontent.com/sameersbn/docker-gitlab/master/docker-compose.yml`
 
-该文件内容如下：
+该文件内容如下，省略了部分不必要的变量：
 
-```docker
+```shell
 version: '2'
 
 services:
@@ -126,101 +126,7 @@ services:
     - GITLAB_HOST=localhost
     - GITLAB_PORT=10080
     - GITLAB_SSH_PORT=10022
-    - GITLAB_RELATIVE_URL_ROOT=
-    - GITLAB_SECRETS_DB_KEY_BASE=long-and-random-alphanumeric-string
-    - GITLAB_SECRETS_SECRET_KEY_BASE=long-and-random-alphanumeric-string
-    - GITLAB_SECRETS_OTP_KEY_BASE=long-and-random-alphanumeric-string
 
-    - GITLAB_ROOT_PASSWORD=
-    - GITLAB_ROOT_EMAIL=
-
-    - GITLAB_NOTIFY_ON_BROKEN_BUILDS=true
-    - GITLAB_NOTIFY_PUSHER=false
-
-    - GITLAB_EMAIL=notifications@example.com
-    - GITLAB_EMAIL_REPLY_TO=noreply@example.com
-    - GITLAB_INCOMING_EMAIL_ADDRESS=reply@example.com
-
-    - GITLAB_BACKUP_SCHEDULE=daily
-    - GITLAB_BACKUP_TIME=01:00
-
-    - SMTP_ENABLED=false
-    - SMTP_DOMAIN=www.example.com
-    - SMTP_HOST=smtp.gmail.com
-    - SMTP_PORT=587
-    - SMTP_USER=mailer@example.com
-    - SMTP_PASS=password
-    - SMTP_STARTTLS=true
-    - SMTP_AUTHENTICATION=login
-
-    - IMAP_ENABLED=false
-    - IMAP_HOST=imap.gmail.com
-    - IMAP_PORT=993
-    - IMAP_USER=mailer@example.com
-    - IMAP_PASS=password
-    - IMAP_SSL=true
-    - IMAP_STARTTLS=false
-
-    - OAUTH_ENABLED=false
-    - OAUTH_AUTO_SIGN_IN_WITH_PROVIDER=
-    - OAUTH_ALLOW_SSO=
-    - OAUTH_BLOCK_AUTO_CREATED_USERS=true
-    - OAUTH_AUTO_LINK_LDAP_USER=false
-    - OAUTH_AUTO_LINK_SAML_USER=false
-    - OAUTH_EXTERNAL_PROVIDERS=
-
-    - OAUTH_CAS3_LABEL=cas3
-    - OAUTH_CAS3_SERVER=
-    - OAUTH_CAS3_DISABLE_SSL_VERIFICATION=false
-    - OAUTH_CAS3_LOGIN_URL=/cas/login
-    - OAUTH_CAS3_VALIDATE_URL=/cas/p3/serviceValidate
-    - OAUTH_CAS3_LOGOUT_URL=/cas/logout
-
-    - OAUTH_GOOGLE_API_KEY=
-    - OAUTH_GOOGLE_APP_SECRET=
-    - OAUTH_GOOGLE_RESTRICT_DOMAIN=
-
-    - OAUTH_FACEBOOK_API_KEY=
-    - OAUTH_FACEBOOK_APP_SECRET=
-
-    - OAUTH_TWITTER_API_KEY=
-    - OAUTH_TWITTER_APP_SECRET=
-
-    - OAUTH_GITHUB_API_KEY=
-    - OAUTH_GITHUB_APP_SECRET=
-    - OAUTH_GITHUB_URL=
-    - OAUTH_GITHUB_VERIFY_SSL=
-
-    - OAUTH_GITLAB_API_KEY=
-    - OAUTH_GITLAB_APP_SECRET=
-
-    - OAUTH_BITBUCKET_API_KEY=
-    - OAUTH_BITBUCKET_APP_SECRET=
-
-    - OAUTH_SAML_ASSERTION_CONSUMER_SERVICE_URL=
-    - OAUTH_SAML_IDP_CERT_FINGERPRINT=
-    - OAUTH_SAML_IDP_SSO_TARGET_URL=
-    - OAUTH_SAML_ISSUER=
-    - OAUTH_SAML_LABEL="Our SAML Provider"
-    - OAUTH_SAML_NAME_IDENTIFIER_FORMAT=urn:oasis:names:tc:SAML:2.0:nameid-format:transient
-    - OAUTH_SAML_GROUPS_ATTRIBUTE=
-    - OAUTH_SAML_EXTERNAL_GROUPS=
-    - OAUTH_SAML_ATTRIBUTE_STATEMENTS_EMAIL=
-    - OAUTH_SAML_ATTRIBUTE_STATEMENTS_NAME=
-    - OAUTH_SAML_ATTRIBUTE_STATEMENTS_FIRST_NAME=
-    - OAUTH_SAML_ATTRIBUTE_STATEMENTS_LAST_NAME=
-
-    - OAUTH_CROWD_SERVER_URL=
-    - OAUTH_CROWD_APP_NAME=
-    - OAUTH_CROWD_APP_PASSWORD=
-
-    - OAUTH_AUTH0_CLIENT_ID=
-    - OAUTH_AUTH0_CLIENT_SECRET=
-    - OAUTH_AUTH0_DOMAIN=
-
-    - OAUTH_AZURE_API_KEY=
-    - OAUTH_AZURE_API_SECRET=
-    - OAUTH_AZURE_TENANT_ID=
 ```
 
 然后执行`docker-compose up`即可启动【没有指定配置xml文件，会自动寻找当前目录的docker-compose.xml】
@@ -231,7 +137,7 @@ services:
 
 `当然，如果你没有翻墙的话，镜像很可能会在下载阶段报错的，，毕竟伟大的墙还是存在的嘛。。所以 我改了改docker-compose.xml文件，使用阿里云的源来下载，这样快了很多~，更改后的xml文件如下`
 
-```
+```shell
 version: '2'
 
 services:
@@ -290,101 +196,6 @@ services:
     - GITLAB_HOST=localhost
     - GITLAB_PORT=10080
     - GITLAB_SSH_PORT=10022
-    - GITLAB_RELATIVE_URL_ROOT=
-    - GITLAB_SECRETS_DB_KEY_BASE=long-and-random-alphanumeric-string
-    - GITLAB_SECRETS_SECRET_KEY_BASE=long-and-random-alphanumeric-string
-    - GITLAB_SECRETS_OTP_KEY_BASE=long-and-random-alphanumeric-string
-
-    - GITLAB_ROOT_PASSWORD=
-    - GITLAB_ROOT_EMAIL=
-
-    - GITLAB_NOTIFY_ON_BROKEN_BUILDS=true
-    - GITLAB_NOTIFY_PUSHER=false
-
-    - GITLAB_EMAIL=notifications@example.com
-    - GITLAB_EMAIL_REPLY_TO=noreply@example.com
-    - GITLAB_INCOMING_EMAIL_ADDRESS=reply@example.com
-
-    - GITLAB_BACKUP_SCHEDULE=daily
-    - GITLAB_BACKUP_TIME=01:00
-
-    - SMTP_ENABLED=false
-    - SMTP_DOMAIN=www.example.com
-    - SMTP_HOST=smtp.gmail.com
-    - SMTP_PORT=587
-    - SMTP_USER=mailer@example.com
-    - SMTP_PASS=password
-    - SMTP_STARTTLS=true
-    - SMTP_AUTHENTICATION=login
-
-    - IMAP_ENABLED=false
-    - IMAP_HOST=imap.gmail.com
-    - IMAP_PORT=993
-    - IMAP_USER=mailer@example.com
-    - IMAP_PASS=password
-    - IMAP_SSL=true
-    - IMAP_STARTTLS=false
-
-    - OAUTH_ENABLED=false
-    - OAUTH_AUTO_SIGN_IN_WITH_PROVIDER=
-    - OAUTH_ALLOW_SSO=
-    - OAUTH_BLOCK_AUTO_CREATED_USERS=true
-    - OAUTH_AUTO_LINK_LDAP_USER=false
-    - OAUTH_AUTO_LINK_SAML_USER=false
-    - OAUTH_EXTERNAL_PROVIDERS=
-
-    - OAUTH_CAS3_LABEL=cas3
-    - OAUTH_CAS3_SERVER=
-    - OAUTH_CAS3_DISABLE_SSL_VERIFICATION=false
-    - OAUTH_CAS3_LOGIN_URL=/cas/login
-    - OAUTH_CAS3_VALIDATE_URL=/cas/p3/serviceValidate
-    - OAUTH_CAS3_LOGOUT_URL=/cas/logout
-
-    - OAUTH_GOOGLE_API_KEY=
-    - OAUTH_GOOGLE_APP_SECRET=
-    - OAUTH_GOOGLE_RESTRICT_DOMAIN=
-
-    - OAUTH_FACEBOOK_API_KEY=
-    - OAUTH_FACEBOOK_APP_SECRET=
-
-    - OAUTH_TWITTER_API_KEY=
-    - OAUTH_TWITTER_APP_SECRET=
-
-    - OAUTH_GITHUB_API_KEY=
-    - OAUTH_GITHUB_APP_SECRET=
-    - OAUTH_GITHUB_URL=
-    - OAUTH_GITHUB_VERIFY_SSL=
-
-    - OAUTH_GITLAB_API_KEY=
-    - OAUTH_GITLAB_APP_SECRET=
-
-    - OAUTH_BITBUCKET_API_KEY=
-    - OAUTH_BITBUCKET_APP_SECRET=
-
-    - OAUTH_SAML_ASSERTION_CONSUMER_SERVICE_URL=
-    - OAUTH_SAML_IDP_CERT_FINGERPRINT=
-    - OAUTH_SAML_IDP_SSO_TARGET_URL=
-    - OAUTH_SAML_ISSUER=
-    - OAUTH_SAML_LABEL="Our SAML Provider"
-    - OAUTH_SAML_NAME_IDENTIFIER_FORMAT=urn:oasis:names:tc:SAML:2.0:nameid-format:transient
-    - OAUTH_SAML_GROUPS_ATTRIBUTE=
-    - OAUTH_SAML_EXTERNAL_GROUPS=
-    - OAUTH_SAML_ATTRIBUTE_STATEMENTS_EMAIL=
-    - OAUTH_SAML_ATTRIBUTE_STATEMENTS_NAME=
-    - OAUTH_SAML_ATTRIBUTE_STATEMENTS_FIRST_NAME=
-    - OAUTH_SAML_ATTRIBUTE_STATEMENTS_LAST_NAME=
-
-    - OAUTH_CROWD_SERVER_URL=
-    - OAUTH_CROWD_APP_NAME=
-    - OAUTH_CROWD_APP_PASSWORD=
-
-    - OAUTH_AUTH0_CLIENT_ID=
-    - OAUTH_AUTH0_CLIENT_SECRET=
-    - OAUTH_AUTH0_DOMAIN=
-
-    - OAUTH_AZURE_API_KEY=
-    - OAUTH_AZURE_API_SECRET=
-    - OAUTH_AZURE_TENANT_ID=
 
 ```
 

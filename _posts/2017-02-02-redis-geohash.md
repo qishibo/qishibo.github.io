@@ -162,7 +162,7 @@ georadiusbymember someKeyYouDecided aaa  1000 m WITHDIST WITHCOORD
 
 >注意到上述操作中第二个参数都是一个string类型的key，其实Redis是把对应的数据存到了一个`zset`有序集合中，其中`someKeyYouDecided`就是zset的key，对象名称aaa bbb为zset的member，对象的GeoHash的int值为zset的value，如果你`zrange someKeyYouDecided 0 -1 withscores`就会窥探这个zset的真实数据如下
 
-```shell_session
+```shell
 1) "aaa"
 2) "3710624661911432"
 3) "bbb"
