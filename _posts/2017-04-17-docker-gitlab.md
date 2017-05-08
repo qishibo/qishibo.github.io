@@ -187,6 +187,9 @@ services:
 # 启动配置中的所有依赖容器
 docker-compose -f docker-compose.xml up
 
+# 或者加上 -d 参数以后台 daemon 形式运行，但就看不到初始化过程了
+# docker-compose -f docker-compose.xml up -d
+
 # 顺利的话就开始执行初始化操作，步骤如下
 # 1. postgresql
 # 2. redis
