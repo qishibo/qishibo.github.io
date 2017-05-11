@@ -65,7 +65,7 @@ tags: [opensource, libreoffice, ppt]
     sudo yum install ImageMagick
 
     # 如果是ubuntu
-    apt-get install ImageMagick
+    sudo apt-get install ImageMagick
     ```
 
 3. #### 安装验证
