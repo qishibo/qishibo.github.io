@@ -1,66 +1,102 @@
 ---
 layout: post
-title: wkhtmltopdf不显示中文
+title: wkhtmltopdf 转换HTML为PDF时不显示中文
 comments: 1
 code: 1
-keywords: wkhtmltopdf, 不显示中文, 中文乱码, wkhtmltopdf用法
-description: wkhtmltopdf生成pdf后，不显示中文，英文和数字正常显示
+keywords: wkhtmltopdf使用, wkhtmltopdf不显示中文, 中文乱码
+description: wkhtmltopdf将html文件转化为pdf文件后后，英文和数字正常显示，但中文全部丢失
 tags: [opensource]
 ---
 
-最近在使用wkhtmltopdf把html生成pdf，这货功能很强大，自带webkit浏览器内核，可以完全模拟浏览器特性，解析css样式，解析javascript进行dom渲染。
+最近在使用开源工具 wkhtmltopdf 把 HTML 文件转换为 PDF，这货功能很强大，自带webkit浏览器内核，可以完全模拟浏览器特性，解析css样式、运行javascript进行dom渲染，从而完美的将HTML内容渲染为PDF，就像在浏览器上截屏一样，神奇的一笔
 
-主页和wiki在官网 [http://wkhtmltopdf.org/](http://wkhtmltopdf.org/){:target="_blank"}，同时也在github上开源了,是个星星大户，仓库地址 [https://github.com/wkhtmltopdf/wkhtmltopdf](https://github.com/wkhtmltopdf/wkhtmltopdf){:target="_blank"}
+## 工具介绍
+
+wkhtmltopdf
+
+> 主页和wiki在官网 [http://wkhtmltopdf.org/](http://wkhtmltopdf.org/){:target="_blank"}，同时也在github上开源，是个星星大户
+<br>仓库地址 [https://github.com/wkhtmltopdf/wkhtmltopdf](https://github.com/wkhtmltopdf/wkhtmltopdf){:target="_blank"}
 
 官网的宣传图
 
 ![官网的宣传图](http://ww4.sinaimg.cn/mw690/71405cabgw1f64wndz50ej20rs0b4ad1.jpg)
 
-基本用法很简单，需要一个本地html文件，这个是待转换的，还有就是这个工具，直接`wkhtmltopdf source.html target.pdf`，这样就会把本地的source.html文件转换为target.pdf了;也可以根据url进行转换，`wkhtmltopdf http://www.baidu.com target.pdf`。
+## 用法简介
 
-![wkhtmltopdf](http://ww4.sinaimg.cn/mw690/71405cabgw1f64wlp7ab6j209k03c0st.jpg)
-
-同时还有许多其他高级用法，细节参考`wkhtmltopdf -H` 或者他的官方wiki [http://wkhtmltopdf.org/usage/wkhtmltopdf.txt](http://wkhtmltopdf.org/usage/wkhtmltopdf.txt)【感觉这个会更详细】
+基本用法很简单，只需要一个本地html文件
 
 ```shell
-// 为pdf生成脚注
-wkhtmltopdf --footer-left '这句话会在每页pdf的左下角' source.html target.pdf
-
-// 为pdf生成脚注 同时设置字体
-wkhtmltopdf --footer-left '这句话会在每页pdf的左下角' --footer-font-name 'Arial' source.html target.pdf
-
-// 为pdf在右下角生成页码  [page] 可以认为是程序会自动转换的特殊参数，他会转化为页码 footer-right让他右侧显示
-wkhtmltopdf --footer-right [page] source.html target.pdf
-
-// 脚注用一个html来实现 他会把footer.html进行dom渲染 然后放在脚步
-wkhtmltopdf ---footer-html './footer.html' source.html target.pdf
-
-// 同理上面的也适用于头部注释，把参数改为header-xxx即可 如下
-wkhtmltopdf --header-center [page] source.html target.pdf
-
-// ps 上面参数可以同时出现在一句shell里，可以混合使用
-
+# 将本地 source.html 文件转换为 target.pdf
+wkhtmltopdf source.html target.pdf
 ```
 
-上面实现页码时使用了`[page]`这个内建参数，凡是在头部、脚步需要该参数的地方，[page]参数都能被解析成页码,也就是说，凡是`--header-*` `--footer-*`的地方能可以用该参数，这样的参数还有如下：
+也可以直接根据 **url** 进行转换
 
 ```shell
+# 将百度首页转换为 target.pdf
+wkhtmltopdf http://www.baidu.com target.pdf
+```
+
+![wkhtmltopdf](http://ww1.sinaimg.cn/large/71405cably1ffhn681sxpj20ib039jrt.jpg)
+
+同时还有许多其他高级用法，细节参考`wkhtmltopdf -H` 或者官方wiki [http://wkhtmltopdf.org/usage/wkhtmltopdf.txt](http://wkhtmltopdf.org/usage/wkhtmltopdf.txt)
+
+#### 为pdf生成脚注
+
+```shell
+# 为pdf生成脚注
+wkhtmltopdf --footer-left '这句话会在每页pdf的左下角' source.html target.pdf
+
+# 为pdf生成脚注 同时设置字体
+wkhtmltopdf --footer-left '这句话会在每页pdf的左下角' --footer-font-name 'Arial' source.html target.pdf
+```
+
+#### 为pdf生成页码
+
+```shell
+# 为pdf在右下角生成页码  [page] 可以认为是程序会自动转换的特殊参数，他会转化为页码 footer-right让他右侧显示
+wkhtmltopdf --footer-right [page] source.html target.pdf
+```
+
+> 上面实现页码时使用了`[page]`这个内建参数，凡是在头部、脚步需要该参数的地方，[page]参数都能被自动解析成页码，也就是说，凡是`--header-*` `--footer-*`的地方能可以用该参数，这样类似的参数还有很多，具体可以参考wiki
+
+```shell
+   # 我只把我用过的标注上，其他的没尝试过
+   # 页码
    * [page]       Replaced by the number of the pages currently being printed
+   # 日期
+   * [date]       Replaced by the current date in system local format
+   # 时间
+   * [time]       Replaced by the current time in system local format
+   # 文档标题
+   * [title]      Replaced by the title of the of the current page object
+
    * [frompage]   Replaced by the number of the first page to be printed
    * [topage]     Replaced by the number of the last page to be printed
    * [webpage]    Replaced by the URL of the page being printed
    * [section]    Replaced by the name of the current section
    * [subsection] Replaced by the name of the current subsection
-   * [date]       Replaced by the current date in system local format
    * [isodate]    Replaced by the current date in ISO 8601 extended format
-   * [time]       Replaced by the current time in system local format
-   * [title]      Replaced by the title of the of the current page object
    * [doctitle]   Replaced by the title of the output document
    * [sitepage]   Replaced by the number of the page in the current site being converted
    * [sitepages]  Replaced by the number of pages in the current site being converted
 ```
 
-page不仅可以上面的用法，还可以放进footer.html或者header.html中，作为页面的页头或者页脚，同时还可以用上其他参数
+
+#### 自定义头部&脚注
+
+> 如果要显示的头部尾部内容很多，或者逻辑很复杂，我们还可以将要显示的内容放进 footer.html 、 header.html 中用js去执行渲染结果，最终作为页面的页头或者页脚展示
+
+```shell
+# 脚注用一个html来实现 他会把 footer.html 进行dom渲染 然后放在脚注
+wkhtmltopdf ---footer-html './footer.html' source.html target.pdf
+
+# 同理上面的也适用于头部注释，把参数改为header-xxx即可
+wkhtmltopdf --header-center source.html target.pdf
+
+```
+
+> footer.html 内容如下，原理也很简单，程序在生成每一页pdf的时候，会分配给每页一个唯一的url，并且在url中加上page time等参数，那么footer.html里的js就能获取url中的参数，进行html渲染，最终加进pdf的脚部
 
 ```html
 <!--将下面的保存为footer.html 然后 wkhtmltopdf ---footer-html './footer.html' source.html target.pdf-->
@@ -96,14 +132,20 @@ page不仅可以上面的用法，还可以放进footer.html或者header.html中
 
 ```
 
-他的强大还不只这些，还支持缩放 ，`禁止渲染js`，`禁止图片渲染`，`cookie`，`dpi设置`，`svg渲染`，`代理`等等等等...
+## Tips:
+
+wkhtmltopdf 的强大还不只这些，还支持缩放 ，`禁止渲染js`，`禁止图片渲染`，`cookie`，`dpi设置`，`svg渲染`，`代理`等等等等...简直就是一个原生浏览器啊...
 
 ---
 
-好了，大概功能讲完了，回归正题，说说我遇到的那个坑，在cent环境下转换时，中文完全不显示！！！而在其他另外一台机器上，一样的语句去执行，中文就能正常显示，真是哔了狗了。。
+## 问题解决
 
-后来查阅，原来程序在转换的时候需要默认字体，即你需要转换的html中无论规定了啥字体，当本机环境下没有改字体时，都会默认转为宋体来渲染，这其实应该是webkit内核的设定，所以说，`你的机器上至少应该有宋体！！`。
+好了，说了这么半天功能，回归正题，说说我遇到的那个坑，在 Cent 环境下转换时，中文完全不显示！而在其他另外一台机器上，一样的语句去执行，中文就能正常显示！
 
-问题来了，linux下怎么安装呢，也很简单
+> 后来查阅，原来程序在转换的时候需要对应的字体，以便用于文字渲染，但当你需要转换的html中包含本机环境没有的字体时，程序就会默认转为**宋体**来渲染，这其实应该是WebKit内核的设定，所以说，`你的机器上至少应该有宋体！！`，否则的话中文其实是没法显示的。
 
->  下载宋体字体 对应文件名其实是`simsun.ttc` or `simsun.ttf`，放到`/dev/share/fonts/`下，或者`~/.fonts/`下，就等价于完成安装了。然后再进行pdf转换试试看~
+那么 Linux 下怎么安装宋体呢，也很简单
+
+>  1. 下载宋体字体 对应文件名其实是`simsun.ttc` or `simsun.ttf`
+2. 放到`/dev/share/fonts/`下，或者`~/.fonts/`下
+3. 再进行 pdf 转换试试看~
