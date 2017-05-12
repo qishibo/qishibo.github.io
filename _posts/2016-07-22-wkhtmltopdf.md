@@ -105,7 +105,7 @@ wkhtmltopdf --footer-right [page] source.html target.pdf
 
 ```shell
 # 脚注用一个html来实现 他会把 footer.html 进行dom渲染 然后放在脚注
-wkhtmltopdf ---footer-html './footer.html' source.html target.pdf
+wkhtmltopdf --footer-html './footer.html' source.html target.pdf
 
 # 同理上面的也适用于头部注释，把参数改为header-xxx即可
 wkhtmltopdf --header-html './header.html' source.html target.pdf
@@ -115,7 +115,7 @@ wkhtmltopdf --header-html './header.html' source.html target.pdf
 > footer.html 内容如下，原理也很简单，程序在生成每一页pdf的时候，会分配给每页一个唯一的url，并且在url中加上page time等参数，那么footer.html里的js就能获取url中的参数，进行html渲染，最终加进pdf的脚部
 
 ```html
-<!--将下面的保存为footer.html 然后 wkhtmltopdf ---footer-html './footer.html' source.html target.pdf-->
+<!--将下面的保存为footer.html 然后 wkhtmltopdf --footer-html './footer.html' source.html target.pdf-->
 <!--原理很简单，程序再生成每一页pdf的时候，会自动给加上page time等参数，下面的js获取url中的参数进行html渲染，然后加进pdf的脚步即可-->
 
 <html>
