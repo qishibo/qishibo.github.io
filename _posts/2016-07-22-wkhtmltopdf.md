@@ -28,6 +28,9 @@ wkhtmltopdf
 ```shell
 # 将本地 source.html 文件转换为 target.pdf
 wkhtmltopdf source.html target.pdf
+
+# 如有乱码需指定编码
+wkhtmltopdf --encoding utf-8 source.html target.pdf
 ```
 
 也可以直接根据 **url** 进行转换
@@ -35,13 +38,16 @@ wkhtmltopdf source.html target.pdf
 ```shell
 # 将百度首页转换为 target.pdf
 wkhtmltopdf http://www.baidu.com target.pdf
+
+# 如有乱码需指定编码
+wkhtmltopdf --encoding utf-8 http://www.baidu.com target.pdf
 ```
 
 ![wkhtmltopdf](http://ww1.sinaimg.cn/large/71405cably1ffhn681sxpj20ib039jrt.jpg)
 
 同时还有许多其他高级用法，细节参考`wkhtmltopdf -H` 或者官方wiki [http://wkhtmltopdf.org/usage/wkhtmltopdf.txt](http://wkhtmltopdf.org/usage/wkhtmltopdf.txt)
 
-#### 为pdf生成脚注
+### 为pdf生成脚注
 
 ```shell
 # 为pdf生成脚注
@@ -51,7 +57,17 @@ wkhtmltopdf --footer-left '这句话会在每页pdf的左下角' source.html tar
 wkhtmltopdf --footer-left '这句话会在每页pdf的左下角' --footer-font-name 'Arial' source.html target.pdf
 ```
 
-#### 为pdf生成页码
+### 设置缩放级别
+
+> Mac 下这个问题比较突出，有时候缩放的太小，加了 --disable-smart-shrinking 参数也不生效
+<br>Linux 下目前还没有缩放问题，所以可以忽略该项
+
+```shell
+# --zoom 指定缩放级别，默认1，自测 Mac 下 13.3 还算合适 打印出的 pdf 大小适中
+wkhtmltopdf --zoom 13.3 source.html target.pdf
+```
+
+### 为pdf生成页码
 
 ```shell
 # 为pdf在右下角生成页码  [page] 可以认为是程序会自动转换的特殊参数，他会转化为页码 footer-right让他右侧显示
@@ -83,7 +99,7 @@ wkhtmltopdf --footer-right [page] source.html target.pdf
 ```
 
 
-#### 自定义头部&脚注
+### 自定义头部&脚注
 
 > 如果要显示的头部尾部内容很多，或者逻辑很复杂，我们还可以将要显示的内容放进 footer.html 、 header.html 中用js去执行渲染结果，最终作为页面的页头或者页脚展示
 
