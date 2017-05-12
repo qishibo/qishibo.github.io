@@ -108,7 +108,7 @@ wkhtmltopdf --footer-right [page] source.html target.pdf
 wkhtmltopdf ---footer-html './footer.html' source.html target.pdf
 
 # 同理上面的也适用于头部注释，把参数改为header-xxx即可
-wkhtmltopdf --header-center source.html target.pdf
+wkhtmltopdf --header-html './header.html' source.html target.pdf
 
 ```
 
