@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Windows勒索病毒WannaCry防护方法|Windows关闭445端口
+title: Windows勒索病毒WannaCry防护方法 | Windows关闭445端口
 comments: 1
 keywords: MS17-010, Windows关闭445端口, wannacry, windows 445
 description: Windows 下勒索病毒 Wanna Cry 补丁安装方法，以及如何彻底修复MS17-010漏洞，并关闭危险445端口
@@ -62,39 +62,39 @@ Windows Server 2003 SP2 x86: [https://www.microsoft.com/zh-CN/download/details.a
 
 ### 关闭危险端口
 
-##### 1. 左下角搜索框里输入“防火墙”，打开防火墙设置
+#### 1. 左下角搜索框里输入“防火墙”，打开防火墙设置
 ![打开防火墙设置](https://ws1.sinaimg.cn/large/71405cably1ffnjpzedkej20ar0hejrn.jpg)
 
-##### 2. 首先保证防火墙是启用的
+#### 2. 首先保证防火墙是启用的
 ![保证防火墙是启用的](https://ws1.sinaimg.cn/large/71405cably1ffnjwb2toej20nm0b7dgv.jpg)
 
-##### 3. 然后点击“高级设置”
+#### 3. 然后点击“高级设置”
 ![高级设置](https://ws1.sinaimg.cn/large/71405cably1ffnjwb2xrmj20mp0c33zj.jpg)
 
-##### 4. 在“入站规则”上右键-“新建规则”
+#### 4. 在“入站规则”上右键-“新建规则”
 ![新建规则](http://ww1.sinaimg.cn/large/71405cably1ffnjen5w4hj20lq0gfjsr.jpg)
 
-##### 5. 选择“端口”
+#### 5. 选择“端口”
 ![端口](https://ws1.sinaimg.cn/large/71405cably1ffnjzswowzj20jr0etq31.jpg)
 
-##### 6. 选择“TCP”， “特定端口”输入 445,135,137,138,139
+#### 6. 选择“TCP”， “特定端口”输入 445,135,137,138,139
 ![输入 445，135，137，138，139](https://ws1.sinaimg.cn/large/71405cably1ffnk1go28ej20jo0eu74e.jpg)
 
-##### 7. 选择“阻止连接”
+#### 7. 选择“阻止连接”
 ![阻止连接](http://ww1.sinaimg.cn/large/71405cably1ffnjemyoa1j20k80f6glx.jpg)
 
-##### 8. 默认选择三个域
+#### 8. 默认选择三个域
 ![默认选择三个域](http://ww1.sinaimg.cn/large/71405cably1ffnjemypkvj20k80f6dg2.jpg)
 
-##### 9. 随便输入名称即可
+#### 9. 随便输入名称即可
 ![输入名称](http://ww1.sinaimg.cn/large/71405cably1ffnjen1qbdj20k80f6t8u.jpg)
 
 ### 关闭 SMB 文件共享
 
-##### 1. 左下角搜索 启用或关闭Windows功能
+#### 1. 左下角搜索 启用或关闭Windows功能
 ![启用或关闭Windows功能](https://ws1.sinaimg.cn/large/71405cably1ffnk32vydwj20ap0haglz.jpg)
 
-##### 2. 取消`SMB 1.0/CIFS文件共享支持`
+#### 2. 取消`SMB 1.0/CIFS文件共享支持`
 > 需要重启
 
 ![取消](http://ww1.sinaimg.cn/large/71405cably1ffnjen2zrmj20bx0btwf5.jpg)
