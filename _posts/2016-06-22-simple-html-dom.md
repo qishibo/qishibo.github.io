@@ -8,7 +8,7 @@ description: 关于用simple-html-dom解析html节点，内存泄露导致内存
 tags: [php]
 ---
 
-**情景**： 后台脚本，负责处理html字符串，提取其中的某些元素进行处理，用到了simple-html-dom这个开源库，主页在[这里](http://simplehtmldom.sourceforge.net/)，主要用它将html字符串格式化成dom对象，然后对dom对象进行属性替换。
+**情景**： 后台抓取脚本，负责处理抓取到的HTML字符串，提取其中的某些dom元素进行处理。用到了simple-html-dom 这个开源库，主页在 [http://simplehtmldom.sourceforge.net](http://simplehtmldom.sourceforge.net/) ，主要用它将HTML字符串格式化成dom对象，然后对dom对象进行属性替换和内容读取。
 
 后台是在循环里连续执行的嘛，可能需要处理几千几万个html结构，由于我的html字符串是本地存好的，所以直接用
 
