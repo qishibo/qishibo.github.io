@@ -26,6 +26,9 @@ layout: default
         color: #cdbfe3;
         text-shadow: 0 1px 0 rgba(0,0,0,.1);
     }
+    .qii-top-desc .post-date{
+        color: #e3ddec;
+    }
 
 
     .qii-post-content{
@@ -40,6 +43,13 @@ layout: default
         <div class="container">
             <h2 class="post-title">{{ page.title }}</h2>
             <p class="post-desc">{{ page.description}}</p>
+            {% if page.date %}
+            <span class="post-date">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <!-- <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> -->
+                <span>{{ page.date | date: '%Y-%m-%d' }}</span>
+            </span>
+            {% endif %}
         </div>
     </div>
 </header>
