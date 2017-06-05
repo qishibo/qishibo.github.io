@@ -5,7 +5,7 @@
     <script>
     var cloudTieConfig = {
     url: document.location.href,
-    sourceId: "",
+    sourceId: window.location.pathname,
     productKey: "7629621f1ddd468ab2a50327fdfbada0",
     target: "cloud-tie-wrapper"
     };
