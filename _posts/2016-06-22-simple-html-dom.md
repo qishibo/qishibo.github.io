@@ -27,7 +27,7 @@ foreach($html->find('p') as $element) {
 
 ```
 
-> $html是封装好的 simple_html_dom 对象，类似于浏览器渲染的树状dom结构，顶层节点包含底层节点 [simple_html_dom_node对象] 的引用，底层节点也包含顶层节点的引用，有点像双向链表，通过 $children $parent 等属性可以互相追溯节点。
+> `$html`是封装好的 simple_html_dom 对象，类似于浏览器渲染的树状dom结构，顶层节点包含底层节点 [simple_html_dom_node对象] 的引用，底层节点也包含顶层节点的引用，有点像双向链表，通过 $children $parent 等属性可以互相追溯节点。
 
 ## 情景复现
 
@@ -106,14 +106,13 @@ xdebug_debug_zval($a);
 
 这样，其实$a变量已经不需要了，但是由于他的ref_count还是1，并不为0，对于php5.3以下的版本来说，单纯的引用计数垃圾回收认为这个变量还是有用的，所以不会被回收，内存也不会被释放。
 
-> 类似上面的`对象元素有对自身的引用，即形成了环形引用`，数组也是一样，这样的结构在单纯的计数垃圾回收机制中是不可被释放的，随着程序执行时间的增加，内存占用也会一直增加，直至达到限制。
-
 
 
 ## 问题解决
 
 
-知道了环形引用，我们就知道了为什么 simple-html-dom 的数据结构会在5.2版本下导致内存溢出。
+> 知道了环形引用，我们就知道了为什么 simple-html-dom 的数据结构会在5.2版本下导致内存溢出。因为他的链式DOM结构会有`对象元素有对自身的引用，形成了环形引用`，这样的结构在单纯的计数垃圾回收机制中是不可被释放的，随着程序执行时间的增加，内存占用也会一直增加，直至达到限制。
+
 
 解决办法也很简单：手动unset掉对应的指针引用属性即可，但其实人家已经提供了对应的方法：
 
@@ -139,6 +138,6 @@ foreach ($xxx as $x){
 
 好了，问题就这样愉快的解决了，我再跑脚本，跑他成千上万次，跑他到地老天荒都没问题了😄
 
-*至于新的垃圾回收机制怎么实现对环形引用的回收，本文不做过多阐述，请参考官方说明[http://php.net/manual/zh/features.gc.collecting-cycles.php](http://php.net/manual/zh/features.gc.collecting-cycles.php)*
+*至于新的垃圾回收机制怎么实现对环形引用的回收，本文不做过多阐述，请参考官方说明 [http://php.net/manual/zh/features.gc.collecting-cycles.php](http://php.net/manual/zh/features.gc.collecting-cycles.php)*
 
 
