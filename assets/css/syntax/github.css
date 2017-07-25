@@ -1,209 +1,209 @@
-.highlight table td { padding: 5px; }
-.highlight table pre { margin: 0; }
-.highlight .cm {
+.codehilite table td { padding: 5px; }
+.codehilite table pre { margin: 0; }
+.codehilite .cm {
   color: #999988;
   font-style: italic;
 }
-.highlight .cp {
+.codehilite .cp {
   color: #999999;
   font-weight: bold;
 }
-.highlight .c1 {
+.codehilite .c1 {
   color: #999988;
   font-style: italic;
 }
-.highlight .cs {
+.codehilite .cs {
   color: #999999;
   font-weight: bold;
   font-style: italic;
 }
-.highlight .c, .highlight .cd {
+.codehilite .c, .codehilite .cd {
   color: #999988;
   font-style: italic;
 }
-.highlight .err {
+.codehilite .err {
   color: #a61717;
   background-color: #e3d2d2;
 }
-.highlight .gd {
+.codehilite .gd {
   color: #000000;
   background-color: #ffdddd;
 }
-.highlight .ge {
+.codehilite .ge {
   color: #000000;
   font-style: italic;
 }
-.highlight .gr {
+.codehilite .gr {
   color: #aa0000;
 }
-.highlight .gh {
+.codehilite .gh {
   color: #999999;
 }
-.highlight .gi {
+.codehilite .gi {
   color: #000000;
   background-color: #ddffdd;
 }
-.highlight .go {
+.codehilite .go {
   color: #888888;
 }
-.highlight .gp {
+.codehilite .gp {
   color: #555555;
 }
-.highlight .gs {
+.codehilite .gs {
   font-weight: bold;
 }
-.highlight .gu {
+.codehilite .gu {
   color: #aaaaaa;
 }
-.highlight .gt {
+.codehilite .gt {
   color: #aa0000;
 }
-.highlight .kc {
+.codehilite .kc {
   color: #000000;
   font-weight: bold;
 }
-.highlight .kd {
+.codehilite .kd {
   color: #000000;
   font-weight: bold;
 }
-.highlight .kn {
+.codehilite .kn {
   color: #000000;
   font-weight: bold;
 }
-.highlight .kp {
+.codehilite .kp {
   color: #000000;
   font-weight: bold;
 }
-.highlight .kr {
+.codehilite .kr {
   color: #000000;
   font-weight: bold;
 }
-.highlight .kt {
+.codehilite .kt {
   color: #445588;
   font-weight: bold;
 }
-.highlight .k, .highlight .kv {
+.codehilite .k, .codehilite .kv {
   color: #000000;
   font-weight: bold;
 }
-.highlight .mf {
+.codehilite .mf {
   color: #009999;
 }
-.highlight .mh {
+.codehilite .mh {
   color: #009999;
 }
-.highlight .il {
+.codehilite .il {
   color: #009999;
 }
-.highlight .mi {
+.codehilite .mi {
   color: #009999;
 }
-.highlight .mo {
+.codehilite .mo {
   color: #009999;
 }
-.highlight .m, .highlight .mb, .highlight .mx {
+.codehilite .m, .codehilite .mb, .codehilite .mx {
   color: #009999;
 }
-.highlight .sb {
+.codehilite .sb {
   color: #d14;
 }
-.highlight .sc {
+.codehilite .sc {
   color: #d14;
 }
-.highlight .sd {
+.codehilite .sd {
   color: #d14;
 }
-.highlight .s2 {
+.codehilite .s2 {
   color: #d14;
 }
-.highlight .se {
+.codehilite .se {
   color: #d14;
 }
-.highlight .sh {
+.codehilite .sh {
   color: #d14;
 }
-.highlight .si {
+.codehilite .si {
   color: #d14;
 }
-.highlight .sx {
+.codehilite .sx {
   color: #d14;
 }
-.highlight .sr {
+.codehilite .sr {
   color: #009926;
 }
-.highlight .s1 {
+.codehilite .s1 {
   color: #d14;
 }
-.highlight .ss {
+.codehilite .ss {
   color: #990073;
 }
-.highlight .s {
+.codehilite .s {
   color: #d14;
 }
-.highlight .na {
+.codehilite .na {
   color: #008080;
 }
-.highlight .bp {
+.codehilite .bp {
   color: #999999;
 }
-.highlight .nb {
+.codehilite .nb {
   color: #0086B3;
 }
-.highlight .nc {
+.codehilite .nc {
   color: #445588;
   font-weight: bold;
 }
-.highlight .no {
+.codehilite .no {
   color: #008080;
 }
-.highlight .nd {
+.codehilite .nd {
   color: #3c5d5d;
   font-weight: bold;
 }
-.highlight .ni {
+.codehilite .ni {
   color: #800080;
 }
-.highlight .ne {
+.codehilite .ne {
   color: #990000;
   font-weight: bold;
 }
-.highlight .nf {
+.codehilite .nf {
   color: #990000;
   font-weight: bold;
 }
-.highlight .nl {
+.codehilite .nl {
   color: #990000;
   font-weight: bold;
 }
-.highlight .nn {
+.codehilite .nn {
   color: #555555;
 }
-.highlight .nt {
+.codehilite .nt {
   color: #000080;
 }
-.highlight .vc {
+.codehilite .vc {
   color: #008080;
 }
-.highlight .vg {
+.codehilite .vg {
   color: #008080;
 }
-.highlight .vi {
+.codehilite .vi {
   color: #008080;
 }
-.highlight .nv {
+.codehilite .nv {
   color: #008080;
 }
-.highlight .ow {
+.codehilite .ow {
   color: #000000;
   font-weight: bold;
 }
-.highlight .o {
+.codehilite .o {
   color: #000000;
   font-weight: bold;
 }
-.highlight .w {
+.codehilite .w {
   color: #bbbbbb;
 }
-.highlight {
+.codehilite {
   background-color: #f8f8f8;
 }
