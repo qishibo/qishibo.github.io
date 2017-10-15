@@ -4,7 +4,7 @@ title: nginx php文件显示空白
 comments: 1
 code: 1
 keywords: nginx, php-fpm, php文件空白
-description: nginx下html文件显示正常，php文件显示空白，并且fpm报错ERROR: failed to retrieve TCP_INFO for socket: Invalid argument (22)
+description: 'nginx下html文件显示正常，php文件显示空白，并且fpm报错 ERROR: failed to retrieve TCP_INFO for socket: Invalid argument (22)'
 tags: [nginx, fpm, wsl]
 ---
 
