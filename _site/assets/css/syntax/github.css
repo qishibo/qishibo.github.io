@@ -204,6 +204,6 @@
 .highlight .w, .codehilite .w {
   color: #bbbbbb;
 }
-.highlight {
+.highlight, .codehilite {
   background-color: #f8f8f8;
 }
