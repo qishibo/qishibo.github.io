@@ -2,6 +2,7 @@ paginate: 10
 paginate_path: "page:num"
 gems:
     - jekyll-paginate
+    - jekyll-sitemap
 
 markdown: kramdown
 highlighter: rouge
