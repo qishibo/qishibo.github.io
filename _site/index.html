@@ -1,0 +1,631 @@
+<!--
+     created by shibo, 2015-04-23 19:23:32.
+     Copyright (c) qii404@126.com All Rights Reserved.
+     代码何苦为难码农...
+
+                 #####################################################
+                 #                                                   #
+                 #                       _oo0oo_                     #
+                 #                      o8888888o                    #
+                 #                      88" . "88                    #
+                 #                      (| -_- |)                    #
+                 #                      0\  =  /0                    #
+                 #                    ___/`---'\___                  #
+                 #                  .' \\|     |# '.                 #
+                 #                 / \\|||  :  |||# \                #
+                 #                / _||||| -:- |||||- \              #
+                 #               |   | \\\  -  #/ |   |              #
+                 #               | \_|  ''\---/''  |_/ |             #
+                 #               \  .-\__  '-'  ___/-. /             #
+                 #             ___'. .'  /--.--\  `. .'___           #
+                 #          ."" '<  `.___\_<|>_/___.' >' "".         #
+                 #         | | :  `- \`.;`\ _ /`;.`/ - ` : | |       #
+                 #         \  \ `_.   \_ __\ /__ _/   .-` /  /       #
+                 #     =====`-.____`.___ \_____/___.-`___.-'=====    #
+                 #                       `=---='                     #
+                 #     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   #
+                 #                                                   #
+                 #               佛祖保佑         永无BUG              #
+                 #                                                   #
+                 #####################################################
+ -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+
+    <meta name="keywords" content="齐士博,qii404,php,javascript,qishibo,码农,前端,技术,IT">
+    <meta name="description" content="一个叫齐士博的人写的技术博客，网名叫小齐炖博士，也有叫qii404的，写字的，码农一个，web开发">
+
+    <meta name="author" content="齐士博">
+
+    <meta property="og:title" content="qii404 | 齐士博博客" />
+    <meta property="og:type" content="IT Blog" />
+
+    <link rel="shortcut icon" href="/assets/img/icon48.ico">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+    
+
+    <title>qii404 | 齐士博博客</title>
+
+    <style type="text/css">
+        .container{
+            max-width: 1050px;
+        }
+        .qii-navbar{
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        .qii-navbar .qii-icon-container{
+            width: 53px;
+        }
+
+        .qii-navbar .qii-icon-container img{
+            margin-top: -8px;
+        }
+
+        .container .qii-post-content img{
+            width: 80%;
+            max-width: 100%;
+            margin-top: 8px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border:2px solid lightgrey;
+        }
+        .container .qii-post-content h2,
+        .container .qii-post-content h3,
+        .container .qii-post-content h4{
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            max-width: 65em;
+            border: 1px solid #dedede;
+            margin: 15px auto;
+            border-collapse: collapse;
+            empty-cells: show;
+        }
+
+        table th,
+        table td {
+          height: 35px;
+          border: 1px solid #dedede;
+          padding: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-inverse-- qii-navbar ">
+        <div class="container">
+
+            <div class="navbar-header">
+                <div class="qii-icon-container">
+                    <a id="qii-icon-a" class="navbar-brand" href="/"></a>
+                </div>
+
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#qii-navbar-collapse" aria-controls="bs-navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse collapse" id="qii-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li name="home"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+                    <li name="github"><a href="https://github.com/qishibo/" target="blank">Github</a></li>
+                    <li name="weibo"><a href="http://weibo.com/shiboooo?profile_ftype=1&is_hot=1" target="blank">Weibo</a></li>
+                    <li name="about"><a href="/about">About</a></li>
+                </ul>
+
+                <!-- <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search Google">
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form> -->
+
+            </div>
+        </div>
+    </nav>
+
+<style type="text/css">
+    body{
+        background: #f5f5f5;
+    }
+    .qii-top-desc .jumbotron{
+        color: white;
+        position: relative;
+        background: #020031;
+        background: -moz-linear-gradient(45deg,#020031 0,#6d3353 100%);
+        background: -webkit-gradient(linear,left bottom,right top,color-stop(0%,#020031),color-stop(100%,#6d3353));
+        background: -webkit-linear-gradient(45deg,#020031 0,#6d3353 100%);
+        background: -o-linear-gradient(45deg,#020031 0,#6d3353 100%);
+        background: -ms-linear-gradient(45deg,#020031 0,#6d3353 100%);
+        background: linear-gradient(45deg,#020031 0,#6d3353 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#020031', endColorstr='#6d3353', GradientType=1);
+        -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2),inset 0 -3px 7px rgba(0,0,0,.2);
+        -moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2),inset 0 -3px 7px rgba(0,0,0,.2);
+
+        padding: 100px 0;
+    }
+
+    .qii-top-desc .jumbotron:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: url('http://static.bootcss.com/www/assets/img/bs-docs-masthead-pattern.png') repeat center center;
+        opacity: 0.4;
+    }
+
+    .qii-post-content .qii-post{
+        background: white;
+    }
+    .qii-post-content .qii-post .fa{
+        margin-right: 5px;
+    }
+    .qii-post-content .qii-post h3{
+        margin-top: 5px;
+        /*cursor: pointer;*/
+        /*font-weight: bold;*/
+    }
+    .qii-post-content .qii-post .post-title{
+        display: block;
+        width: 100%;
+        cursor: pointer;
+        font-size: 88%;
+    }
+    .qii-post-content .qii-post .post-title:hover{
+        text-decoration: none;
+    }
+    .qii-post-content .qii-post .post-preview{
+        padding: 10px;
+        font-size: 110%;
+    }
+    .qii-post-content .qii-post .post-tags{
+        padding-left: 10px;
+    }
+    .qii-post-content .qii-post .post-tags .click-tags{
+        color: #fff;
+        cursor: pointer;
+        text-decoration: none;
+    }
+</style>
+
+<div class="qii-top-desc">
+    <div class="jumbotron">
+        <div class="container">
+            <h2>梦想这东西和经典一样，永远不会因时间而褪色，反而愈显珍贵</h2>
+            <h3><span class="glyphicon glyphicon-align-center">一个叫齐士博的人写的博客</span> </h3>
+        </div>
+    </div>
+</div>
+
+<!-- content -->
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="qii-post-content">
+
+                
+
+    <div class="qii-post well">
+
+        <blockquote>
+          <h3><a href="/2017/10/14/nginx-php-empty.html" class="post-title">nginx php文件显示空白</a></h3>
+          <footer><i class="fa fa-calendar" aria-hidden="true"></i>2017-10-14</footer>
+        </blockquote>
+
+        <div class="post-preview">
+            <p>今天在bash on windows鼓捣php环境的时候偶然遇到一个坑，就是nginx启动以后，访问index.html可以正常显示，但访问index.php的时候页面一片空白，啥都没有！根据以往在linux下的经验，我的配置完全正确，肯定可行，但在wsl下却跑不通，摸索过程记录如下。</p>
+
+
+        </div>
+
+        <div class="post-tags">
+        
+            <!-- <kbd>nginx</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=nginx">nginx</a></span>
+        
+            <!-- <kbd>fpm</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=fpm">fpm</a></span>
+        
+            <!-- <kbd>wsl</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=wsl">wsl</a></span>
+        
+        </div>
+    </div>
+
+
+
+    <div class="qii-post well">
+
+        <blockquote>
+          <h3><a href="/2017/05/15/microsoft-wannacry.html" class="post-title">Windows勒索病毒WannaCry防护方法 | Windows关闭445端口</a></h3>
+          <footer><i class="fa fa-calendar" aria-hidden="true"></i>2017-05-15</footer>
+        </blockquote>
+
+        <div class="post-preview">
+            <p>5月12日侵袭全世界的“蠕虫式”勒索软件 WanaCry (也称作WannaCry或WanaCry0r 2.0)，已致中国部分行业企业内网、教育网大规模感染。这种病毒依靠美国国家安全局开发的核弹级侵入工具-深蓝  EternalBlue 在局域网内疯狂传播，即使没有连接外网也难以避免。也就是说，即使你没有点击病毒软件，只要和你一个局域网络的任何一个小白误点了病毒，那么整个网络内都会惨遭毒手。</p>
+
+
+        </div>
+
+        <div class="post-tags">
+        
+            <!-- <kbd>windows</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=windows">windows</a></span>
+        
+            <!-- <kbd>wanna cry</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=wanna cry">wanna cry</a></span>
+        
+        </div>
+    </div>
+
+
+
+    <div class="qii-post well">
+
+        <blockquote>
+          <h3><a href="/2017/05/04/liboffice-ppt-to-image.html" class="post-title">命令行下 将PPT文件转换为图片</a></h3>
+          <footer><i class="fa fa-calendar" aria-hidden="true"></i>2017-05-04</footer>
+        </blockquote>
+
+        <div class="post-preview">
+            <p>之前做需求的时候有这么一个，输入是一个ppt文件，要求输出是每页ppt的图片格式，相当于把ppt分页转换为图片，然后图片再做后续的逻辑处理。如果在window下或者说有office的情况下，手动执行太简单，文件-&gt;导出为图片 即可实现，可视化操作，那么问题是我这个功能要作为服务运行，在非人工干预的情况下，所有操作都要由脚本实现，所以折腾了一下，这里记录下来。</p>
+
+
+        </div>
+
+        <div class="post-tags">
+        
+            <!-- <kbd>opensource</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=opensource">opensource</a></span>
+        
+            <!-- <kbd>libreoffice</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=libreoffice">libreoffice</a></span>
+        
+            <!-- <kbd>ppt</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=ppt">ppt</a></span>
+        
+        </div>
+    </div>
+
+
+
+    <div class="qii-post well">
+
+        <blockquote>
+          <h3><a href="/2017/04/17/docker-gitlab.html" class="post-title">基于Docker的Gitlab服务器搭建</a></h3>
+          <footer><i class="fa fa-calendar" aria-hidden="true"></i>2017-04-17</footer>
+        </blockquote>
+
+        <div class="post-preview">
+            <p><strong>是不是每个爱折腾的人都有搭建一套自己的Gitlab服务器的冲动~</strong> 哼哼，我就是一个爱折腾的人，曾经也搭建过Gitlab环境，装Redis，装PostgreSQL，装Ruby，装Gitlab，尤其是配置Ruby环境跑Gitlab的时候，卧槽那个坑！不过今天，我再次搭建Gitlab服务，用的是大神已经配置好的Gitlab Docker镜像，哈哈，轻松极了~</p>
+
+
+        </div>
+
+        <div class="post-tags">
+        
+            <!-- <kbd>gitlab</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=gitlab">gitlab</a></span>
+        
+            <!-- <kbd>docker</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=docker">docker</a></span>
+        
+            <!-- <kbd>opensource</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=opensource">opensource</a></span>
+        
+        </div>
+    </div>
+
+
+
+    <div class="qii-post well">
+
+        <blockquote>
+          <h3><a href="/2017/04/11/python-write.html" class="post-title">Python write 函数写文件失败</a></h3>
+          <footer><i class="fa fa-calendar" aria-hidden="true"></i>2017-04-11</footer>
+        </blockquote>
+
+        <div class="post-preview">
+            <p>工作中涉及到了内容抓取的需求，用 Python 根据Url抓取对应的Html页面，并存储到本地文件，然后程序内继续将本地文件的路径作为参数，调用Node进行杂质过滤和内容提取。但怪的是在Python执行期间，已经完成了write操作，Node读取该文件的时候却得不到任何内容！这让我很尴尬</p>
+
+
+        </div>
+
+        <div class="post-tags">
+        
+            <!-- <kbd>python</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=python">python</a></span>
+        
+        </div>
+    </div>
+
+
+
+    <div class="qii-post well">
+
+        <blockquote>
+          <h3><a href="/2017/02/02/redis-geohash.html" class="post-title">Redis GeoHash 地理位置结构</a></h3>
+          <footer><i class="fa fa-calendar" aria-hidden="true"></i>2017-02-02</footer>
+        </blockquote>
+
+        <div class="post-preview">
+            <p>Redis在3.2版本悄悄的加入了一个地理位置的功能，哈哈，3.2版本推出已经好久了，一直没有机会尝试一下，今天专门敲数据使用了一番，新增了一共6个方法，看了看相关数据结构和特点，了解了大概的轮廓，今天就来记录一下。</p>
+
+
+        </div>
+
+        <div class="post-tags">
+        
+            <!-- <kbd>redis</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=redis">redis</a></span>
+        
+            <!-- <kbd>geohash</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=geohash">geohash</a></span>
+        
+            <!-- <kbd>opensource</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=opensource">opensource</a></span>
+        
+        </div>
+    </div>
+
+
+
+    <div class="qii-post well">
+
+        <blockquote>
+          <h3><a href="/2016/12/30/hhvm-create-function.html" class="post-title">php create_function导致cpu占用激增</a></h3>
+          <footer><i class="fa fa-calendar" aria-hidden="true"></i>2016-12-30</footer>
+        </blockquote>
+
+        <div class="post-preview">
+            <p>工作生产环境是<code class="highlighter-rouge">hhvm</code> + <code class="highlighter-rouge">php5.2</code> ，是的，php版本有点低，然后在不支持 Closure [其实就是匿名函数] 这种作为 callback 函数的情况下，用了<code class="highlighter-rouge">create_function</code>方法代替了callback，结果出坑了，线上机器 cpu400% 占用…</p>
+
+
+        </div>
+
+        <div class="post-tags">
+        
+            <!-- <kbd>php</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=php">php</a></span>
+        
+            <!-- <kbd>hhvm</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=hhvm">hhvm</a></span>
+        
+        </div>
+    </div>
+
+
+
+    <div class="qii-post well">
+
+        <blockquote>
+          <h3><a href="/2016/09/26/php-exec.html" class="post-title">php使用exec导致结果叠加的坑</a></h3>
+          <footer><i class="fa fa-calendar" aria-hidden="true"></i>2016-09-26</footer>
+        </blockquote>
+
+        <div class="post-preview">
+            <p>今天用php在后台跑一些常规任务的时候使用到了exec函数，它用来执行Linux系统函数进行相关统计，如<code class="highlighter-rouge">exec("ls -l")</code>，但是却发生了很诡异的问题，真的是特别诡异的问题，首先看下面这段代码</p>
+
+
+        </div>
+
+        <div class="post-tags">
+        
+            <!-- <kbd>php</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=php">php</a></span>
+        
+        </div>
+    </div>
+
+
+
+    <div class="qii-post well">
+
+        <blockquote>
+          <h3><a href="/2016/07/29/ssh-clone-session.html" class="post-title">ssh自动登录 | ssh免密码登录</a></h3>
+          <footer><i class="fa fa-calendar" aria-hidden="true"></i>2016-07-29</footer>
+        </blockquote>
+
+        <div class="post-preview">
+            <p>经常远程登录服务器然后进行操作的程序猿童鞋们对于 ssh 肯定不会陌生，<code class="highlighter-rouge">ssh name@host</code>之后直接输入密码即可登录到远端主机，不过稍稍麻烦的地方是每次都需要输入密码，如果密码固定还好说，可以用终端的Trigger或者用Linux的expect自动输入密码；但如果是需要token的那种，每次都要输入固定密码前缀，然后再找出token输入，这样的话难免让人着急。</p>
+
+
+        </div>
+
+        <div class="post-tags">
+        
+            <!-- <kbd>hacker</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=hacker">hacker</a></span>
+        
+        </div>
+    </div>
+
+
+
+    <div class="qii-post well">
+
+        <blockquote>
+          <h3><a href="/2016/07/22/wkhtmltopdf.html" class="post-title">wkhtmltopdf 转换HTML为PDF时不显示中文</a></h3>
+          <footer><i class="fa fa-calendar" aria-hidden="true"></i>2016-07-22</footer>
+        </blockquote>
+
+        <div class="post-preview">
+            <p>最近在使用开源工具 wkhtmltopdf 把 HTML 文件转换为 PDF，这货功能很强大，自带webkit浏览器内核，可以完全模拟浏览器特性，解析css样式、运行javascript进行dom渲染，从而完美的将HTML内容渲染为PDF，就像在浏览器上截屏一样，神奇的一笔</p>
+
+
+        </div>
+
+        <div class="post-tags">
+        
+            <!-- <kbd>opensource</kbd> -->
+            <span class="label label-default"><a class="click-tags" href="/tags?tag=opensource">opensource</a></span>
+        
+        </div>
+    </div>
+
+
+
+
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <!-- this is COL-MD-22222, for some contents -->
+        </div>
+    </div>
+
+</div>
+
+<div class="container qii-page">
+    <nav>
+        <ul class="pagination">
+            
+            <li class='disabled'>
+                <a href="###" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            
+
+            
+
+            <li
+            
+            class="active"
+            
+            ><a href=
+            
+            "/"
+            
+            >1</a></li>
+            
+
+            <li
+            
+            ><a href=
+            
+            "/page2"
+            
+            >2</a></li>
+            
+
+            
+            <li>
+                <a href="/page2" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            
+
+        </ul>
+    </nav>
+
+</div>
+
+
+<style type="text/css">
+    .footer-contact {
+        padding: 15px 0;
+        margin-top: 40px;
+        text-align: center;
+        background-color: #f5f5f5;
+        border-top: 1px solid #eee;
+    }
+
+    .footer-contact .contact-list {
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+    .footer-contact .contact-list li {
+        display: inline-block;
+        line-height: 1;
+    }
+
+    .footer-contact .contact-list li a {
+        color: #555;
+    }
+
+    .footer-contact .contact-list>li+li:before {
+        padding: 0 10px;
+        color: #ccc;
+        content: "|";
+    }
+
+    .footer-contact .contact-list li .fa {
+        font-size: 16px;
+        margin-right: 3px;
+    }
+</style>
+
+<footer class="footer-contact">
+    <div class="container">
+        <ul class="contact-list">
+            <li>
+                <!-- count pv-->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259354296'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1259354296%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+            </li>
+            <li>
+                <a href="mailto:qii404@126.com" title="email">
+                    <i class="fa fa-envelope-o"></i> Email To Me
+                </a>
+            </li>
+            <li>
+                <a href="http://weibo.com/shiboooo?profile_ftype=1&is_hot=1" title="新浪微博" target="_blank">
+                    <i class="fa fa-weibo"></i> 新浪微博：@齐士博
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/qishibo/" title="GitHub" target="_blank">
+                    <i class="fa fa-github-square"></i> GitHub
+                </a>
+            </li>
+            <li>
+                <i class="fa fa-heart-o" ></i>Powered by Github
+            </li>
+        </ul>
+    </div>
+</footer>
+
+<script type="text/javascript" src='https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js'></script>
+<script type="text/javascript" src='/assets/js/icon.js'></script>
+<script type="text/javascript" src='https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+
+<script type="text/javascript">
+    $(function(){
+        var pre_menu_hight = "home";
+        if (pre_menu_hight) {
+            $('#qii-navbar-collapse li[name="' + pre_menu_hight + '"]').addClass('active');
+        }
+    })
+
+</script>
+
+
+
+
+
+</body>
+</html>
+

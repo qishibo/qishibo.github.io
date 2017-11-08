@@ -1,0 +1,499 @@
+<!--
+     created by shibo, 2015-04-23 19:23:32.
+     Copyright (c) qii404@126.com All Rights Reserved.
+     代码何苦为难码农...
+
+                 #####################################################
+                 #                                                   #
+                 #                       _oo0oo_                     #
+                 #                      o8888888o                    #
+                 #                      88" . "88                    #
+                 #                      (| -_- |)                    #
+                 #                      0\  =  /0                    #
+                 #                    ___/`---'\___                  #
+                 #                  .' \\|     |# '.                 #
+                 #                 / \\|||  :  |||# \                #
+                 #                / _||||| -:- |||||- \              #
+                 #               |   | \\\  -  #/ |   |              #
+                 #               | \_|  ''\---/''  |_/ |             #
+                 #               \  .-\__  '-'  ___/-. /             #
+                 #             ___'. .'  /--.--\  `. .'___           #
+                 #          ."" '<  `.___\_<|>_/___.' >' "".         #
+                 #         | | :  `- \`.;`\ _ /`;.`/ - ` : | |       #
+                 #         \  \ `_.   \_ __\ /__ _/   .-` /  /       #
+                 #     =====`-.____`.___ \_____/___.-`___.-'=====    #
+                 #                       `=---='                     #
+                 #     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   #
+                 #                                                   #
+                 #               佛祖保佑         永无BUG              #
+                 #                                                   #
+                 #####################################################
+ -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+
+    <meta name="keywords" content="exec, shell_exec, exec叠加">
+    <meta name="description" content="关于php在使用exec函数时结果叠加的坑">
+
+    <meta name="author" content="齐士博">
+
+    <meta property="og:title" content="php使用exec导致结果叠加的坑" />
+    <meta property="og:type" content="IT Blog" />
+
+    <link rel="shortcut icon" href="/assets/img/icon48.ico">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+    
+
+    <title>php使用exec导致结果叠加的坑</title>
+
+    <style type="text/css">
+        .container{
+            max-width: 1050px;
+        }
+        .qii-navbar{
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        .qii-navbar .qii-icon-container{
+            width: 53px;
+        }
+
+        .qii-navbar .qii-icon-container img{
+            margin-top: -8px;
+        }
+
+        .container .qii-post-content img{
+            width: 80%;
+            max-width: 100%;
+            margin-top: 8px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border:2px solid lightgrey;
+        }
+        .container .qii-post-content h2,
+        .container .qii-post-content h3,
+        .container .qii-post-content h4{
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            max-width: 65em;
+            border: 1px solid #dedede;
+            margin: 15px auto;
+            border-collapse: collapse;
+            empty-cells: show;
+        }
+
+        table th,
+        table td {
+          height: 35px;
+          border: 1px solid #dedede;
+          padding: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-inverse-- qii-navbar ">
+        <div class="container">
+
+            <div class="navbar-header">
+                <div class="qii-icon-container">
+                    <a id="qii-icon-a" class="navbar-brand" href="/"></a>
+                </div>
+
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#qii-navbar-collapse" aria-controls="bs-navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse collapse" id="qii-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li name="home"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+                    <li name="github"><a href="https://github.com/qishibo/" target="blank">Github</a></li>
+                    <li name="weibo"><a href="http://weibo.com/shiboooo?profile_ftype=1&is_hot=1" target="blank">Weibo</a></li>
+                    <li name="about"><a href="/about">About</a></li>
+                </ul>
+
+                <!-- <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search Google">
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form> -->
+
+            </div>
+        </div>
+    </nav>
+
+<style type="text/css">
+    .qii-top-desc .jumbotron{
+        color: white;
+
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#563d7c),to(#6f5499));
+        background-image: -webkit-linear-gradient(top,#563d7c 0,#6f5499 100%);
+        background-image: -o-linear-gradient(top,#563d7c 0,#6f5499 100%);
+        background-image: linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0);
+        background-repeat: repeat-x;
+
+        padding: 30px 0;
+    }
+
+    .qii-top-desc .post-title{
+        margin-right: 20%;
+    }
+    .qii-top-desc .post-desc{
+        font-size: 22px;
+        font-weight: 300;
+        margin-right: 20%;
+        color: #cdbfe3;
+        text-shadow: 0 1px 0 rgba(0,0,0,.1);
+    }
+    .qii-top-desc .post-date{
+        color: #e3ddec;
+    }
+
+
+    .qii-post-content{
+        min-height: 45%;
+        font-size: 125%;
+        line-height: 1.6;
+    }
+</style>
+
+<header class="qii-top-desc">
+    <div class="jumbotron">
+        <div class="container">
+            <h2 class="post-title">php使用exec导致结果叠加的坑</h2>
+            <p class="post-desc">关于php在使用exec函数时结果叠加的坑</p>
+            
+            <span class="post-date">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <!-- <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> -->
+                <span>2016-09-26</span>
+            </span>
+            
+        </div>
+    </div>
+</header>
+
+<!-- content -->
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="qii-post-content">
+                <p>今天用php在后台跑一些常规任务的时候使用到了exec函数，它用来执行Linux系统函数进行相关统计，如<code class="highlighter-rouge">exec("ls -l")</code>，但是却发生了很诡异的问题，真的是特别诡异的问题，首先看下面这段代码</p>
+
+<h2 id="section">问题引入</h2>
+
+<div class="language-php highlighter-rouge"><pre class="codehilite"><code><span class="nv">$shell</span> <span class="o">=</span> <span class="s1">'date'</span><span class="p">;</span>
+
+<span class="c1"># 执行Linux下的 date 命令，输出当前日期
+</span><span class="nb">exec</span><span class="p">(</span><span class="nv">$shell</span><span class="p">,</span> <span class="nv">$result</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$result</span><span class="p">);</span>
+
+<span class="c1">//结果如下：
+</span><span class="k">array</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=&gt;</span>
+  <span class="nx">string</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="s2">"2016年 09月 29日 星期四 21:44:20 CST"</span>
+<span class="p">}</span>
+
+<span class="nv">$shell</span> <span class="o">=</span> <span class="s1">'echo "1\n2\n3"'</span><span class="p">;</span>
+
+<span class="nb">exec</span><span class="p">(</span><span class="nv">$shell</span><span class="p">,</span> <span class="nv">$result</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$result</span><span class="p">);</span>
+
+<span class="c1">// 按理说结果应该应该如下啊，exec会把shell执行的结果每一行作为一个数组元素最终赋值给$result
+// 期望值
+</span><span class="k">array</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=&gt;</span>
+  <span class="nx">string</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="s2">"1"</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=&gt;</span>
+  <span class="nx">string</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="s2">"2"</span>
+  <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=&gt;</span>
+  <span class="nx">string</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="s2">"3"</span>
+<span class="p">}</span>
+
+<span class="c1">// 但最终结果却是下面的结果：
+</span><span class="k">array</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=&gt;</span>
+  <span class="nx">string</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="s2">"2016年 09月 29日 星期四 21:44:20 CST"</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=&gt;</span>
+  <span class="nx">string</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="s2">"1"</span>
+  <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=&gt;</span>
+  <span class="nx">string</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="s2">"2"</span>
+  <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=&gt;</span>
+  <span class="nx">string</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="s2">"3"</span>
+<span class="p">}</span>
+
+</code></pre></div>
+
+<blockquote>
+  <p>你大概能够看明白发生什么了吧，对，exec会将结果<code class="highlighter-rouge">追加</code>到<code class="highlighter-rouge">$result</code>中去！
+<br />每执行一次exec都会将新的结果追加进去！所以最终 $result 的结果并不是你想要的单纯的123，而是在之前 date 的基础上追加了123！</p>
+</blockquote>
+
+<h2 id="section-1">情景复现</h2>
+
+<p>所以，我当时<code class="highlighter-rouge">依赖exec执行结果</code>进行逻辑处理时，下面的代码是会出坑的</p>
+
+<p>假设：</p>
+
+<blockquote>
+  <ol>
+    <li>我们对shell输出结果进行处理和使用</li>
+    <li>执行的shell命令会把结果输出为一行，如 wc -l</li>
+    <li>那么exec的结果$result就是一个数组，并且只包含一个元素，就是输出的数据行</li>
+    <li>我们取<code class="highlighter-rouge">$result[0]</code>就是需要的shell命令执行结果</li>
+  </ol>
+</blockquote>
+
+<div class="language-php highlighter-rouge"><pre class="codehilite"><code><span class="nv">$shell</span> <span class="o">=</span> <span class="s1">'date'</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">exec</span><span class="p">(</span><span class="nv">$shell</span><span class="p">,</span> <span class="nv">$result</span><span class="p">);</span>
+    <span class="nb">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 模拟每次时间不同，shell结果不同
+</span>
+    <span class="c1">// 这里是我们对输出结果进行处理和使用
+</span>    <span class="c1">// 假设我们的shell会把结果输出为一行，打印到屏幕上
+</span>    <span class="c1">// 那么 $result 数组应该就只包含一个元素，就是输出的数据行
+</span>    <span class="c1">// 我们取 $result[0] 就是需要的结果
+</span>
+    <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$result</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// 假设这里是对结果的应用，后续依据这个进行其他操作
+</span><span class="p">}</span>
+
+</code></pre></div>
+
+<p>你知道结果是啥么？竟然是这个:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="codehilite"><code>
+string<span class="o">(</span>42<span class="o">)</span> <span class="s2">"2016年 09月 29日 星期四 22:02:26 CST"</span>
+string<span class="o">(</span>42<span class="o">)</span> <span class="s2">"2016年 09月 29日 星期四 22:02:26 CST"</span>
+string<span class="o">(</span>42<span class="o">)</span> <span class="s2">"2016年 09月 29日 星期四 22:02:26 CST"</span>
+
+</code></pre></div>
+
+<p>为啥是一样的呢！！至少每个结果不一样，应该每个多一秒才对吧！！</p>
+
+<h3 id="section-2">过程分析</h3>
+
+<p>循环执行第一次时， $result是</p>
+
+<div class="language-shell highlighter-rouge"><pre class="codehilite"><code>array<span class="o">(</span>3<span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span>0]<span class="o">=</span>&gt;
+  string<span class="o">(</span>42<span class="o">)</span> <span class="s2">"2016年 09月 29日 星期四 22:02:26 CST"</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>第二次时</p>
+
+<div class="language-shell highlighter-rouge"><pre class="codehilite"><code>array<span class="o">(</span>3<span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span>0]<span class="o">=</span>&gt;
+  string<span class="o">(</span>42<span class="o">)</span> <span class="s2">"2016年 09月 29日 星期四 22:02:26 CST"</span>
+  <span class="o">[</span>1]<span class="o">=</span>&gt;
+  string<span class="o">(</span>42<span class="o">)</span> <span class="s2">"2016年 09月 29日 星期四 22:02:27 CST"</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>第三次时</p>
+
+<div class="language-shell highlighter-rouge"><pre class="codehilite"><code>array<span class="o">(</span>3<span class="o">)</span> <span class="o">{</span>
+  <span class="o">[</span>0]<span class="o">=</span>&gt;
+  string<span class="o">(</span>42<span class="o">)</span> <span class="s2">"2016年 09月 29日 星期四 22:02:26 CST"</span>
+  <span class="o">[</span>1]<span class="o">=</span>&gt;
+  string<span class="o">(</span>42<span class="o">)</span> <span class="s2">"2016年 09月 29日 星期四 22:02:27 CST"</span>
+  <span class="o">[</span><span class="nv">12</span><span class="o">=</span>&gt;
+  string<span class="o">(</span>42<span class="o">)</span> <span class="s2">"2016年 09月 29日 星期四 22:02:28 CST"</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>分析一下，就是因为exec每次将结果追加到 $result 中导致的，每次循环shell执行的结果都追加在 $result 的尾部，然后我们每次用 <code class="highlighter-rouge">$result[0]</code>作为预期数据时，实际上每次取的永远是第一次exec的结果，而不是我们想要的后面执行的而结果 囧~</p>
+
+<hr />
+
+<h3 id="section-3">解决方法</h3>
+
+<p>实际上 <a href="http://php.net/manual/zh/function.exec.php">php.net</a> 上官方已经明显的标注了，还是没认真读文档的锅</p>
+
+<blockquote>
+  <p>如果提供了 output 参数， 那么会用命令执行的输出填充此数组， 每行输出填充数组中的一个元素。 数组中的数据不包含行尾的空白字符，例如 \n 字符。 请注意，如果数组中已经包含了部分元素，exec() 函数会<strong>在数组末尾追加内容</strong>。如果你不想在数组末尾进行追加， 请在传入 exec() 函数之前 对数组使用 unset() 函数进行重置。</p>
+</blockquote>
+
+<h4 id="section-4">方法1</h4>
+<p>如果要多次使用exec的值，那么每次在exec之前清空$result即可</p>
+
+<div class="language-php highlighter-rouge"><pre class="codehilite"><code><span class="c1">// 每次使用 $result 进行unset清空操作
+</span><span class="nb">unset</span><span class="p">(</span><span class="nv">$result</span><span class="p">);</span>
+<span class="nb">exec</span><span class="p">(</span><span class="nv">$shell</span><span class="p">,</span> <span class="nv">$result</span><span class="p">);</span>
+</code></pre></div>
+
+<h4 id="section-5">方法2</h4>
+
+<p>但其实还有更简单的方法，直接用 <code class="highlighter-rouge">shell_exec</code> 也行，shell_exec不会有类似追加问题，直接将标准输出赋值到 $result 中</p>
+
+<div class="language-php highlighter-rouge"><pre class="codehilite"><code><span class="nv">$result</span> <span class="o">=</span> <span class="nb">shell_exec</span><span class="p">(</span><span class="nv">$shell</span><span class="p">);</span>
+</code></pre></div>
+
+
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <!-- this is COL-MD-22222, for some contents -->
+        </div>
+    </div>
+
+</div>
+
+<!-- donate -->
+<style type="text/css">
+    .page-donate{
+        margin-top: 20px;
+    }
+    .page-donate img{
+        width: 20%;
+        min-width: 100px;
+        max-width: 200px;
+        margin-right: 10px;
+    }
+</style>
+
+<div class="page-donate container">
+    <hr>
+    <p>觉得不错？ 哈哈 感谢赏个键盘磨损钱~（左微信 右支付宝）</p>
+    <img class="wechat-donate" src="http://ww1.sinaimg.cn/large/71405cably1fchwyguheej208c08c0up" alt="wechat 8.8" />
+    <img class="alipay-donate" src="http://ww1.sinaimg.cn/large/71405cably1fchwyguitnj208c08c0uv" alt="alipay 8.8" />
+</div>
+
+
+<!-- comments -->
+
+    <div class="page-comments container" style="margin-top: 50px;">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDMyMS82ODc2">
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+
+
+
+<style type="text/css">
+    .footer-contact {
+        padding: 15px 0;
+        margin-top: 40px;
+        text-align: center;
+        background-color: #f5f5f5;
+        border-top: 1px solid #eee;
+    }
+
+    .footer-contact .contact-list {
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+    .footer-contact .contact-list li {
+        display: inline-block;
+        line-height: 1;
+    }
+
+    .footer-contact .contact-list li a {
+        color: #555;
+    }
+
+    .footer-contact .contact-list>li+li:before {
+        padding: 0 10px;
+        color: #ccc;
+        content: "|";
+    }
+
+    .footer-contact .contact-list li .fa {
+        font-size: 16px;
+        margin-right: 3px;
+    }
+</style>
+
+<footer class="footer-contact">
+    <div class="container">
+        <ul class="contact-list">
+            <li>
+                <!-- count pv-->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259354296'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1259354296%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+            </li>
+            <li>
+                <a href="mailto:qii404@126.com" title="email">
+                    <i class="fa fa-envelope-o"></i> Email To Me
+                </a>
+            </li>
+            <li>
+                <a href="http://weibo.com/shiboooo?profile_ftype=1&is_hot=1" title="新浪微博" target="_blank">
+                    <i class="fa fa-weibo"></i> 新浪微博：@齐士博
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/qishibo/" title="GitHub" target="_blank">
+                    <i class="fa fa-github-square"></i> GitHub
+                </a>
+            </li>
+            <li>
+                <i class="fa fa-heart-o" ></i>Powered by Github
+            </li>
+        </ul>
+    </div>
+</footer>
+
+<script type="text/javascript" src='https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js'></script>
+<script type="text/javascript" src='/assets/js/icon.js'></script>
+<script type="text/javascript" src='https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+
+<script type="text/javascript">
+    $(function(){
+        var pre_menu_hight = "";
+        if (pre_menu_hight) {
+            $('#qii-navbar-collapse li[name="' + pre_menu_hight + '"]').addClass('active');
+        }
+    })
+
+</script>
+
+
+<!-- code view highlight -->
+<link href="/assets/css/syntax/github.css" rel="stylesheet">
+
+
+
+
+
+</body>
+</html>
+

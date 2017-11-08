@@ -1,0 +1,442 @@
+<!--
+     created by shibo, 2015-04-23 19:23:32.
+     Copyright (c) qii404@126.com All Rights Reserved.
+     代码何苦为难码农...
+
+                 #####################################################
+                 #                                                   #
+                 #                       _oo0oo_                     #
+                 #                      o8888888o                    #
+                 #                      88" . "88                    #
+                 #                      (| -_- |)                    #
+                 #                      0\  =  /0                    #
+                 #                    ___/`---'\___                  #
+                 #                  .' \\|     |# '.                 #
+                 #                 / \\|||  :  |||# \                #
+                 #                / _||||| -:- |||||- \              #
+                 #               |   | \\\  -  #/ |   |              #
+                 #               | \_|  ''\---/''  |_/ |             #
+                 #               \  .-\__  '-'  ___/-. /             #
+                 #             ___'. .'  /--.--\  `. .'___           #
+                 #          ."" '<  `.___\_<|>_/___.' >' "".         #
+                 #         | | :  `- \`.;`\ _ /`;.`/ - ` : | |       #
+                 #         \  \ `_.   \_ __\ /__ _/   .-` /  /       #
+                 #     =====`-.____`.___ \_____/___.-`___.-'=====    #
+                 #                       `=---='                     #
+                 #     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   #
+                 #                                                   #
+                 #               佛祖保佑         永无BUG              #
+                 #                                                   #
+                 #####################################################
+ -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+
+    <meta name="keywords" content="google hosts, 科学上网, 翻墙">
+    <meta name="description" content="教你用最简单的方法实现科学上网">
+
+    <meta name="author" content="齐士博">
+
+    <meta property="og:title" content="手把手教你科学上网(翻墙)" />
+    <meta property="og:type" content="IT Blog" />
+
+    <link rel="shortcut icon" href="/assets/img/icon48.ico">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+    
+
+    <title>手把手教你科学上网(翻墙)</title>
+
+    <style type="text/css">
+        .container{
+            max-width: 1050px;
+        }
+        .qii-navbar{
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        .qii-navbar .qii-icon-container{
+            width: 53px;
+        }
+
+        .qii-navbar .qii-icon-container img{
+            margin-top: -8px;
+        }
+
+        .container .qii-post-content img{
+            width: 80%;
+            max-width: 100%;
+            margin-top: 8px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border:2px solid lightgrey;
+        }
+        .container .qii-post-content h2,
+        .container .qii-post-content h3,
+        .container .qii-post-content h4{
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            max-width: 65em;
+            border: 1px solid #dedede;
+            margin: 15px auto;
+            border-collapse: collapse;
+            empty-cells: show;
+        }
+
+        table th,
+        table td {
+          height: 35px;
+          border: 1px solid #dedede;
+          padding: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-inverse-- qii-navbar ">
+        <div class="container">
+
+            <div class="navbar-header">
+                <div class="qii-icon-container">
+                    <a id="qii-icon-a" class="navbar-brand" href="/"></a>
+                </div>
+
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#qii-navbar-collapse" aria-controls="bs-navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse collapse" id="qii-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li name="home"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+                    <li name="github"><a href="https://github.com/qishibo/" target="blank">Github</a></li>
+                    <li name="weibo"><a href="http://weibo.com/shiboooo?profile_ftype=1&is_hot=1" target="blank">Weibo</a></li>
+                    <li name="about"><a href="/about">About</a></li>
+                </ul>
+
+                <!-- <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search Google">
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form> -->
+
+            </div>
+        </div>
+    </nav>
+
+<style type="text/css">
+    .qii-top-desc .jumbotron{
+        color: white;
+
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#563d7c),to(#6f5499));
+        background-image: -webkit-linear-gradient(top,#563d7c 0,#6f5499 100%);
+        background-image: -o-linear-gradient(top,#563d7c 0,#6f5499 100%);
+        background-image: linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0);
+        background-repeat: repeat-x;
+
+        padding: 30px 0;
+    }
+
+    .qii-top-desc .post-title{
+        margin-right: 20%;
+    }
+    .qii-top-desc .post-desc{
+        font-size: 22px;
+        font-weight: 300;
+        margin-right: 20%;
+        color: #cdbfe3;
+        text-shadow: 0 1px 0 rgba(0,0,0,.1);
+    }
+    .qii-top-desc .post-date{
+        color: #e3ddec;
+    }
+
+
+    .qii-post-content{
+        min-height: 45%;
+        font-size: 125%;
+        line-height: 1.6;
+    }
+</style>
+
+<header class="qii-top-desc">
+    <div class="jumbotron">
+        <div class="container">
+            <h2 class="post-title">手把手教你科学上网(翻墙)</h2>
+            <p class="post-desc">教你用最简单的方法实现科学上网</p>
+            
+            <span class="post-date">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <!-- <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> -->
+                <span>2015-11-09</span>
+            </span>
+            
+        </div>
+    </div>
+</header>
+
+<!-- content -->
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="qii-post-content">
+                <p>我们生活在一面看不见的墙里，这面墙似有似无，似是而非，朦胧而又强大。好像一扇囚笼，让以为这就是世界的我们，惬意安然的活着。</p>
+
+<p>好了，不扯了，上面是我胡乱编的。</p>
+
+<p>对于互联网工作者而言，我们创新(chaoxi)、编程(zhantie)的时候可能都会需要看一看外面的世界，看看别人是怎么想的，别人是什么样子的，这时候，科学上网就成为了每个人所要掌握的必备技能，下面就说说到底怎么实现。</p>
+
+<hr />
+
+<h1 id="goagent">goagent</h1>
+<blockquote>
+  <p>host翻墙，用成本最低，配置最简单的方式实现科学上网，写给新人</p>
+</blockquote>
+
+<hr />
+
+<p>实现原理(其实挺low的): 从github上下载google host，然后写到系统hosts中，这样浏览器访问google、facebook等网站时就不会走 DNS 去外面寻址，直接读取 hosts 中的ip实现访问了</p>
+
+<p><em>所以，基于原理，你完全可以自己翻墙，自己实现hosts写入：</em></p>
+
+<ol>
+  <li>
+    <p><strong>Mac or Linux</strong>: 从<a href="https://raw.githubusercontent.com/racaljk/hosts/master/hosts">GitHub</a>下载hosts，复制所有内容到<code class="highlighter-rouge">/etc/hosts</code>即可
+<em>【需要sudo权限，可以sudo vim /etc/hosts, 把内容粘进去即可】</em></p>
+  </li>
+  <li>
+    <p><strong>Windows</strong>: 从<a href="https://raw.githubusercontent.com/racaljk/hosts/master/hosts">GitHub</a>下载hosts，复制所有内容到<code class="highlighter-rouge">C:\Windows\System32\drivers\etc\hosts</code>即可
+<em>【写入时需要管理员权限，所以我一般先用管理员打开记事本，然后记事本再打开c盘中这个host文件，再粘贴保存就好了】</em></p>
+  </li>
+  <li>
+    <p>访问<code class="highlighter-rouge">google.com</code>   <code class="highlighter-rouge">facebook.com</code>   <code class="highlighter-rouge">twitter.com</code>    <code class="highlighter-rouge">gmail.com</code> 试试吧☺</p>
+  </li>
+</ol>
+
+<hr />
+
+<h4 id="github-goagenthttpsgithubcomqishibogoagenttargetblank-star">知道了原理，其实我们可以写个脚本，替我们实现上面的过程，其实我已经实现了，见<a href="https://github.com/qishibo/goagent" target="_blank">GitHub GoAgent</a> ，不明白的直接点进去看即可，欢迎star~</h4>
+
+<h4 id="mac--linux">Mac &amp;&amp; Linux脚本：</h4>
+
+<div class="language-shell highlighter-rouge"><pre class="codehilite"><code><span class="c">#google host update shell for Mac and Linux</span>
+
+<span class="c">#原理: 从github上下载google host，然后写到/etc/hosts中</span>
+
+<span class="c">#下载的脚本默认是没有执行权限的，所以先 sudo chmod +x forMacAndLinux.sh</span>
+
+curl <span class="s1">'https://raw.githubusercontent.com/racaljk/hosts/master/hosts'</span> -o <span class="nv">$HOME</span>/fetchedhosts
+
+sudo mv <span class="nv">$HOME</span>/fetchedhosts /etc/hosts
+
+rm -f <span class="nv">$HOME</span>/fetchedhosts
+
+<span class="nb">echo</span> <span class="s2">"finish......"</span>
+
+</code></pre></div>
+
+<h4 id="windows">Windows脚本：</h4>
+
+<div class="language-powershell highlighter-rouge"><pre class="codehilite"><code>::google host update shell <span class="k">for </span>Windows
+
+::原理: 从github上下载google host，然后写到C:<span class="se">\W</span>indows<span class="se">\S</span>ystem32<span class="se">\d</span>rivers<span class="se">\e</span>tc<span class="se">\h</span>osts中
+
+::windows没有自带的脚本工具，所以需要先安装git bash来补充上这些工具
+::git bash 下载地址 https://git-scm.com/download 选择版本 安装
+::之后将git安装目录下的usr<span class="se">\b</span>in文件夹添加到环境变量中的path属性，可自行百度如何添加环境变量
+
+::在该脚本上右键，以管理员身份运行即可
+
+<span class="nb">curl</span> -O https://raw.githubusercontent.com/racaljk/hosts/master/hosts
+
+<span class="nb">cat </span>hosts &gt; C:<span class="se">\W</span>indows<span class="se">\S</span>ystem32<span class="se">\d</span>rivers<span class="se">\e</span>tc<span class="se">\h</span>osts
+
+<span class="nb">rm </span>hosts
+
+<span class="nb">echo</span> <span class="s1">'如果提示curl、cat等命令找不到，请先阅读该脚本顶部的注释部分，如果正常请忽略'</span>
+
+pause
+
+</code></pre></div>
+
+<h4 id="section">需要注意的点：</h4>
+
+<ol>
+  <li>
+    <p>Mac &amp;&amp; Linux 用户，需要先给脚本执行权限 <code class="highlighter-rouge">sudo chmod +x forMacAndLinux.sh</code>【仅第一次需要】,然后每次<code class="highlighter-rouge">./forMacAndLinux.sh</code>即可</p>
+  </li>
+  <li>
+    <p>Windows用户，这个，，不好办了，所以推荐安装git bash，他会补全一些windows中没有的工具，然后再管理员执行bat脚本即可</p>
+    <ol>
+      <li><code class="highlighter-rouge">git bash</code> 下载地址 https://git-scm.com/download 选择版本 安装</li>
+      <li>之后将git安装目录下的<code class="highlighter-rouge">usr\bin</code>文件夹添加到环境变量中的<code class="highlighter-rouge">path</code>属性，可自行百度如何添加环境变量</li>
+      <li>在脚本<code class="highlighter-rouge">fowWindows.bat</code>上右键，以管理员身份运行即可</li>
+    </ol>
+  </li>
+</ol>
+
+
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <!-- this is COL-MD-22222, for some contents -->
+        </div>
+    </div>
+
+</div>
+
+<!-- donate -->
+<style type="text/css">
+    .page-donate{
+        margin-top: 20px;
+    }
+    .page-donate img{
+        width: 20%;
+        min-width: 100px;
+        max-width: 200px;
+        margin-right: 10px;
+    }
+</style>
+
+<div class="page-donate container">
+    <hr>
+    <p>觉得不错？ 哈哈 感谢赏个键盘磨损钱~（左微信 右支付宝）</p>
+    <img class="wechat-donate" src="http://ww1.sinaimg.cn/large/71405cably1fchwyguheej208c08c0up" alt="wechat 8.8" />
+    <img class="alipay-donate" src="http://ww1.sinaimg.cn/large/71405cably1fchwyguitnj208c08c0uv" alt="alipay 8.8" />
+</div>
+
+
+<!-- comments -->
+
+    <div class="page-comments container" style="margin-top: 50px;">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDMyMS82ODc2">
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+
+
+
+<style type="text/css">
+    .footer-contact {
+        padding: 15px 0;
+        margin-top: 40px;
+        text-align: center;
+        background-color: #f5f5f5;
+        border-top: 1px solid #eee;
+    }
+
+    .footer-contact .contact-list {
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+    .footer-contact .contact-list li {
+        display: inline-block;
+        line-height: 1;
+    }
+
+    .footer-contact .contact-list li a {
+        color: #555;
+    }
+
+    .footer-contact .contact-list>li+li:before {
+        padding: 0 10px;
+        color: #ccc;
+        content: "|";
+    }
+
+    .footer-contact .contact-list li .fa {
+        font-size: 16px;
+        margin-right: 3px;
+    }
+</style>
+
+<footer class="footer-contact">
+    <div class="container">
+        <ul class="contact-list">
+            <li>
+                <!-- count pv-->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259354296'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1259354296%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+            </li>
+            <li>
+                <a href="mailto:qii404@126.com" title="email">
+                    <i class="fa fa-envelope-o"></i> Email To Me
+                </a>
+            </li>
+            <li>
+                <a href="http://weibo.com/shiboooo?profile_ftype=1&is_hot=1" title="新浪微博" target="_blank">
+                    <i class="fa fa-weibo"></i> 新浪微博：@齐士博
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/qishibo/" title="GitHub" target="_blank">
+                    <i class="fa fa-github-square"></i> GitHub
+                </a>
+            </li>
+            <li>
+                <i class="fa fa-heart-o" ></i>Powered by Github
+            </li>
+        </ul>
+    </div>
+</footer>
+
+<script type="text/javascript" src='https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js'></script>
+<script type="text/javascript" src='/assets/js/icon.js'></script>
+<script type="text/javascript" src='https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+
+<script type="text/javascript">
+    $(function(){
+        var pre_menu_hight = "";
+        if (pre_menu_hight) {
+            $('#qii-navbar-collapse li[name="' + pre_menu_hight + '"]').addClass('active');
+        }
+    })
+
+</script>
+
+
+<!-- code view highlight -->
+<link href="/assets/css/syntax/github.css" rel="stylesheet">
+
+
+
+
+
+</body>
+</html>
+

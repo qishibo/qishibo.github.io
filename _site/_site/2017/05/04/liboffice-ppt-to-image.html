@@ -1,0 +1,486 @@
+<!--
+     created by shibo, 2015-04-23 19:23:32.
+     Copyright (c) qii404@126.com All Rights Reserved.
+     代码何苦为难码农...
+
+                 #####################################################
+                 #                                                   #
+                 #                       _oo0oo_                     #
+                 #                      o8888888o                    #
+                 #                      88" . "88                    #
+                 #                      (| -_- |)                    #
+                 #                      0\  =  /0                    #
+                 #                    ___/`---'\___                  #
+                 #                  .' \\|     |# '.                 #
+                 #                 / \\|||  :  |||# \                #
+                 #                / _||||| -:- |||||- \              #
+                 #               |   | \\\  -  #/ |   |              #
+                 #               | \_|  ''\---/''  |_/ |             #
+                 #               \  .-\__  '-'  ___/-. /             #
+                 #             ___'. .'  /--.--\  `. .'___           #
+                 #          ."" '<  `.___\_<|>_/___.' >' "".         #
+                 #         | | :  `- \`.;`\ _ /`;.`/ - ` : | |       #
+                 #         \  \ `_.   \_ __\ /__ _/   .-` /  /       #
+                 #     =====`-.____`.___ \_____/___.-`___.-'=====    #
+                 #                       `=---='                     #
+                 #     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   #
+                 #                                                   #
+                 #               佛祖保佑         永无BUG              #
+                 #                                                   #
+                 #####################################################
+ -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+
+    <meta name="keywords" content="ppt转图片, ppt to image, libreoffice">
+    <meta name="description" content="基于libreoffice，将ppt文件转换为图片格式，同理可以将word转换为图片">
+
+    <meta name="author" content="齐士博">
+
+    <meta property="og:title" content="命令行下 将PPT文件转换为图片" />
+    <meta property="og:type" content="IT Blog" />
+
+    <link rel="shortcut icon" href="/assets/img/icon48.ico">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+    
+
+    <title>命令行下 将PPT文件转换为图片</title>
+
+    <style type="text/css">
+        .container{
+            max-width: 1050px;
+        }
+        .qii-navbar{
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        .qii-navbar .qii-icon-container{
+            width: 53px;
+        }
+
+        .qii-navbar .qii-icon-container img{
+            margin-top: -8px;
+        }
+
+        .container .qii-post-content img{
+            width: 80%;
+            max-width: 100%;
+            margin-top: 8px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border:2px solid lightgrey;
+        }
+        .container .qii-post-content h2,
+        .container .qii-post-content h3,
+        .container .qii-post-content h4{
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            max-width: 65em;
+            border: 1px solid #dedede;
+            margin: 15px auto;
+            border-collapse: collapse;
+            empty-cells: show;
+        }
+
+        table th,
+        table td {
+          height: 35px;
+          border: 1px solid #dedede;
+          padding: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-inverse-- qii-navbar ">
+        <div class="container">
+
+            <div class="navbar-header">
+                <div class="qii-icon-container">
+                    <a id="qii-icon-a" class="navbar-brand" href="/"></a>
+                </div>
+
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#qii-navbar-collapse" aria-controls="bs-navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse collapse" id="qii-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li name="home"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+                    <li name="github"><a href="https://github.com/qishibo/" target="blank">Github</a></li>
+                    <li name="weibo"><a href="http://weibo.com/shiboooo?profile_ftype=1&is_hot=1" target="blank">Weibo</a></li>
+                    <li name="about"><a href="/about">About</a></li>
+                </ul>
+
+                <!-- <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search Google">
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form> -->
+
+            </div>
+        </div>
+    </nav>
+
+<style type="text/css">
+    .qii-top-desc .jumbotron{
+        color: white;
+
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#563d7c),to(#6f5499));
+        background-image: -webkit-linear-gradient(top,#563d7c 0,#6f5499 100%);
+        background-image: -o-linear-gradient(top,#563d7c 0,#6f5499 100%);
+        background-image: linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0);
+        background-repeat: repeat-x;
+
+        padding: 30px 0;
+    }
+
+    .qii-top-desc .post-title{
+        margin-right: 20%;
+    }
+    .qii-top-desc .post-desc{
+        font-size: 22px;
+        font-weight: 300;
+        margin-right: 20%;
+        color: #cdbfe3;
+        text-shadow: 0 1px 0 rgba(0,0,0,.1);
+    }
+    .qii-top-desc .post-date{
+        color: #e3ddec;
+    }
+
+
+    .qii-post-content{
+        min-height: 45%;
+        font-size: 125%;
+        line-height: 1.6;
+    }
+</style>
+
+<header class="qii-top-desc">
+    <div class="jumbotron">
+        <div class="container">
+            <h2 class="post-title">命令行下 将PPT文件转换为图片</h2>
+            <p class="post-desc">基于libreoffice，将ppt文件转换为图片格式，同理可以将word转换为图片</p>
+            
+            <span class="post-date">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <!-- <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> -->
+                <span>2017-05-04</span>
+            </span>
+            
+        </div>
+    </div>
+</header>
+
+<!-- content -->
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="qii-post-content">
+                <p>之前做需求的时候有这么一个，输入是一个ppt文件，要求输出是每页ppt的图片格式，相当于把ppt分页转换为图片，然后图片再做后续的逻辑处理。如果在window下或者说有office的情况下，手动执行太简单，文件-&gt;导出为图片 即可实现，可视化操作，那么问题是我这个功能要作为服务运行，在非人工干预的情况下，所有操作都要由脚本实现，所以折腾了一下，这里记录下来。</p>
+
+<h2 id="section">使用工具</h2>
+<ol>
+  <li>
+    <h4 id="libreoffice">libreoffice</h4>
+    <blockquote>
+      <p>官网 <a href="https://zh-cn.libreoffice.org/">https://zh-cn.libreoffice.org/</a><br />
+OpenOffice的现代衍生品，一个全平台下的office套件，支持命令行调用</p>
+    </blockquote>
+  </li>
+  <li>
+    <h4 id="convert">convert</h4>
+    <blockquote>
+      <p>官网 <a href="http://www.imagemagick.org/script/">http://www.imagemagick.org/script/</a><br />
+ImageMagick 下的工具之一<br />
+其实ImageMagick这货强大的狠，各种图片转换、调整…绝对不止本文用到的这点</p>
+    </blockquote>
+  </li>
+  <li>
+    <h4 id="section-1">思路</h4>
+    <blockquote>
+      <p>首先用libreoffice将ppt转换为pdf格式，然后再用convert将pdf转换为图片</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h2 id="section-2">工具安装</h2>
+<ol>
+  <li>
+    <h4 id="libreoffice-1">libreoffice</h4>
+
+    <p><em>Mac下</em>：</p>
+    <ol>
+      <li>App Store 搜索<code class="highlighter-rouge">libreoffice</code>安装。和下面的方法2任选其一<br /></li>
+      <li><code class="highlighter-rouge">brew cask install libreoffice</code> 至于cask，请自行安装 <a href="https://caskroom.github.io/">https://caskroom.github.io/</a><br /></li>
+      <li><code class="highlighter-rouge">brew install ghostscript</code> 这是Mac下额外要安装的gs库<br />
+<br /></li>
+    </ol>
+
+    <p><em>Linux 下</em>：</p>
+    <ol>
+      <li>下载rpm | deb包 ，下载地址<a href="https://zh-cn.libreoffice.org/download/libreoffice-still/?version=5.2&amp;lang=zh-CN#change">https://zh-cn.libreoffice.org/download/</a>，自行选择对应版本</li>
+      <li>
+        <p>Debian/Ubuntu系统 (.deb包):</p>
+
+        <p><code class="highlighter-rouge">bash
+ /*解压 如果版本号不同请自行更改文件名*/
+ tar -zxvf LibreOffice_5.2.6_Linux_x86-64_deb.tar.gz
+ /* 安装主安装程序的所有deb包 */
+ $ sudo dpkg -i ./LibreOffice_5.2.6.2_Linux_x86-64_rpm/DEBS/*.deb
+</code></p>
+      </li>
+      <li>
+        <p>Fedora/SUSE/Mandriva系统 (.rpm包):</p>
+
+        <p><code class="highlighter-rouge">bash
+ /*解压 如果版本号不同请自行更改文件名*/
+ tar -zxvf LibreOffice_5.2.6_Linux_x86-64_rpm.tar.gz
+ /* 安装主安装程序的所有rpm包 */
+ $ sudo yum install ./LibreOffice_5.2.6.2_Linux_x86-64_rpm/RPMS/*.rpm
+</code></p>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <h4 id="convert-1">convert</h4>
+
+    <p><em>Mac下</em>：</p>
+
+    <p><code class="highlighter-rouge">bash
+ # 安装 imagemagick
+ brew install imagemagick
+</code></p>
+
+    <p><em>Linux下：</em></p>
+
+    <p>```bash
+ # 安装 imagemagick CentOS
+ sudo yum install ImageMagick</p>
+
+    <p># 如果是ubuntu
+ sudo apt-get install ImageMagick
+ ```</p>
+  </li>
+  <li>
+    <h4 id="section-3">安装验证</h4>
+    <blockquote>
+      <p>Tips: <code class="highlighter-rouge">soffice</code>命令在Linux下安装后可能没有被放到 /usr/local/bin 中，这时候应该执行如下操作</p>
+    </blockquote>
+
+    <p>```shell
+ # 手动更新locate数据库
+ sudo updatedb</p>
+
+    <p># 查找soffice命令安装位置 我的是在 /opt/libreoffice5.2/program/下
+ locate soffice</p>
+
+    <p># 在/usr/local/bin中建立软链，便于使用
+ ln -s /opt/libreoffice5.2/program/soffice /usr/local/bin/soffice
+ ```</p>
+
+    <p>开始验证</p>
+
+    <p>```bash
+ $ soffice -h</p>
+
+    <p># 看到如下输出即可
+ LibreOffice 5.2.6.2 a3100ed2409ebf1c212f5048fbe377c281438fdc</p>
+
+    <p>Usage: soffice [options] [documents…]</p>
+
+    <p>$ convert -h</p>
+
+    <p># 看到如下输出即可
+ Version: ImageMagick 6.7.2-7 2017-03-22 Q16 http://www.imagemagick.org
+ Copyright: Copyright (C) 1999-2011 ImageMagick Studio LLC
+ Features: OpenMP</p>
+
+    <p>Usage: convert [options …] file [ [options …] file …] [options …] file
+ ```</p>
+  </li>
+</ol>
+
+<h2 id="section-4">开始转换</h2>
+
+<h3 id="ppt---pdf">1. ppt -&gt; pdf</h3>
+
+<div class="language-shell highlighter-rouge"><pre class="codehilite"><code><span class="c"># 将ppt转换为pdf格式，理论上会再当前文件夹下生成同名sample.pdf</span>
+soffice --convert-to pdf:writer_pdf_Export sample.ppt
+</code></pre></div>
+
+<h3 id="pdf---jpg">2. pdf -&gt; jpg</h3>
+
+<div class="language-shell highlighter-rouge"><pre class="codehilite"><code><span class="c"># 将pdf文件的每一页存为jpg图片，会在当前文件夹下生成 sample-0.jpg sample-1.jpg ...</span>
+<span class="c"># 图片后缀的数字是ppt的页码索引</span>
+convert sample.pdf sample.jpg
+</code></pre></div>
+
+
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <!-- this is COL-MD-22222, for some contents -->
+        </div>
+    </div>
+
+</div>
+
+<!-- donate -->
+<style type="text/css">
+    .page-donate{
+        margin-top: 20px;
+    }
+    .page-donate img{
+        width: 20%;
+        min-width: 100px;
+        max-width: 200px;
+        margin-right: 10px;
+    }
+</style>
+
+<div class="page-donate container">
+    <hr>
+    <p>觉得不错？ 哈哈 感谢赏个键盘磨损钱~（左微信 右支付宝）</p>
+    <img class="wechat-donate" src="http://ww1.sinaimg.cn/large/71405cably1fchwyguheej208c08c0up" alt="wechat 8.8" />
+    <img class="alipay-donate" src="http://ww1.sinaimg.cn/large/71405cably1fchwyguitnj208c08c0uv" alt="alipay 8.8" />
+</div>
+
+
+<!-- comments -->
+
+    <div class="page-comments container" style="margin-top: 50px;">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDMyMS82ODc2">
+    <script type="text/javascript">
+       (function(d, s) {
+           var j, e = d.getElementsByTagName(s)[0];
+
+           if (typeof LivereTower === 'function') { return; }
+
+           j = d.createElement(s);
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+
+
+
+<style type="text/css">
+    .footer-contact {
+        padding: 15px 0;
+        margin-top: 40px;
+        text-align: center;
+        background-color: #f5f5f5;
+        border-top: 1px solid #eee;
+    }
+
+    .footer-contact .contact-list {
+        margin-bottom: 0;
+        padding-left: 0;
+    }
+    .footer-contact .contact-list li {
+        display: inline-block;
+        line-height: 1;
+    }
+
+    .footer-contact .contact-list li a {
+        color: #555;
+    }
+
+    .footer-contact .contact-list>li+li:before {
+        padding: 0 10px;
+        color: #ccc;
+        content: "|";
+    }
+
+    .footer-contact .contact-list li .fa {
+        font-size: 16px;
+        margin-right: 3px;
+    }
+</style>
+
+<footer class="footer-contact">
+    <div class="container">
+        <ul class="contact-list">
+            <li>
+                <!-- count pv-->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259354296'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1259354296%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+            </li>
+            <li>
+                <a href="mailto:qii404@126.com" title="email">
+                    <i class="fa fa-envelope-o"></i> Email To Me
+                </a>
+            </li>
+            <li>
+                <a href="http://weibo.com/shiboooo?profile_ftype=1&is_hot=1" title="新浪微博" target="_blank">
+                    <i class="fa fa-weibo"></i> 新浪微博：@齐士博
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/qishibo/" title="GitHub" target="_blank">
+                    <i class="fa fa-github-square"></i> GitHub
+                </a>
+            </li>
+            <li>
+                <i class="fa fa-heart-o" ></i>Powered by Github
+            </li>
+        </ul>
+    </div>
+</footer>
+
+<script type="text/javascript" src='https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js'></script>
+<script type="text/javascript" src='/assets/js/icon.js'></script>
+<script type="text/javascript" src='https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+
+<script type="text/javascript">
+    $(function(){
+        var pre_menu_hight = "";
+        if (pre_menu_hight) {
+            $('#qii-navbar-collapse li[name="' + pre_menu_hight + '"]').addClass('active');
+        }
+    })
+
+</script>
+
+
+<!-- code view highlight -->
+<link href="/assets/css/syntax/github.css" rel="stylesheet">
+
+
+
+
+
+</body>
+</html>
+
