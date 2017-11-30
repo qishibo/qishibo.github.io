@@ -38,3 +38,19 @@ cayley教程 基于 http://localhost:64210/docs/GremlinAPI  cayley mongo示例
 
     convert $pdf $3/`basename ${1%.*}`.$2
 
+
+
+https let's encrypt
+
+    git clone https://github.com/certbot/certbot
+    cd certbot
+    ./certbot-auto --help
+
+    ./certbot-auto certonly --webroot --agree-tos -v -t --email qii404@126.com -w /usr/share/nginx/html/air/public/ -d lanyundatong.com
+
+    nginx.conf
+    ssl on;
+    ssl_certificate "/etc/letsencrypt/live/lanyundatong.com/fullchain.pem";
+    ssl_certificate_key "/etc/letsencrypt/live/lanyundatong.com/privkey.pem";
+
+    service nginx reatart
