@@ -19,7 +19,7 @@ wkhtmltopdf
 
 官网的宣传图
 
-![官网的宣传图](http://ww4.sinaimg.cn/mw690/71405cabgw1f64wndz50ej20rs0b4ad1.jpg)
+![官网的宣传图](https://ww4.sinaimg.cn/mw690/71405cabgw1f64wndz50ej20rs0b4ad1.jpg)
 
 ## 用法简介
 

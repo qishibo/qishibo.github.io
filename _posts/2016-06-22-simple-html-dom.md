@@ -78,7 +78,7 @@ a: (refcount=2, is_ref=1)=array (
 
 图示：
 
-![image](http://php.net/manual/zh/images/12f37b1c6963c1c5c18f30495416a197-loop-array.png)
+![image](https://php.net/manual/zh/images/12f37b1c6963c1c5c18f30495416a197-loop-array.png)
 
 能看到数组变量 (a) 同时也是这个数组的第二个元素(1) 指向的变量容器中“refcount”为 2。上面的输出结果中的"..."说明发生了递归操作, 显然在这种情况下意味着"..."指向原始数组。
 
@@ -102,7 +102,7 @@ xdebug_debug_zval($a);
 
 跟刚刚一样，对一个变量调用unset，将删除这个符号，且它指向的变量容器中的引用次数也减1。所以，变量 $a 和数组元素 "1" 所指向的变量容器的引用次数减1, 从"2"变成"1". 下例可以说明:
 
-![image](http://php.net/manual/zh/images/12f37b1c6963c1c5c18f30495416a197-leak-array.png)
+![image](https://php.net/manual/zh/images/12f37b1c6963c1c5c18f30495416a197-leak-array.png)
 
 这样，其实$a变量已经不需要了，但是由于他的ref_count还是1，并不为0，对于php5.3以下的版本来说，单纯的引用计数垃圾回收认为这个变量还是有用的，所以不会被回收，内存也不会被释放。
 

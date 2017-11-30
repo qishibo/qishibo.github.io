@@ -28,8 +28,8 @@ tags: [hacker]
 <br>_只是模拟人工输入而已，所以只支持固定密码_
 <br>Perferences -> Profiles -> Advanced -> Triggers
 
-![Triggers](http://ww1.sinaimg.cn/large/71405cably1ffilg5rc04j20pg0fqtbg.jpg)
-![Password](http://ww1.sinaimg.cn/large/71405cably1ffilgcp2xrj20mc09wtaf.jpg)
+![Triggers](https://ww1.sinaimg.cn/large/71405cably1ffilg5rc04j20pg0fqtbg.jpg)
+![Password](https://ww1.sinaimg.cn/large/71405cably1ffilgcp2xrj20mc09wtaf.jpg)
 
 下次你 `ssh qishibo@10.10.10.10` 的时候，iTem就会自动输入122345\n，最后`\n`等价于Enter
 

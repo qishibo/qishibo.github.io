@@ -10,7 +10,7 @@ tags: [windows, wanna cry]
 5月12日侵袭全世界的“蠕虫式”勒索软件 WanaCry (也称作WannaCry或WanaCry0r 2.0)，已致中国部分行业企业内网、教育网大规模感染。这种病毒依靠美国国家安全局开发的核弹级侵入工具-深蓝  EternalBlue 在局域网内疯狂传播，即使没有连接外网也难以避免。也就是说，即使你没有点击病毒软件，只要和你一个局域网络的任何一个小白误点了病毒，那么整个网络内都会惨遭毒手。
 
 
-![wanna cry](http://ww1.sinaimg.cn/large/71405cably1ffn983v4hfj20dc0a0ab9.jpg)
+![wanna cry](https://ww1.sinaimg.cn/large/71405cably1ffn983v4hfj20dc0a0ab9.jpg)
 <!-- ![haha](http://wx3.sinaimg.cn/mw690/71405cably1ffjv7ta1rbj20m80l0jth.jpg){:style="width:40%"} -->
 
 ## 病毒传播原理
@@ -72,7 +72,7 @@ Windows Server 2003 SP2 x86: [https://www.microsoft.com/zh-CN/download/details.a
 ![高级设置](https://ws1.sinaimg.cn/large/71405cably1ffnjwb2xrmj20mp0c33zj.jpg)
 
 #### 4. 在“入站规则”上右键-“新建规则”
-![新建规则](http://ww1.sinaimg.cn/large/71405cably1ffnjen5w4hj20lq0gfjsr.jpg)
+![新建规则](https://ww1.sinaimg.cn/large/71405cably1ffnjen5w4hj20lq0gfjsr.jpg)
 
 #### 5. 选择“端口”
 ![端口](https://ws1.sinaimg.cn/large/71405cably1ffnjzswowzj20jr0etq31.jpg)
@@ -81,13 +81,13 @@ Windows Server 2003 SP2 x86: [https://www.microsoft.com/zh-CN/download/details.a
 ![输入 445，135，137，138，139](https://ws1.sinaimg.cn/large/71405cably1ffnk1go28ej20jo0eu74e.jpg)
 
 #### 7. 选择“阻止连接”
-![阻止连接](http://ww1.sinaimg.cn/large/71405cably1ffnjemyoa1j20k80f6glx.jpg)
+![阻止连接](https://ww1.sinaimg.cn/large/71405cably1ffnjemyoa1j20k80f6glx.jpg)
 
 #### 8. 默认选择三个域
-![默认选择三个域](http://ww1.sinaimg.cn/large/71405cably1ffnjemypkvj20k80f6dg2.jpg)
+![默认选择三个域](https://ww1.sinaimg.cn/large/71405cably1ffnjemypkvj20k80f6dg2.jpg)
 
 #### 9. 随便输入名称即可
-![输入名称](http://ww1.sinaimg.cn/large/71405cably1ffnjen1qbdj20k80f6t8u.jpg)
+![输入名称](https://ww1.sinaimg.cn/large/71405cably1ffnjen1qbdj20k80f6t8u.jpg)
 
 ### 关闭 SMB 文件共享
 
@@ -97,4 +97,4 @@ Windows Server 2003 SP2 x86: [https://www.microsoft.com/zh-CN/download/details.a
 #### 2. 取消`SMB 1.0/CIFS文件共享支持`
 > 需要重启
 
-![取消](http://ww1.sinaimg.cn/large/71405cably1ffnjen2zrmj20bx0btwf5.jpg)
+![取消](https://ww1.sinaimg.cn/large/71405cably1ffnjen2zrmj20bx0btwf5.jpg)
