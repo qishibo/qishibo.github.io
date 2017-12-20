@@ -8,7 +8,7 @@ description: 手动搭建 Gitlab 个人仓库，基于Docker，建议使用工�
 tags: [gitlab,docker,opensource]
 ---
 
-**是不是每个爱折腾的人都有搭建一套自己的Gitlab服务器的冲动~** 哼哼，我就是一个爱折腾的人，曾经也搭建过Gitlab环境，装Redis，装PostgreSQL，装Ruby，装Gitlab，尤其是配置Ruby环境跑Gitlab的时候，卧槽那个坑！不过今天，我再次搭建Gitlab服务，用的是大神已经配置好的Gitlab Docker镜像，哈哈，轻松极了~
+**是不是每个爱折腾的人都有搭建一套自己的Gitlab服务器的冲动~** 作为一个爱折腾的人，我曾经也搭建过内网Gitlab，装Redis，装PostgreSQL，装Ruby，装Gitlab，尤其是配置Ruby环境跑Gitlab的时候，不知遇到了多少坑！不过今天，我再次搭建Gitlab服务，用的是大神已经配置好的Gitlab Docker镜像，一条命令即可启动！
 
 > Tips: Docker环境用的是Mac 下的[docker-machine](https://docs.docker.com/machine/)，其他环境如Linux、Windows也有对应的Docker一键环境，很方便的，这里我们重点讨论的不是如何安装Docker，所以这里略过。
 
