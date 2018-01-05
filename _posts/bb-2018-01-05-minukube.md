@@ -1,0 +1,308 @@
+---
+layout: post
+title: 使用minikube在本机搭建kubernetes集群
+comments: 1
+code: 1
+keywords: minikube, kubernetes
+description: 使用minikube，在单机上搭建kubernetes[k8s]集群，简单体验k8s
+tags: [minikube, kubernetes]
+---
+
+
+## 安装docker
+
+首先安装docker环境，不详细说明了，网上资料一大堆，可以参考官方安装文档
+
+Mac: [https://docs.docker.com/docker-for-mac/install/](https://docs.docker.com/docker-for-mac/install/)
+Ubuntu: [https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/)
+CentOS: [https://docs.docker.com/engine/installation/linux/docker-ce/centos/](https://docs.docker.com/engine/installation/linux/docker-ce/centos/)
+
+当然，如果上面所有方法你都失败了，也可以尝试直接下载binary可执行文件，然后启动docker即可
+[https://docs.docker.com/engine/installation/linux/docker-ce/binaries/](https://docs.docker.com/engine/installation/linux/docker-ce/binaries/)
+
+
+## 安装Minikube
+
+### Mac
+
+```bash
+# 如未安装cask，自行搜索 brew安装cask
+brew cask install minikube
+
+minikube -h
+```
+
+### Linux
+
+```bash
+# 下载v0.24.1版本
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.24.1/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
+
+# 也可以下载最新版，但可能和本文执行环境不一致，会有坑
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
+
+minikube -h
+```
+
+
+## 安装Kubectl
+
+>kubectl即kubernetes的客户端，通过他可以进行类似docker run等容器管理操作
+
+```bash
+curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x kubectl && sudo mv kubectl /usr/local/bin/
+
+kubectl -h
+```
+
+------------------
+
+## 启动程序
+
+### 启动minikube
+
+```
+sudo minikube start
+```
+
+下载过程可能会失败，会有如下提示，重试几次即可
+
+```
+Starting local Kubernetes v1.8.0 cluster...
+Starting VM...
+Downloading Minikube ISO
+ 64.70 MB / 140.01 MB [====================>-----------------------]  46.21% 14s
+E0105 14:06:03.884826   10434 start.go:150] Error starting host: Error attempting to cache minikube ISO from URL: Error downloading Minikube ISO: failed to download: failed to download to temp file: failed to copy contents: read tcp 10.0.2.15:47048->172.217.24.16:443: read: connection reset by peer.
+
+================================================================================
+An error has occurred. Would you like to opt in to sending anonymized crash
+information to minikube to help prevent future errors?
+To opt out of these messages, run the command:
+    minikube config set WantReportErrorPrompt false
+================================================================================
+Please enter your response [Y/n]:
+```
+
+如果下载成功，但是报了诸如`VBoxManage not found`这样的错误，如下
+
+```
+Starting local Kubernetes v1.8.0 cluster...
+Starting VM...
+Downloading Minikube ISO
+ 140.01 MB / 140.01 MB [============================================] 100.00% 0s
+E0105 14:10:00.035369   10474 start.go:150] Error starting host: Error creating host: Error executing step: Running precreate checks.
+: VBoxManage not found. Make sure VirtualBox is installed and VBoxManage is in the path.
+
+ Retrying.
+E0105 14:10:00.035780   10474 start.go:156] Error starting host:  Error creating host: Error executing step: Running precreate checks.
+: VBoxManage not found. Make sure VirtualBox is installed and VBoxManage is in the path
+================================================================================
+An error has occurred. Would you like to opt in to sending anonymized crash
+information to minikube to help prevent future errors?
+To opt out of these messages, run the command:
+    minikube config set WantReportErrorPrompt false
+================================================================================
+Please enter your response [Y/n]:
+```
+
+解决办法是安装 VirtualBox【对于windows或者mac】 ，当然如果你是Linux，也可以执行如下命令启动minikube，此时就不需要安装VirtualBox了。
+
+因为对于Mac，Windows，Linux来说，minikube默认需要虚拟机来初始化kunernetes环境，但Linux是个例外，可以追加`--vm-driver=none`参数来使用自己的环境，说明见[https://github.com/kubernetes/minikube#quickstart](https://github.com/kubernetes/minikube#quickstart)
+
+
+```
+# linux 下独有，不依赖虚拟机启动
+sudo minikube start --vm-driver=none
+```
+
+如果安装了虚拟机，或者使用了--vm-driver=none参数，并且下载完毕，会有如下提示运行成功
+
+```
+Starting local Kubernetes v1.8.0 cluster...
+Starting VM...
+Getting VM IP address...
+Moving files into cluster...
+Downloading localkube binary
+ 148.25 MB / 148.25 MB [============================================] 100.00% 0s
+ 0 B / 65 B [----------------------------------------------------------]   0.00%
+ 65 B / 65 B [======================================================] 100.00% 0sSetting up certs...
+Connecting to cluster...
+Setting up kubeconfig...
+Starting cluster components...
+Kubectl is now configured to use the cluster.
+===================
+WARNING: IT IS RECOMMENDED NOT TO RUN THE NONE DRIVER ON PERSONAL WORKSTATIONS
+    The 'none' driver will run an insecure kubernetes apiserver as root that may leave the host vulnerable to CSRF attacks
+
+When using the none driver, the kubectl config and credentials generated will be root owned and will appear in the root home directory.
+You will need to move the files to the appropriate location and then set the correct permissions.  An example of this is below:
+
+    sudo mv /root/.kube $HOME/.kube # this will write over any previous configuration
+    sudo chown -R $USER $HOME/.kube
+    sudo chgrp -R $USER $HOME/.kube
+
+    sudo mv /root/.minikube $HOME/.minikube # this will write over any previous configuration
+    sudo chown -R $USER $HOME/.minikube
+    sudo chgrp -R $USER $HOME/.minikube
+
+This can also be done automatically by setting the env var CHANGE_MINIKUBE_NONE_USER=true
+Loading cached images from config file.
+
+```
+
+### 启动一个容器服务
+
+```
+sudo kubectl run kube-nginx999 --image=nginx:latest --port=80
+
+$ deployment "kube-nginx999" created
+```
+
+### 查看状态
+
+```
+sudo kubectl get pods
+
+NAME                             READY     STATUS              RESTARTS   AGE
+nginx999-55f47cb99-46nm8         1/1       containerCreating   0          38s
+
+```
+
+稍等一分钟左右，如果你的服务一直是`containerCreating`状态，没有变化，那就是创建实例出现问题，如下方法查看log
+
+```
+sudo minikube logs
+```
+
+日志中出现 `failed pulling image...` 则是因为镜像拉取失败导致服务创建失败，原因？GFW嘛！
+
+```
+Jan 05 03:52:58 minikube localkube[3624]: E0105 03:52:58.952990    3624 kuberuntime_manager.go:632] createPodSandbox for pod "nginx666-864b85987c-kvdpb_default(b0cc687d-f1cb-11e7-ba05-080027e170dd)" failed: rpc error: code = Unknown desc = failed pulling image "gcr.io/google_containers/pause-amd64:3.0": Error response from daemon: Get https://gcr.io/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+```
+
+### 拉取镜像的替代方法
+
+> 原理就是使用阿里云的镜像下载到本地，然后命名为minikube使用的gcr.io的镜像，然后用本地镜像替代远端镜像即可
+
+```
+# 下载阿里云镜像
+docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/pause-amd64:3.0
+
+# 本地命名为 gcr.io/google_containers/pause-amd64:3.0
+docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/pause-amd64:3.0 gcr.io/google_containers/pause-amd64:3.0
+```
+
+### 重新启动服务
+
+```
+# 增加 --image-pull-policy=IfNotPresent 参数，表明优先使用本地镜像，不从远端拉取
+sudo kubectl run kube-nginx999 --image=nginx:latest --port=80 --image-pull-policy=IfNotPresent
+```
+
+这时候查看服务状态应该是如下Running状态代表创建成功，但此时还不能访问容器
+
+```
+sudo kubectl get pods
+
+NAMESPACE     NAME                             READY     STATUS             RESTARTS   AGE
+default       kube-nginx999-77867567f5-48czx   1/1       Running            2          16h
+```
+
+### 发布服务
+
+```
+sudo kubectl expose deployment kube-nginx999 --type=NodePort
+
+$ service "kube-nginx999" exposed
+```
+
+### 查看服务地址
+
+```
+sudo minikube service kube-nginx999 --url
+
+> http://127.0.0.1:30690
+```
+
+上面命令展示的地址即启动的nginx容器服务地址，访问 [http://127.0.0.1:30690](http://127.0.0.1:30690) 即可出现nginx首页，服务成功启动！
+
+
+
+## dashboard 管理后台
+
+> dashboard是kubernetes提供的容器服务管理后台，可视化界面，用来进行机器负载，集群管理，镜像扩容，配置数据等相关操作
+
+### 启动dashboard
+
+```
+# 会打印出管理后台地址
+sudo minikube dashboard --url
+
+# 或者用下面写法，会自动打开默认浏览器，但我的一直失败，没有打开默认浏览器，没关系，执行后自己打开也行
+sudo minikube dashboard
+```
+
+但初次会报下面的两种错误之一
+
+```
+# 1
+Could not find finalized endpoint being pointed to by kubernetes-dashboard: Error validating service: Error getting service kubernetes-dashboard: services "kubernetes-dashboard" not found
+
+# 2
+Waiting, endpoint for service is not ready yet...
+Waiting, endpoint for service is not ready yet...
+```
+
+如果查看log的话，会找到和pause一样的错误，即在镜像拉取的时候失败，解决方法如下，将所有kubernetes需要的镜像全部用阿里源下载到本地，然后命名为gcr.io，来让minikube不从远端下载
+
+> 如果不确定应该将tag重命名为什么的话，可以执行`sudo grep 'image:' -R /etc/kubernetes`看到默认情况下需要的镜像名以及版本号，对应去 [https://dev.aliyun.com/search.html](https://dev.aliyun.com/search.html) 搜索下载，然后命名为上面配置中定义的tag即可，当然，你可以在阿里云下载1.1然后重命名为1.2也没关系，差几个小版本不会有太大影响。
+
+```
+docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/kubernetes-dashboard-amd64:v1.7.1
+docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/kubernetes-dashboard-amd64:v1.7.1 gcr.io/google_containers/kubernetes-dashboard-amd64:v1.8.0
+
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/kube-addon-manager:v6.4-beta.2
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/kube-addon-manager:v6.4-beta.2 gcr.io/google-containers/kube-addon-manager:v6.4-beta.2
+
+docker pull registry.cn-shenzhen.aliyuncs.com/gcrio/k8s-dns-kube-dns-amd64:latest
+docker tag registry.cn-shenzhen.aliyuncs.com/gcrio/k8s-dns-kube-dns-amd64:latest gcr.io/google_containers/k8s-dns-kube-dns-amd64:1.14.5
+
+docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5
+docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5 gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5
+
+docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/k8s-dns-sidecar-amd64:1.14.5
+docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/k8s-dns-sidecar-amd64:1.14.5 gcr.io/google_containers/k8s-dns-sidecar-amd64:1.14.5
+
+docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/storage-provisioner:v1.8.1
+docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/storage-provisioner:v1.8.1 gcr.io/k8s-minikube/storage-provisioner:v1.8.1
+```
+
+然后重启minikube
+
+```
+sudo minikube stop
+sudo minikube start [--vm-driver=none] # linux没装virtualbox的情况下需要加上后面的参数
+```
+
+再次执行
+
+```
+sudo minikube dashboard --url
+
+> http://127.0.0.1:30000/
+```
+
+访问 [http://127.0.0.1:30000/](http://127.0.0.1:30000/) 即可看到操作后台
+
+![kubernetes dashboard 管理后台](https://7xsudm.com1.z0.glb.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180105110750.png)
+
+
+### 写在最后
+
+如果你下载工具时提示下载错误，基本上就是因为GFW，所以如果你有本地ss的话，可以在终端里执行下面命令，让 curl wget等命令也会走代理，加快下载
+
+```
+export http_proxy='socks5:127.0.0.1:1080'
+```
+
+有个坑，执行完以后访问localhost也是会走代理，这时候当然要换一个tab访问即可。
