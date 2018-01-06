@@ -65,7 +65,7 @@ kubectl -h
 sudo minikube start
 ```
 
-下载过程可能会失败，会有如下提示，重试几次即可
+首次启动会下载localkube，下载过程可能会失败，会有如下提示，重试几次即可
 
 ```
 Starting local Kubernetes v1.8.0 cluster...
@@ -105,14 +105,17 @@ To opt out of these messages, run the command:
 Please enter your response [Y/n]:
 ```
 
-解决办法是安装 VirtualBox【对于windows或者mac】 ，当然如果你是Linux，也可以执行如下命令启动minikube，此时就不需要安装VirtualBox了。
+解决办法是安装 VirtualBox【对于windows或者mac】 再重新启动；当然如果你是Linux，也可以执行如下命令启动minikube，此时就不需要安装VirtualBox了。
 
-因为对于Mac，Windows，Linux来说，minikube默认需要虚拟机来初始化kunernetes环境，但Linux是个例外，可以追加`--vm-driver=none`参数来使用自己的环境，说明见[https://github.com/kubernetes/minikube#quickstart](https://github.com/kubernetes/minikube#quickstart)
+因为minikube默认需要虚拟机来初始化kunernetes环境，但Linux是个例外，可以追加`--vm-driver=none`参数来使用自己的环境，说明见[https://github.com/kubernetes/minikube#quickstart](https://github.com/kubernetes/minikube#quickstart)
 
 
 ```
 # linux 下独有，不依赖虚拟机启动
 sudo minikube start --vm-driver=none
+
+# 如果是Mac or Windows，安装VirtualBox后再重新start即可
+sudo minikube start
 ```
 
 如果安装了虚拟机，或者使用了--vm-driver=none参数，并且下载完毕，会有如下提示运行成功
@@ -153,9 +156,10 @@ Loading cached images from config file.
 ### 启动一个容器服务
 
 ```
+# kube-nginx999 是要定义的容器名称 nginx:latest表明要用nginx镜像 --port=80表明容器对外暴露80端口
 sudo kubectl run kube-nginx999 --image=nginx:latest --port=80
 
-$ deployment "kube-nginx999" created
+> deployment "kube-nginx999" created
 ```
 
 ### 查看状态
@@ -174,15 +178,15 @@ nginx999-55f47cb99-46nm8         1/1       containerCreating   0          38s
 sudo minikube logs
 ```
 
-日志中出现 `failed pulling image...` 则是因为镜像拉取失败导致服务创建失败，原因？GFW嘛！
+日志中出现 `failed pulling image...` 则是因为镜像拉取失败导致服务创建失败，原因？GFW嘛！服务在拉取自身需要的`gcr.io/google_containers/pause-amd64:3.0`镜像时失败了，如下报错。
 
 ```
 Jan 05 03:52:58 minikube localkube[3624]: E0105 03:52:58.952990    3624 kuberuntime_manager.go:632] createPodSandbox for pod "nginx666-864b85987c-kvdpb_default(b0cc687d-f1cb-11e7-ba05-080027e170dd)" failed: rpc error: code = Unknown desc = failed pulling image "gcr.io/google_containers/pause-amd64:3.0": Error response from daemon: Get https://gcr.io/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
 ```
 
-### 拉取镜像的替代方法
+### 解决方法：用本地镜像替代
 
-> 原理就是使用阿里云的镜像下载到本地，然后命名为minikube使用的gcr.io的镜像，然后用本地镜像替代远端镜像即可
+> 原理就是使用阿里云的镜像下载到本地，然后命名为minikube使用的gcr.io的同名镜像，替代远端镜像即可
 
 ```
 # 下载阿里云镜像
@@ -199,7 +203,7 @@ docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/pause-amd64:3.0 g
 sudo kubectl run kube-nginx999 --image=nginx:latest --port=80 --image-pull-policy=IfNotPresent
 ```
 
-这时候查看服务状态应该是如下Running状态代表创建成功，但此时还不能访问容器
+如果提示已经存在，换个名字重新执行即可。这时候查看服务状态应该是如下Running状态代表创建成功，但此时还不能访问容器
 
 ```
 sudo kubectl get pods
@@ -213,7 +217,7 @@ default       kube-nginx999-77867567f5-48czx   1/1       Running            2   
 ```
 sudo kubectl expose deployment kube-nginx999 --type=NodePort
 
-$ service "kube-nginx999" exposed
+> service "kube-nginx999" exposed
 ```
 
 ### 查看服务地址
@@ -226,7 +230,10 @@ sudo minikube service kube-nginx999 --url
 
 上面命令展示的地址即启动的nginx容器服务地址，访问 [http://127.0.0.1:30690](http://127.0.0.1:30690) 即可出现nginx首页，服务成功启动！
 
+> PS: 访问[http://localhost:30690](http://localhost:30690)是不可以的。
 
+
+----------------------
 
 ## dashboard 管理后台
 
@@ -253,7 +260,7 @@ Waiting, endpoint for service is not ready yet...
 Waiting, endpoint for service is not ready yet...
 ```
 
-如果查看log的话，会找到和pause一样的错误，即在镜像拉取的时候失败，解决方法如下，将所有kubernetes需要的镜像全部用阿里源下载到本地，然后命名为gcr.io，来让minikube不从远端下载
+如果查看log的话，会找到和pause一样的错误，即在镜像拉取的时候失败，解决方法如下，将所有kubernetes需要的镜像全部用阿里源下载到本地，然后命名为gcr.io...，来让minikube不从远端下载
 
 > 如果不确定应该将tag重命名为什么的话，可以执行`sudo grep 'image:' -R /etc/kubernetes`看到默认情况下需要的镜像名以及版本号，对应去 [https://dev.aliyun.com/search.html](https://dev.aliyun.com/search.html) 搜索下载，然后命名为上面配置中定义的tag即可，当然，你可以在阿里云下载1.1然后重命名为1.2也没关系，差几个小版本不会有太大影响。
 
@@ -294,15 +301,15 @@ sudo minikube dashboard --url
 
 访问 [http://127.0.0.1:30000/](http://127.0.0.1:30000/) 即可看到操作后台
 
-![kubernetes dashboard 管理后台](https://7xsudm.com1.z0.glb.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180105110750.png)
+![kubernetes dashboard 管理后台](http://ww1.sinaimg.cn/large/71405cably1fn77tpj6e5j214r0kujt9.jpg)
 
 
 ### 写在最后
 
-如果你下载工具时提示下载错误，基本上就是因为GFW，所以如果你有本地ss的话，可以在终端里执行下面命令，让 curl wget等命令也会走代理，加快下载
+如果你下载工具时提示下载错误，基本上就是因为GFW，所以如果你有本地ss能够科学上网的话，可以在终端里执行下面命令，让 curl wget等命令也会走代理，加快下载
 
 ```
 export http_proxy='socks5:127.0.0.1:1080'
 ```
 
-有个坑，执行完以后访问localhost也是会走代理，这时候当然要换一个tab访问即可。
+有个坑，执行完以后访问 127.0.0.1 也是会走代理，这时候当然要换一个tab访问即可。
