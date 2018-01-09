@@ -39,8 +39,8 @@ menu: about
 
 ---
 
-### 动心了？找我？
+### 动心了？
 >
-  - [qii404#126.com](mailto:qii404@126.com)
-  - [微博 @齐士博](http://weibo.com/shiboooo?is_hot=1)
-  - [RSS](/feed.xml)
+  - <i class="fa fa-envelope-o"></i> [qii404#126.com](mailto:qii404@126.com)
+  - <i class="fa fa-weibo"></i> [微博 @齐士博](http://weibo.com/shiboooo?is_hot=1)
+  - <i class="fa fa-rss-square"></i> [RSS](/feed.xml)
