@@ -43,3 +43,4 @@ menu: about
 >
   - [qii404#126.com](mailto:qii404@126.com)
   - [微博 @齐士博](http://weibo.com/shiboooo?is_hot=1)
+  - [RSS](/feed.xml)
