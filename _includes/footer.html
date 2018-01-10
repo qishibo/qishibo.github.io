@@ -70,7 +70,13 @@
         if (pre_menu_hight) {
             $('#qii-navbar-collapse li[name="' + pre_menu_hight + '"]').addClass('active');
         }
-    })
+    });
+
+    $(function() {
+        $('.qii-post-content img').click(function(e) {
+            window.open($(this).attr('src'), "_blank");
+        });
+    });
 
 </script>
 
