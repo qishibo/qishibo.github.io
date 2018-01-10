@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 在线Yaml解析 | yaml to json online
+title: Yaml在线解析 | yaml to json online
 keywords: yaml parse, yaml在线解析, yaml to json
 description: Yaml文件在线解析，验证Yaml格式是否正确，转换为Json视图
-menu: home
+menu: tools
 js: ['https://cdn.bootcss.com/jquery-jsonview/1.2.3/jquery.jsonview.min.js', 'https://cdn.bootcss.com/js-yaml/3.10.0/js-yaml.min.js']
 css: ['https://cdn.bootcss.com/jquery-jsonview/1.2.3/jquery.jsonview.min.css']
 ---
@@ -11,6 +11,13 @@ css: ['https://cdn.bootcss.com/jquery-jsonview/1.2.3/jquery.jsonview.min.css']
 <textarea id="yaml-text" class="form-control" rows="8" placeholder="name: qii404 &#13;&#10;age: 34344"></textarea>
 <div id="json-view" style="margin-top: 20px; min-height: 100px;border: 1px solid grey; font-size: 80%; display: none"></div>
 <button id="yaml-parse" class="btn btn-primary" style="margin-top: 20px;">Parse</button>
+
+<div style="margin-top: 240px;">
+    <small style="color: grey;">
+        <i class="fa fa-graduation-cap"></i> 感谢 <a href="https://github.com/yesmeck/jquery-jsonview">https://github.com/yesmeck/jquery-jsonview</a>
+        <a href="https://github.com/nodeca/js-yaml">https://github.com/nodeca/js-yaml</a> 提供现成的轮子
+    </small>
+</div>
 
 <script type="text/javascript">
 

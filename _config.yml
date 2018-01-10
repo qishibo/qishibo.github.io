@@ -1,6 +1,6 @@
 paginate: 10
 paginate_path: "page:num"
-gems:
+plugins:
     - jekyll-paginate
     - jekyll-sitemap
 
