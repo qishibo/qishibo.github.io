@@ -36,7 +36,7 @@
     <div class="container">
         <ul class="contact-list">
             <li>
-                {% include analyze.ext %}
+                {% include analyze_cnzz.html %}
             </li>
             <li>
                 <a href="mailto:qii404@126.com" title="email">
@@ -88,6 +88,9 @@
 {% for js in page.js %}
 <script type="text/javascript" src='{{ js }}'></script>
 {% endfor %}
+
+<!-- baidu analyze -->
+{%  include analyze_baidu.html %}
 
 </body>
 </html>
