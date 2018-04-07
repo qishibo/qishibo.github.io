@@ -1,3 +1,20 @@
+
+expect 脚本默认超时的坑
+
+#!/usr/bin/expect
+
+set timeout -1
+
+spawn rsync -avzP  root@11.11.11.11:/root/gitlab-zh/data/backups/ /home/11/itlab_backup/
+
+expect "*assword:*"
+send "xxxxx\r\n"
+
+
+#interact
+expect eof
+
+
 /usr/lib/systemd/system/nginx.service  PrivateTmp=false tmp目录的坑
 
 phpstorm快捷键设置 以及插件推荐
