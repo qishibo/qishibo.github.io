@@ -1,5 +1,30 @@
+zephir 构建自己的php拓展
+zephir init hhh
+cd hhh
+vi hhh/ttt.zep
 
-expect 脚本默认超时的坑
+```
+namespace Hhh;
+
+class ttt
+{
+    const HHH = "hahaha";
+
+    public static function sum(int! a, int! b) -> int
+    {
+        return a+b;
+    }
+}
+
+```
+zephir build
+Add extension=hhh.so to your php.ini
+php -a
+var_dump(Hhh\ttt::HHH);
+
+====================
+
+####  expect 脚本默认超时的坑
 
 #!/usr/bin/expect
 
@@ -13,6 +38,8 @@ send "xxxxx\r\n"
 
 #interact
 expect eof
+
+=================
 
 
 /usr/lib/systemd/system/nginx.service  PrivateTmp=false tmp目录的坑
