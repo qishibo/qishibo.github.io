@@ -1,3 +1,15 @@
+
+# phalcon框架设置主从切换
+的两种方法
+1、modelsManager  比较固定，直接使用manager返回固定db service，性能会好点，但祥地来说比较死板
+2、BaseModel 设置 可以单独设置每个model使用的db链接，适用于多个库中同名表操作的不同情境 更加灵活【但需要每个model挨个指定， 】
+
+优先级
+modelmanager>user->setwriteconser>baseModel->setwriteconser
+modelsManager->setReadConnectionService($m, 'master')也行
+
+========================
+
 zephir 构建自己的php拓展
 zephir init hhh
 cd hhh
