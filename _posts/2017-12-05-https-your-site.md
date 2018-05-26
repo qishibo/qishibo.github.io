@@ -84,17 +84,67 @@ chmod +x certbot-auto
 
 需要配置nginx, 使其支持https即443端口的访问, 同时需要把证书路径配置进去, 才能生效.
 
-编辑`/etc/nginx/nginx.conf`nginx配置文件, 当然路径可能和我的不一样
+> 编辑`/etc/nginx/sites-enabled/default`配置文件, 当然路径可能和我的不一样，也可能直接写在了`/etc/nginx/nginx.conf`里，将下面的443 server部分追加到配置中即可（和80端口的server并列的位置）。当然环境不同，直接复制可能会导致`location`部分有问题，最简单的办法是复制你自己80端口的server中`location`配置一份，替换下面443中的location配置即可。
 
 ```conf
-# 默认配置中应该会有443端口相关, 只是被注释掉了而已, 搜索443 将注释打开
-ssl on;
+# https 443端口配置
+server{
+    listen 443 ssl default_server;
+    listen [::]:443 ssl default_server;
 
-# 配置公钥路径
-ssl_certificate "/etc/letsencrypt/live/qii404.me/fullchain.pem";
-# 配置私钥路径
-ssl_certificate_key "/etc/letsencrypt/live/qii404.me/privkey.pem";
+    server_name _;
 
+    # 此处需要改为你的代码root目录 和80端口root一致即可
+    root /usr/share/nginx/html;
+    index index.php index.html index.htm
+
+    # 打开ssl传输
+    ssl on;
+    # 配置公钥路径
+    ssl_certificate "/etc/letsencrypt/live/qii404.me/fullchain.pem";
+    # 配置私钥路径
+    ssl_certificate_key "/etc/letsencrypt/live/qii404.me/privkey.pem";
+
+    # 下面因人而异，直接把80端口的所有location配置复制到此处即可
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass 127.0.0.1:9000;
+    }
+}
+```
+
+80和443共存结构如下
+
+```conf
+# 80端口配置
+server{
+    listen 80;
+    root xxx;
+
+    location / {
+        xxx;
+    }
+}
+
+# https 443端口配置
+server{
+    listen 443;
+    root xxx;
+
+    ssl on;
+    # 配置公钥路径
+    ssl_certificate "/etc/letsencrypt/live/qii404.me/fullchain.pem";
+    # 配置私钥路径
+    ssl_certificate_key "/etc/letsencrypt/live/qii404.me/privkey.pem";
+
+    location / {
+        xxx;
+    }
+}
 ```
 
 
