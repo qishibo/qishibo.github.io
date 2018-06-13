@@ -110,3 +110,45 @@ cayley教程 基于 http://localhost:64210/docs/GremlinAPI  cayley mongo示例
     ssl_certificate_key "/etc/letsencrypt/live/lanyundatong.com/privkey.pem";
 
     service nginx reatart
+
+
+gitlab runner install
+
+官网： https://docs.gitlab.com/runner/install/linux-manually.html
+
+install==
+linux
+1、
+# Linux x86-64
+sudo wget -O /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+
+# Linux x86
+sudo wget -O /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-386
+
+# Linux arm
+sudo wget -O /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-arm
+
+
+2、sudo chmod +x /usr/local/bin/gitlab-runner
+3、sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
+4、sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
+5、sudo gitlab-runner start
+
+
+register
+
+1、sudo gitlab-runner register
+输入。。。
+
+
+代码中增加.gitlab-ci.yml
+
+形如　参考　https://segmentfault.com/a/1190000010442764
+#before_script:
+#  - apt install -y php7.0-cli
+
+php-syn-check:
+  tags:
+    - my-tag
+  script:
+  - ./script/php_check.sh ./
