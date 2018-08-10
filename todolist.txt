@@ -1,3 +1,30 @@
+https://segmentfault.com/q/1010000009752664 基于
+phpredis的redis scan全库key遍历
+
+
+nginx+php 实现带权限验证的静态文件服务
+参考/home/qii/imgtest + nginx 8082
+
+使用X-sendfile方式，服务器端应用程序不需要读取下载文件了，只需要设置response的header信息就足够了，此外还要附加一个信息“X-LIGHTTPD-send-file”信息给lighttpd，告诉lighttpd，文件下载就不管了
+
+cankao https://blog.csdn.net/21aspnet/article/details/7750530
+
+SENDFILE 头  使用的 WEB 服务器
+X-Sendfile  Apache, Lighttpd v1.5, Cherokee
+X-LIGHTTPD-send-file    Lighttpd v1.4
+X-Accel-Redirect    Nginx, Cherokee
+
+使用 X-SendFile 的缺点是你失去了对文件传输机制的控制。例如如果你希望在完成文件下载后执行某些操作，比如只允许用户下载文件一次，这个 X-Sendfile 是没法做到的，因为后台的 php 脚本并不知道下载是否成功。
+
+cankao https://www.lovelucy.info/x-sendfile-in-nginx.html
+
+location /protected/ {
+  internal;
+  root   /some/path;
+}
+internal 表示这个路径只能在 Nginx 内部访问，不能用浏览器直接访问防止未授权的下载。
+
+===============
 
 # phalcon框架设置主从切换
 的两种方法
