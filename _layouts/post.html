@@ -36,6 +36,11 @@ layout: default
         font-size: 125%;
         line-height: 1.6;
     }
+
+    .container-top-ads{
+        height: 100px;
+        margin-bottom: 20px;
+    }
 </style>
 
 <header class="qii-top-desc">
@@ -59,12 +64,15 @@ layout: default
 
     <div class="row">
         <div class="col-md-10">
+            <div class="container-top-ads">
+                {% include google_ad_auto_resize.html %}
+            </div>
             <div class="qii-post-content">
                 {{ content }}
                 {% include statement.ext %}
             </div>
             <div class="container-bottom-ads">
-                {% include google_ad_content_728.html %}
+                {% include google_ad_auto_resize.html %}
             </div>
         </div>
 
