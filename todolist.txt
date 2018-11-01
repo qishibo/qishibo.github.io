@@ -13,7 +13,26 @@ cayley教程 基于 http://localhost:64210/docs/GremlinAPI  cayley mongo示例
     - ./cayley load -config cayley.cfg -quads data/testdata.nq
     - ./cayley http -config cayley.cfg
 
+
 ================================
 
 console颜色 https://www.cnblogs.com/clover-toeic/p/4031618.html
 https://www.jianshu.com/p/bba963125f1a
+
+========================
+参考 https://www.jianshu.com/p/ecd41f6986cc
+scrapy scrapyd https://github.com/DormyMo/SpiderKeeper 使用 爬虫抓取
+
+=======================
+git 全局钩子 clone时自动把模板hook复制到.git文件夹中
+https://www.liaohuqiu.net/cn/posts/git-global-hooks/
+
+=======================
+redis stream新数据格式
+类似kafka
+https://zhuanlan.zhihu.com/p/37591626
+=========================
+phpexcel操作
+excel下载 https://blog.csdn.net/pengone/article/details/47724423
+
+
