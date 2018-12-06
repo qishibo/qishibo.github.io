@@ -20,16 +20,16 @@ tags: [charles, https]
 
 1.PC端安装根证书
 
-![](http://7xsudm.com1.z0.glb.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20180208162325.png)
+![](http://ww1.sinaimg.cn/large/71405cably1fxwyutq3nhj20om0ak3z9.jpg)
 
 2.选择证书存储时一定注意要选择 **受信任的根证书颁发机构** 这个才行
 
-![](http://7xsudm.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720180208162521.png)
+![](http://ww1.sinaimg.cn/large/71405cably1fxwyvppl66j20gs0j1aa5.jpg)
 
 3.手机链接PC代理后，Safari访问 [chls.pro/ssl](http://chls.pro/ssl) 安装证书即可
 
 > 注意，如果是较新版本的ios，证书安装完毕后，还需要二次确认的过程， `设置`->`通用`->`关于本机`->`证书信任设置`->`打开 Charles Proxy CA 证书开关`
 
-![](http://7xsudm.com1.z0.glb.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180208174349.jpg)
+![](http://ww1.sinaimg.cn/large/71405cably1fxwywj8mvuj20ku1120tq.jpg)
 
 
