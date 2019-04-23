@@ -26,6 +26,10 @@ document.getElementById('yaml-parse').onclick = function (){
 
     var yamlText = document.getElementById('yaml-text').value;
 
+    if (!yamlText) {
+        yamlText = "name: qii404\nage: 34344";
+    }
+
     try {
         var yaml = window.yaml = jsyaml.load(yamlText);
     }

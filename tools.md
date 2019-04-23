@@ -10,6 +10,10 @@ menu: tools
 
 > [tools/yaml-parse](/tools/yaml-parse)
 
+### Github Release 下载分析
+
+> [github-release-download-statistics](https://qii404.me/github-release-statistics/)
+
 
 <div style="min-height: 500px;">
 </div>
