@@ -206,7 +206,7 @@ docker-compose -f docker-compose.xml up
 > 访问你装有 Docker 的机器ip:10080端口，我的是[http://192.168.99.100:10080/](http://192.168.99.100:10080/)，注意不是127.0.0.1，因为你的Docker环境IP可能是独立的，看看发什么什么吧~
 
 
-![gitlab success running](https://ww1.sinaimg.cn/large/71405cably1ffdzq63rm5j21lg0x2tec.jpg)
+![gitlab success running](https://sinaimg.qii404.me/large/71405cably1ffdzq63rm5j21lg0x2tec.jpg)
 
 
 

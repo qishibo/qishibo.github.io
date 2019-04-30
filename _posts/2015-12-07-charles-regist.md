@@ -19,4 +19,4 @@ Charles未破解版本，每次打开都要`relay 10秒钟`，重要的是，隔
 
 看看效果图【哈哈，有没有暗爽~】
 
-![已注册的charles](https://ww3.sinaimg.cn/mw690/71405cabgw1f4zatoyya8j21010hdae9.jpg)
+![已注册的charles](https://sinaimg.qii404.me/mw690/71405cabgw1f4zatoyya8j21010hdae9.jpg)
