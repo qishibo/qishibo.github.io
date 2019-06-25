@@ -209,9 +209,9 @@ jenkins-daemon:jenkins-daemon_00                   RUNNING   pid 45418, uptime 0
 ### 通过可视化界面控制
 上面配置中还说了一个`port=127.0.0.1:9001 `的配置项起始就是为了浏览器控制台准备的，打开浏览器输入`127.0.0.1:9001`， 输入刚刚配置中的用户名和密码：
 
-![supervisor登录](https://sinaimg.qii404.me/large/71405cably1ff02pth64uj20b2072mxp.jpg)
+![supervisor登录](https://imgup.qii404.me/blog/5d11c0e7925fe.jpg)
 
-![supervisor可视化控制台](https://sinaimg.qii404.me/large/71405cably1fezy73f6s5j20rw09rq4s.jpg)
+![supervisor可视化控制台](https://imgup.qii404.me/blog/5d11c0e85038d.jpg)
 
 我们可以方便的进行重启、停止等操作，甚至还能监控程序的日志输出哦~
 

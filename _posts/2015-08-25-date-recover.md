@@ -21,7 +21,7 @@ tags: [software]
 
 不过终于找到了一个`DiskGenius`的破解版，**真正免费的破解版，，数据恢复，磁盘处理、分区，，简直是万能**。。
 
-![数据恢复](https://sinaimg.qii404.me/mw690/71405cabgw1f4zawx0h0uj211y0kg7bh.jpg)
+![数据恢复](https://imgup.qii404.me/blog/5d11c0c9646b3.jpg)
 
 
 仅以此软件，贡献给那些数据曾经搞废了的人。。

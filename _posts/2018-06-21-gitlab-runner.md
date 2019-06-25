@@ -54,11 +54,11 @@ sudo gitlab-runner start
 
 1、执行该步骤之前，要从Gitlab中获取相关认证信息，以管理员身份登陆，跳到后台设置页面
 
-![gitlab后台设置入口](https://sinaimg.qii404.me/large/71405cably1fsj7fv6bwcj20co02cq2u.jpg)
+![gitlab后台设置入口](https://imgup.qii404.me/blog/5d11c0e90c76b.jpg)
 
 2、Runner设置，找到下图中的注册URL和注册令牌
 
-![](https://sinaimg.qii404.me/large/71405cably1fsj7mjxfz8j20qb0hjmzz.jpg)
+![](https://imgup.qii404.me/blog/5d11c0e9a9d40.jpg)
 
 3、开始注册流程
 
@@ -107,7 +107,7 @@ Runner registered successfully. Feel free to start it, but if it's running alrea
 
 4、完成注册之后，刷新刚才的Runner设置页面，即可看到新注册的Runner已经准备就绪了。
 
-![](https://sinaimg.qii404.me/large/71405cably1fsj7wx6h1aj20zg096wfs.jpg)
+![](https://imgup.qii404.me/blog/5d11c0eb84d47.jpg)
 
 
 ## 设置Gitlab CI集成
@@ -152,22 +152,22 @@ php-syn-check:
 
 1、未通过CI集成时，点击方框部分进入详情
 
-![](https://sinaimg.qii404.me/large/71405cably1fskbabpbdfj20rx0awdgl.jpg)
+![](https://imgup.qii404.me/blog/5d11c0ecbd1ae.jpg)
 
 点击任务名
 
-![](https://sinaimg.qii404.me/large/71405cably1fskbch0wbtj20vd0epdgn.jpg)
+![](https://imgup.qii404.me/blog/5d11c0ed7c249.jpg)
 
 即可看到任务失败详情，是由于某个php文件有语法错误导致的
 
-![](https://sinaimg.qii404.me/large/71405cably1fsku8r29dfj20tp0cgabe.jpg)
+![](https://imgup.qii404.me/blog/5d11c0ee3e95b.jpg)
 
 修复有语法问题的php文件后，再次提交，可以看到CI通过
 
-![](https://sinaimg.qii404.me/large/71405cably1fsn5psd6ipj20rj05pdg9.jpg)
+![](https://imgup.qii404.me/blog/5d11c0ef5f2ef.jpg)
 
 点击详情查看，看到php语法检测已通过，会有`Job succeeded`字样
 
-![](https://sinaimg.qii404.me/large/71405cably1fsn5rnerqnj20to0cxjsp.jpg)
+![](https://imgup.qii404.me/blog/5d11c0f0092e8.jpg)
 
 至此，最基本的CI集成过程已经完成，如果想编写适合自己开发情景的配置文件，请参考官网文档 [https://docs.gitlab.com/ce/ci/yaml/README.html](https://docs.gitlab.com/ce/ci/yaml/README.html), 会更加具体的介绍如何编写`.gitlab-ci.yml`文件

@@ -134,7 +134,7 @@ foreach ($xxx as $x){
 
 其实，在simple_html_dom的`clear`方法中，人家特意标明了是专门为了解决环形引用的问题，只是当时用的时候没注意看代码而已。。
 
-![image](https://sinaimg.qii404.me/large/71405cabjw1f59kzioi0sj20v80akt9x.jpg)
+![image](https://imgup.qii404.me/blog/5d11c0ca07762.jpg)
 
 好了，问题就这样愉快的解决了，我再跑脚本，跑他成千上万次，跑他到地老天荒都没问题了😄
 
