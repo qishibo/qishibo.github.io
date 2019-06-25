@@ -1,0 +1,77 @@
+<?php
+
+$startFolder = '/home/qii/qishibo.github.io';
+$files = shell_exec("grep 'https://sinaimg.qii404.me' $startFolder -R | grep -v _site");
+
+$allFiles = [];
+foreach (array_filter(explode("\n", $files)) as $line) {
+    $arr = explode(':', $line);
+    $arr[0] && $allFiles[] = $arr[0];
+}
+
+$allFiles = array_values(array_unique($allFiles));
+
+if (!$allFiles) {
+    echo "no files";
+    die;
+}
+
+foreach ($allFiles as $file) {
+    echo "sloving $file ...........\n";
+    replaceByFile($file);
+    echo "$file Done...........\n";
+}
+
+function replaceByFile($file)
+{
+    $content = file_get_contents($file);
+    $tmpPath = '/tmp/moving/';
+
+    preg_match_all('/https:\/\/sinaimg.qii404.me.*\.jpg/', $content, $matches);
+
+    if (!$matches[0]) {
+        return;
+    }
+
+    $matches = $matches[0];
+
+    foreach ($matches as $img) {
+        $imgRaw = $img;
+        $img = str_replace('https://sinaimg.qii404.me', 'http://ws1.sinaimg.cn', $imgRaw);
+
+        $imgContent = file_get_contents($img);
+
+        if (!$imgContent) {
+            echo "get content failed {$img} {$file}\n";
+            continue;
+        }
+
+        $uniqid = uniqid();
+        $localFileName = "{$tmpPath}{$uniqid}.jpg";
+
+        $result = file_put_contents($localFileName, $imgContent);
+
+        if (!$result) {
+            echo "write local file failed {$img} {$file}\n";
+            continue;
+        }
+
+        $result = upload($localFileName);
+
+        if (!$result) {
+            echo "upload failed {$img} {$file}";
+            continue;
+        }
+
+        $shell = "sed -i \"s,{$imgRaw},https://imgup.qii404.me/blog/{$uniqid}.jpg,g\" $file";
+        shell_exec($shell);
+        echo $shell . "\n";
+    }
+}
+
+function upload($localFileName)
+{
+    $result = shell_exec("/home/qii/upx/upx-linux-amd64-v0.2.3 put {$localFileName} blog");
+    return  (bool) preg_match('/OK/', $result);
+}
+
