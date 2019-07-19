@@ -14,7 +14,7 @@ kramdown:
 
 syntax_theme: github
 
-comments: livere
+comments: disqus
 domain: https://qii404.me
 
 name: qii404|齐士博博客
