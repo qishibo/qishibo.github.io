@@ -158,7 +158,7 @@ sudo service nginx restart
 
 重启nginx之后, 再次访问你的网站地址, https://你的域名, 如 https://qii404.me, 看看会不会出现小绿锁头吧~
 
-![https验证通过标志](https://imgup.qii404.me/blog/5d11c0c7c8bb0.jpg)
+![https验证通过标志](https://imgup.qii404.xyz/blog/5d11c0c7c8bb0.jpg)
 
 > Tips: 如果完成上述操作后浏览器还是没有绿色锁头, 可能是因为你的网站中有一些资源如css、img、js引用的地址是http方式的, 这种情况下即使你的网站地址是https, 但只要有一个标签src属性是非https方式, 浏览器就会提示不安全, 绿色小锁头就不会出现. 所以, 必须得保证你的站点及站点引用的所有资源必须为https方式才行.
 
@@ -170,7 +170,7 @@ sudo service nginx restart
 
 目前用的是 [又拍云](https://www.upyun.com/products/cdn)的免费cdn服务, PS 这真不是一个广告, 哈哈, 新用户送一张61块钱的代金券, 够使用好长时间了, 然后再在上面使用 [证书服务](https://www.upyun.com/products/ssl) 可以申请一个免费的 Let's Encrypt 证书, 然后cdn服务配合ssl证书就实现了https访问.
 
-![又拍云ssl证书申请](https://imgup.qii404.me/blog/5d11c0c83c250.jpg)
+![又拍云ssl证书申请](https://imgup.qii404.xyz/blog/5d11c0c83c250.jpg)
 
 但目前的**坑**是又拍云的cdn有效期只能有三个月, 三个月后免费的这个就失效了, 即使你花钱续费, 续费的有效期也是三个月而已, 所以需要一直关注, 比较蛋疼; 并且,,,,,重要的一点, 他的cdn服务需要域名备案...
 
@@ -178,4 +178,4 @@ sudo service nginx restart
 ## 写在最后
 
 [Let's Encrypt](https://letsencrypt.org/) 提供了各个版本系统、各个web server的申请方式, 如果有兴趣, 可以自己实现更多定制化的需求, 官网 [https://certbot.eff.org/](https://certbot.eff.org/), 官方说明如下图所示,
- ![certbot工具](https://imgup.qii404.me/blog/5d11c0c8d7f3b.jpg)
+ ![certbot工具](https://imgup.qii404.xyz/blog/5d11c0c8d7f3b.jpg)

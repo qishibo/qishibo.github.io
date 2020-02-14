@@ -63,7 +63,7 @@ function replaceByFile($file)
             continue;
         }
 
-        $shell = "sed -i \"s,{$imgRaw},https://imgup.qii404.me/blog/{$uniqid}.jpg,g\" $file";
+        $shell = "sed -i \"s,{$imgRaw},https://imgup.qii404.xyz/blog/{$uniqid}.jpg,g\" $file";
         shell_exec($shell);
         echo $shell . "\n";
     }

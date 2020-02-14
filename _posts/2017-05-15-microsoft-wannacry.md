@@ -10,8 +10,8 @@ tags: [windows, wanna cry]
 5月12日侵袭全世界的“蠕虫式”勒索软件 WanaCry (也称作WannaCry或WanaCry0r 2.0)，已致中国部分行业企业内网、教育网大规模感染。这种病毒依靠美国国家安全局开发的核弹级侵入工具-深蓝  EternalBlue 在局域网内疯狂传播，即使没有连接外网也难以避免。也就是说，即使你没有点击病毒软件，只要和你一个局域网络的任何一个小白误点了病毒，那么整个网络内都会惨遭毒手。
 
 
-![wanna cry](https://imgup.qii404.me/blog/5d11c0bbeb0b1.jpg)
-<!-- ![haha](https://imgup.qii404.me/blog/5d11c0bc77c70.jpg){:style="width:40%"} -->
+![wanna cry](https://imgup.qii404.xyz/blog/5d11c0bbeb0b1.jpg)
+<!-- ![haha](https://imgup.qii404.xyz/blog/5d11c0bc77c70.jpg){:style="width:40%"} -->
 
 ## 病毒传播原理
 
@@ -63,38 +63,38 @@ Windows Server 2003 SP2 x86: [https://www.microsoft.com/zh-CN/download/details.a
 ### 关闭危险端口
 
 #### 1. 左下角搜索框里输入“防火墙”，打开防火墙设置
-![打开防火墙设置](https://imgup.qii404.me/blog/5d11c0bd1a420.jpg)
+![打开防火墙设置](https://imgup.qii404.xyz/blog/5d11c0bd1a420.jpg)
 
 #### 2. 首先保证防火墙是启用的
-![保证防火墙是启用的](https://imgup.qii404.me/blog/5d11c0bd9a1bc.jpg)
+![保证防火墙是启用的](https://imgup.qii404.xyz/blog/5d11c0bd9a1bc.jpg)
 
 #### 3. 然后点击“高级设置”
-![高级设置](https://imgup.qii404.me/blog/5d11c0be253d6.jpg)
+![高级设置](https://imgup.qii404.xyz/blog/5d11c0be253d6.jpg)
 
 #### 4. 在“入站规则”上右键-“新建规则”
-![新建规则](https://imgup.qii404.me/blog/5d11c0be8c71f.jpg)
+![新建规则](https://imgup.qii404.xyz/blog/5d11c0be8c71f.jpg)
 
 #### 5. 选择“端口”
-![端口](https://imgup.qii404.me/blog/5d11c0bf2ed79.jpg)
+![端口](https://imgup.qii404.xyz/blog/5d11c0bf2ed79.jpg)
 
 #### 6. 选择“TCP”， “特定端口”输入 445,135,137,138,139
-![输入 445，135，137，138，139](https://imgup.qii404.me/blog/5d11c0bfacfa6.jpg)
+![输入 445，135，137，138，139](https://imgup.qii404.xyz/blog/5d11c0bfacfa6.jpg)
 
 #### 7. 选择“阻止连接”
-![阻止连接](https://imgup.qii404.me/blog/5d11c0c01f835.jpg)
+![阻止连接](https://imgup.qii404.xyz/blog/5d11c0c01f835.jpg)
 
 #### 8. 默认选择三个域
-![默认选择三个域](https://imgup.qii404.me/blog/5d11c0c085abb.jpg)
+![默认选择三个域](https://imgup.qii404.xyz/blog/5d11c0c085abb.jpg)
 
 #### 9. 随便输入名称即可
-![输入名称](https://imgup.qii404.me/blog/5d11c0c1177f2.jpg)
+![输入名称](https://imgup.qii404.xyz/blog/5d11c0c1177f2.jpg)
 
 ### 关闭 SMB 文件共享
 
 #### 1. 左下角搜索 启用或关闭Windows功能
-![启用或关闭Windows功能](https://imgup.qii404.me/blog/5d11c0c1968b9.jpg)
+![启用或关闭Windows功能](https://imgup.qii404.xyz/blog/5d11c0c1968b9.jpg)
 
 #### 2. 取消`SMB 1.0/CIFS文件共享支持`
 > 需要重启
 
-![取消](https://imgup.qii404.me/blog/5d11c0c2210b7.jpg)
+![取消](https://imgup.qii404.xyz/blog/5d11c0c2210b7.jpg)

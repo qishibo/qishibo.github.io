@@ -86,11 +86,11 @@ Started connect web server on http://localhost:9100
 
 ```
 
-![elasticsearch-head界面](https://imgup.qii404.me/blog/5d11c0d38c759.jpg)
+![elasticsearch-head界面](https://imgup.qii404.xyz/blog/5d11c0d38c759.jpg)
 
 但是注意界面上`连接`按钮右边【上图右上角】会有**集群健康值: 未连接**字样显示，表明elasticsearch-head还没有连接上ES server，打开console的话，会看到如下报错，很明显，跨域问题导致
 
-![集群健康值: 未连接](https://imgup.qii404.me/blog/5d11c0d4356a0.jpg)
+![集群健康值: 未连接](https://imgup.qii404.xyz/blog/5d11c0d4356a0.jpg)
 
 解决办法：让ES server支持跨域。停止ES服务，编辑`config/elasticsearch.yml`配置文件，在最后面追加上如下跨域设置后重新启动：
 
@@ -101,7 +101,7 @@ http.cors.allow-origin: "*"
 
 即可看到连接已成功，右上角变成绿色文字**集群健康值: green (0 of 0)**
 
-![](https://imgup.qii404.me/blog/5d11c0d98624f.jpg)
+![](https://imgup.qii404.xyz/blog/5d11c0d98624f.jpg)
 
 
 ## 2、kibana安装
@@ -119,15 +119,15 @@ bin/kibana
 
 默认配置在`config/kibana.yml`，可以指定web端口，默认访问[http://localhost:5601](http://localhost:5601)即可看到如下界面，选择默认的`Try our sample data`即可
 
-![](https://imgup.qii404.me/blog/5d11c0da4af9e.jpg)
+![](https://imgup.qii404.xyz/blog/5d11c0da4af9e.jpg)
 
 样例数据我们分别点击添加
 
-![](https://imgup.qii404.me/blog/5d11c0db5c4e0.jpg)
+![](https://imgup.qii404.xyz/blog/5d11c0db5c4e0.jpg)
 
 基本操作界面位于下图处，可以进行数据的增删改查：
 
-![](https://imgup.qii404.me/blog/5d11c0ddc931e.jpg)
+![](https://imgup.qii404.xyz/blog/5d11c0ddc931e.jpg)
 
 
 # ElasticSearch数据基本操作
@@ -139,7 +139,7 @@ bin/kibana
 
 其中分片数`shards`表明该索引会被切分成几份存储，这样能够使一个索引水平的存储在不同的节点上，盛放更多的数据。副本数`replicas`指定了对应分片复制的份数，当一个分片坏掉的时候，至少还有备份的复制分片可以使用。
 
-![](https://imgup.qii404.me/blog/5d11c0df41e10.jpg)
+![](https://imgup.qii404.xyz/blog/5d11c0df41e10.jpg)
 
 ### 2、添加type
 > `type`相当于Mysql中`table`的概念，一个type就是一个表
@@ -150,21 +150,21 @@ bin/kibana
 > `document`即文档，相当于Mysql中的一条数据，ES的数据类似于Mongo，是基于Scheme的，很像Json，如`["name": "qii404", "age": 23]`。我们通过**复合查询**功能框模拟Curl请求实现。
 
 注意下图中的`qii_index/table1`就是`database/table`，qii_index为我们刚才创建的索引【库】，table1即需要插入的type【表】，并且table1在不存在时会自动创建
-![](https://imgup.qii404.me/blog/5d11c0e0931b3.jpg)
+![](https://imgup.qii404.xyz/blog/5d11c0e0931b3.jpg)
 
 点击**提交请求**按钮【注意添加数据必须为`POST`方法，下面填写你想要添加的数据结构】，右边会显示提交结果，`_id`字段即为自动生成的数据唯一id
 
-![](https://imgup.qii404.me/blog/5d11c0e182e70.jpg)
+![](https://imgup.qii404.xyz/blog/5d11c0e182e70.jpg)
 
 ### 4、查询数据
 
 通过**数据浏览**功能，依次点击索引名，以及右侧的数据行，即可展示出该条数据的详情
 
-![](https://imgup.qii404.me/blog/5d11c0e2c35fc.jpg)
+![](https://imgup.qii404.xyz/blog/5d11c0e2c35fc.jpg)
 
 当然，我们也可以使用查询功能实现，`qii_index/table1/DxCaPmcBsoZoaRm8anow`为`database/table/id`，注意使用`GET`方法，最后补齐id即可
 
-![](https://imgup.qii404.me/blog/5d11c0e569c7c.jpg)
+![](https://imgup.qii404.xyz/blog/5d11c0e569c7c.jpg)
 
 
 # ES数据搜索和匹配
@@ -190,7 +190,7 @@ bin/kibana
 
 准备数据，随便插入了几条数据准备测试
 
-![](https://imgup.qii404.me/blog/5d11c0e68bfa1.jpg)
+![](https://imgup.qii404.xyz/blog/5d11c0e68bfa1.jpg)
 
 1、单字段匹配 `where name = 'qii111'`
 
