@@ -8,7 +8,7 @@ description: 本地Git添加Hook钩子，提交时自动对修改的PHP文件进
 tags: [githook, php]
 ---
 
-老话题了，不过最近在公司普及[Gitlab](https://qii404.me/2017/04/17/docker-gitlab.html)的时候又提到了，索性就记录下来。原理是使用`php -l phpfile`对PHP文件进行语法检测，如果不通过的话，则无法继续Commit操作。
+老话题了，不过最近在公司普及[Gitlab](https://qii404.xyz/2017/04/17/docker-gitlab.html)的时候又提到了，索性就记录下来。原理是使用`php -l phpfile`对PHP文件进行语法检测，如果不通过的话，则无法继续Commit操作。
 
 ### 实现流程
 
