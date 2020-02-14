@@ -12,7 +12,7 @@ menu: tools
 
 ### Github Release 下载分析
 
-> [github-release-download-statistics](https://qii404.me/github-release-statistics/)
+> [github-release-download-statistics](/github-release-statistics/)
 
 
 <div style="min-height: 500px;">
