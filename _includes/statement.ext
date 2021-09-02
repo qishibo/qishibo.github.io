@@ -1,4 +1,4 @@
-<span><br>如果感觉本文章有用，请帮忙点击一下页面上的广告，生活不易，多谢多谢！</span>
+<!-- <span><br>如果感觉本文章有用，请帮忙点击一下页面上的广告，生活不易，多谢多谢！</span> -->
 <div style="margin-top: 40px; font-size: 55%; color: grey;">
     转载请注明出处：<a href="{{ site.domain }}/">{{ site.domain | remove: 'https://' | remove: 'http://' }}</a> <span class="glyphicon glyphicon-link"></span> <a href="{{ site.domain }}{{ page.url }}">{{ page.title }}</a>
 </div>
