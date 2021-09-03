@@ -31,7 +31,7 @@ lspci | grep -i nvidia
 
 然后去[https://www.nvidia.cn/Download/index.aspx](https://www.nvidia.cn/Download/index.aspx)官网选择型号下载，得到类似`NVIDIA-Linux-x86_64-450.80.02.run`这样的执行文件
 
-![1630577932(1)](https://user-images.githubusercontent.com/5136418/131827123-204045d5-4ae3-488d-9361-30c238829d52.png)
+![1630577932(1)](https://cdn.jsdelivr.net/gh/qishibo/img/1630657154319-131827123-204045d5-4ae3-488d-9361-30c238829d52.png)
 
 
 ### 2、删除可能存在的Nvidia驱动
@@ -91,7 +91,7 @@ sudo ./NVIDIA-Linux-x86_64-450.80.02.run
 ```
  The distribution-provided pre-install script failed!  Are you sure you want to continue?
 ```
-![image](https://user-images.githubusercontent.com/5136418/131831529-207e2312-8b0a-463f-8f34-c8d5a8462d28.png)
+![image](https://cdn.jsdelivr.net/gh/qishibo/img/1630657154650-131831529-207e2312-8b0a-463f-8f34-c8d5a8462d28.png)
 
 
 如下提示是否需要32位兼容，不需要，`no`即可
@@ -109,11 +109,11 @@ DKMS注册内核模块，直接`no`不需要
 ```
 Would you like to register the kernel module sources with DKMS? This will allow DKMS to automatically build a new module, if you install a different kernel later
 ```
-![image](https://user-images.githubusercontent.com/5136418/131830852-39a54355-7554-4663-a141-a8817949f92a.png)
+![image](https://cdn.jsdelivr.net/gh/qishibo/img/1630657154996-131830852-39a54355-7554-4663-a141-a8817949f92a.png)
 
 
 然后会有如下过程提示
-![image](https://user-images.githubusercontent.com/5136418/131831623-fda3614e-9092-4c4c-bba9-8db3bd1d8a7e.png)
+![image](https://cdn.jsdelivr.net/gh/qishibo/img/1630657155333-131831623-fda3614e-9092-4c4c-bba9-8db3bd1d8a7e.png)
 
 
 是否运行Nvidia-xconfig来配置X configuration文件，选择`yes`
@@ -121,7 +121,7 @@ Would you like to register the kernel module sources with DKMS? This will allow 
 Would you like to run the nvidia-xconfig utility to automatically update your X configuration file so that the
  NVIDIA X driver will be used when you restart X?  Any pre-existing X configuration file will be backed up.
 ```
-![image](https://user-images.githubusercontent.com/5136418/131831014-ea58d249-e977-420e-a8ce-8428085910b6.png)
+![image](https://cdn.jsdelivr.net/gh/qishibo/img/1630657155745-131831014-ea58d249-e977-420e-a8ce-8428085910b6.png)
 
 
 
@@ -131,7 +131,7 @@ ERROR: You appear to be running an X server; please exit X before installing.  F
 details, please see the section INSTALLING THE NVIDIA DRIVER in the README available on 
 the Linux driver download page at www.nvidia.com.
 ```
-![image](https://user-images.githubusercontent.com/5136418/131807913-321c9477-630d-4ec7-b6d5-43ee8c6efede.png)
+![image](https://cdn.jsdelivr.net/gh/qishibo/img/1630657156154-131807913-321c9477-630d-4ec7-b6d5-43ee8c6efede.png)
 
 
 ### 6、验证安装
@@ -139,7 +139,7 @@ the Linux driver download page at www.nvidia.com.
 执行`nvidia-smi`命令能看到显卡相关信息即可，其中的`CUDA Version: 11.1`为最高能支持到的cuda版本，并非当前系统安装的cuda版本
 
 
-![image](https://user-images.githubusercontent.com/5136418/131808938-689a2f2b-be35-4654-b624-7f56afd3a581.png)
+![image](https://cdn.jsdelivr.net/gh/qishibo/img/1630657156652-131808938-689a2f2b-be35-4654-b624-7f56afd3a581.png)
 
 
 
@@ -150,7 +150,7 @@ the Linux driver download page at www.nvidia.com.
 
 下载地址为[https://developer.nvidia.com/cuda-downloads](https://developer.nvidia.com/cuda-downloads)，选择自己的版本，按照命令执行即可，`Installer Type`一般选择`runfile`，然后执行最下面提示的两句命令
 
-![1630574457(1)](https://user-images.githubusercontent.com/5136418/131818637-b5f55d3b-befe-4841-b0dc-2c7042cbdc47.png)
+![1630574457(1)](https://cdn.jsdelivr.net/gh/qishibo/img/1630657157133-131818637-b5f55d3b-befe-4841-b0dc-2c7042cbdc47.png)
 
 ### 2、按照1步骤的提示下载并执行
 
@@ -239,10 +239,10 @@ Cuda compilation tools, release 10.0, V10.0.130
 ### 1、下载文件
 
 下载地址为[https://developer.nvidia.com/cudnn](https://developer.nvidia.com/cudnn)，不过需要注册才能下载，点击Download
-![image](https://user-images.githubusercontent.com/5136418/131815896-3329c752-feca-432d-bf79-603afc4be551.png)
+![image](https://cdn.jsdelivr.net/gh/qishibo/img/1630657157607-131815896-3329c752-feca-432d-bf79-603afc4be551.png)
 
 勾选 `I Agree` 那一行之后，根据自己上面安装的Cuda版本选择对应的Cudnn版本下载，这里选择的是`cuDNN Library for Linux (x86)`，下载后得到类似`cudnn-10.0-linux-x64-v7.6.5.32.tgz`的压缩文件
-![1630573592(1)](https://user-images.githubusercontent.com/5136418/131816427-abb7b98c-d5ec-42dd-880e-6e3c35b97bcf.png)
+![1630573592(1)](https://cdn.jsdelivr.net/gh/qishibo/img/1630657158132-131816427-abb7b98c-d5ec-42dd-880e-6e3c35b97bcf.png)
 
 执行如下命令解压，会自动解压到cuda文件夹中
 
@@ -268,7 +268,7 @@ sudo chmod a+r /usr/local/cuda-10.0/lib64/libcudnn*
 ## Cuda版本切换
 
 如果机器上安装了多个版本的cuda，则会在`/usr/local/`中存在多个cuda-xx的文件夹，如下：
-![1630578392(1)](https://user-images.githubusercontent.com/5136418/131828164-c7331656-687c-45a2-b7b9-5f5ec15dd344.png)
+![1630578392(1)](https://cdn.jsdelivr.net/gh/qishibo/img/1630657158574-131828164-c7331656-687c-45a2-b7b9-5f5ec15dd344.png)
 
 其中`/usr/local/cuda`文件夹是个软链接，链接到目前的cuda版本目录，所以如果要切换版本的话，只需要将原来cuda软链删除，重新建立指向另一个cuda-xx目录即可
 
