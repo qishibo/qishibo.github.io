@@ -19,7 +19,7 @@ wkhtmltopdf
 
 官网的宣传图
 
-![官网的宣传图](https://imgup.qii404.xyz/blog/5d11c0d27f426.jpg)
+![官网的宣传图](https://cdn.jsdelivr.net/gh/qishibo/img/1630656201322-5d11c0d27f426.jpg)
 
 ## 用法简介
 
@@ -43,7 +43,7 @@ wkhtmltopdf http://www.baidu.com target.pdf
 wkhtmltopdf --encoding utf-8 http://www.baidu.com target.pdf
 ```
 
-![wkhtmltopdf](https://imgup.qii404.xyz/blog/5d11c0d323e5d.jpg)
+![wkhtmltopdf](https://cdn.jsdelivr.net/gh/qishibo/img/1630656203159-5d11c0d323e5d.jpg)
 
 同时还有许多其他高级用法，细节参考`wkhtmltopdf -H` 或者官方wiki [http://wkhtmltopdf.org/usage/wkhtmltopdf.txt](http://wkhtmltopdf.org/usage/wkhtmltopdf.txt)
 

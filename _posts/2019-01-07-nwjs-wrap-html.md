@@ -29,7 +29,7 @@ cd nwjs-v0.35.4-linux-x64
 ./nw
 ```
 
-![nwjs运行](https://imgup.qii404.xyz/blog/5d11c0c3de23e.jpg)
+![nwjs运行](https://cdn.jsdelivr.net/gh/qishibo/img/1630656353171-5d11c0c3de23e.jpg)
 
 ## 封装网页
 
@@ -85,7 +85,7 @@ cd nwjs-v0.35.4-linux-x64
 
 正常的话会看到熟悉的网页微信登录界面，扫码登录即可
 
-![nwjs网页微信登录](https://imgup.qii404.xyz/blog/5d11c0c488524.jpg)
+![nwjs网页微信登录](https://cdn.jsdelivr.net/gh/qishibo/img/1630656355604-5d11c0c488524.jpg)
 
 ## 各个系统平台打包
 
@@ -199,7 +199,7 @@ cd MinimalistNote
 
 便签应用效果如下
 
-![nwjs便签应用](https://imgup.qii404.xyz/blog/5d11c0c600d5e.jpg)
+![nwjs便签应用](https://cdn.jsdelivr.net/gh/qishibo/img/1630656357167-5d11c0c600d5e.jpg)
 
 ## 遇到的一些坑
 
