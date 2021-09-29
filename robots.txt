@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /google4a8e7f3e3fa175ee.html
+Disallow: /baidu_verify_pmXEoAlnoR.html
+Sitemap: https://qii404.me/sitemap.xml
