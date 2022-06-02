@@ -276,7 +276,7 @@ sudo chmod a+r /usr/local/cuda-10.0/lib64/libcudnn*
 
 有时候执行`nvidia-smi`命令时会报错`NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running`，这种可能是由于最近升级内核导致的新内核无法启动驱动，如下处理：
 
-1. 查看之前安装的nvidia驱动版本
+1.查看之前安装的nvidia驱动版本
 
 ```bash
 ls /usr/src | grep nvidia
@@ -285,7 +285,7 @@ ls /usr/src | grep nvidia
 nvidia-srv-510.47.03
 ```
 
-2. 使用dkms重新安装
+2.使用dkms重新安装
 
 ```bash
 # 有些机器需要安装dkms，如果已安装则忽略
@@ -296,7 +296,7 @@ sudo apt-get install dkms
 sudo dkms install -m nvidia -v srv-510.47.03
 ```
 
-3. 重启电脑，再执行`nvidia-smi`就恢复正常了
+3.重启电脑，再执行`nvidia-smi`就恢复正常了
 
 
 ## 其他工作
