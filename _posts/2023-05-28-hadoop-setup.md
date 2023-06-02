@@ -8,6 +8,7 @@ description: 本文介绍Hadoop搭建以及周边组件使用，如sqoop、flume
 tags: [HADOOP,sqoop,flume,hive]
 ---
 
+本文介绍Hadoop搭建以及周边组件使用，如sqoop、flume、hive的安装等，配置为能跑起来的最简配置，主要演示Hadoop运行过程。
 
 ## 运行版本概述
 
